@@ -272,11 +272,6 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 "let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-j>']
 "let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-k>']
 
-" NerdTree
-" --------
-let NERDTreeShowBookmarks=1
-let NERDTreeWinSize=30
-
 " Tagbar
 " ------
 let g:tagbar_width=30
@@ -380,10 +375,6 @@ noremap <leader>fu :set fileformat=unix<CR>
 " ---------
 nmap <leader>st :SyntasticToggleMode<CR>
 
-" NERDTree
-" --------
-noremap <silent> <F4> :NERDTreeToggle<CR>
-
 " Tagbar
 " ------
 noremap <silent> <F5> :TagbarToggle<CR>
@@ -455,7 +446,7 @@ function! ToggleEclimProjectsTree()
         let s:eclim_projects_tree_opened = 0
     endif
 endfunction
-nmap <silent> <F3> :call ToggleEclimProjectsTree()<CR>
+nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
 " Sdcv
 " ----

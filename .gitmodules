@@ -1,0 +1,69 @@
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "bundle/fcitx"]
+	path = bundle/fcitx
+	url = https://github.com/vim-scripts/fcitx.vim.git
+[submodule "bundle/molokai"]
+	path = bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/indent-guides"]
+	path = bundle/indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/emmet"]
+	path = bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "bundle/python-syntax"]
+	path = bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/ctrlp-extensions"]
+	path = bundle/ctrlp-extensions
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/vimshell"]
+	path = bundle/vimshell
+	url = https://github.com/Shougo/vimshell.vim.git
+[submodule "bundle/vimproc"]
+	path = bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = https://github.com/xinleibird/auto-pairs.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = https://github.com/tpope/vim-git.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
