@@ -1,0 +1,5 @@
+[alias]
+#pull = pull --insecure
+#push = push --insecure
+[web]
+cacerts = /usr/local/share/ca-certificates/GoAgent.crt
