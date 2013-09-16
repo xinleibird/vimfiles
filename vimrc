@@ -449,20 +449,6 @@ function! ToggleEclimProjectsTree()
 endfunction
 nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
-" Sdcv
-" ----
-function! s:Cmd_Sdcv (word)
-    let Cmd_Output = 'sdcv '
-    if a:word == ""
-        let Cmd_Output .= expand('<cword>')
-    endif
-    let Cmd_Output .= a:word
-    let sdcv_output = system(Cmd_Output)
-    echohl MoreMsg | echo sdcv_output | echohl Normal
-endfunction
-command! -nargs=* -range=0 -complete=file Sdcv call s:Cmd_Sdcv(<q-args>)
-nmap <silent> <F12> :Sdcv<CR>
-
 " Add trailing semicolon
 " ----------------------
 function! AppendSemicolon()
