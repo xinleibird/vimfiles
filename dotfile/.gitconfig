@@ -1,10 +1,7 @@
 [core]
 	excludesfile = /home/xinlei/.gitignoreglobal
-	gitProxy = /home/xinlei/.local/bin/git2httpwrapper
-	proxyCommand = /home/xinlei/.local/bin/git2httpssh
 	sslVerify = false
-[http]
-	proxy = http://192.168.1.100:8080
+    gitproxy = git2http
 [user]
 	name = xinleibird
 	email = xinleibird@gmail.com
