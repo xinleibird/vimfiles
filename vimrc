@@ -2,35 +2,35 @@
 " ------------------------------------------
 
 " bundle/
-" ├── auto-pairs
-" ├── calendar
-" ├── ctrlp
-" ├── ctrlp-extensions
-" ├── emmet-vim
-" ├── fcitx.vim
-" ├── fencview
-" ├── molokai
-" ├── nerdcommenter
-" ├── nerdtree
-" ├── python-syntax
-" ├── rst2ctags
-" ├── syntastic
-" ├── tabular
-" ├── tagbar
-" ├── ultisnips
-" ├── vim-cdoc
-" ├── vim-colors-solarized
-" ├── vim-easymotion
-" ├── vim-fugitive
-" ├── vim-git
-" ├── vim-indent-guides
-" ├── vim-pathogen
-" ├── vimproc
-" ├── vim-repeat
-" ├── vimshell
-" ├── vim-surround
-" └── YouCompleteMe
-
+" ├── bundle
+" │   ├── auto-pairs
+" │   ├── ctrlp
+" │   ├── ctrlp-extensions
+" │   ├── easymotion
+" │   ├── eclim
+" │   ├── emmet
+" │   ├── fcitx
+" │   ├── fugitive
+" │   ├── indent-guides
+" │   ├── molokai
+" │   ├── nerdcommenter
+" │   ├── pathogen
+" │   ├── python-syntax
+" │   ├── repeat
+" │   ├── rst2ctags
+" │   ├── surround
+" │   ├── syntastic
+" │   ├── tabular
+" │   ├── tagbar
+" │   ├── ultisnips
+" │   ├── vim-cdoc
+" │   ├── vim-git
+" │   ├── vim-markdown
+" │   ├── vimproc
+" │   ├── vimshell
+" │   └── YouCompleteMe
+" ├── dotfile
+" └── vimrc
 
 
 " Environment {{{
