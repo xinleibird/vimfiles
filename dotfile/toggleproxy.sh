@@ -3,8 +3,17 @@
 # Toggle Proxy
 export {http,https,ftp}_proxy='http://127.0.0.1:8087'
 export shell_proxy_sign='☻ '
+
+
+export goagent_loaded=$(ps -ef | grep proxy.py | grep -v grep)
+if [[ -z "$goagent_loaded" ]]; then
+    export goagent_sign='↯ '
+else
+    export goagent_sign='⇵ '
+fi
+
 function toggleproxy() {
-if [ -z "$http_proxy" ]
+if [[ -z "$http_proxy" ]]
 then
     export {http,https,ftp}_proxy='http://127.0.0.1:8087'
     export shell_proxy_sign='☻ '
@@ -16,5 +25,10 @@ else
 fi
 }
 function stopgoagent() {
-    ps -ef | grep proxy.py | grep -v sudo | grep -v grep | awk '{print $2} {print $3}' | xargs -i echo {}
+ps -ef | grep proxy.py | grep -v sudo | grep -v grep | awk '{print $2} {print $3}' | xargs -i kill {}
+export goagent_sign='↯ '
+}
+function startgoagent() {
+nohup /home/xinlei/.local/bin/goagent.sh >/dev/null 2>&1 &
+export goagent_sign='⇵ '
 }

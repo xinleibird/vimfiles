@@ -354,7 +354,8 @@ let g:EclimUserSignText = '✍'
 
 "CtrlP
 "-----
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|.class$'
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
 " }}}
 

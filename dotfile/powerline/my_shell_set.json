@@ -13,8 +13,12 @@
         "branch": {
             "before": " "
         },
-        "environment": {
-            "before": "⇅ ",
+        "goagent_start": {
+            "args": {
+                "variable": "goagent_sign"
+            }
+        },
+        "shell_proxy": {
             "args": {
                 "variable": "shell_proxy_sign"
             }
@@ -23,7 +27,10 @@
     "segments": {
         "left": [
             {
-                "name": "environment"
+                "name": "goagent_start"
+            },
+            {
+                "name": "shell_proxy"
             },
             {
                 "name": "hostname"
