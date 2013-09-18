@@ -57,7 +57,7 @@ execute pathogen#infect()
 
 " Setup powerline runtime path
 " ----------------------------
-set runtimepath+=/home/xinlei/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=/home/xinlei/.vim/bundle/powerline/powerline/bindings/vim
 " }}}
 
 
