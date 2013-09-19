@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/xinlei/.gitignoreglobal
 	sslVerify = false
-    gitproxy = git2http
+	gitproxy = git2http
 [user]
 	name = xinleibird
 	email = xinleibird@gmail.com

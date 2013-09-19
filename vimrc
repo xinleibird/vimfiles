@@ -1,7 +1,6 @@
 " Maintainer: Xin Lei <xinleibird@gmail.com>
 " ------------------------------------------
 
-" bundle/
 " ├── bundle
 " │   ├── auto-pairs
 " │   ├── ctrlp
@@ -15,6 +14,7 @@
 " │   ├── molokai
 " │   ├── nerdcommenter
 " │   ├── pathogen
+" │   ├── powerline
 " │   ├── python-syntax
 " │   ├── repeat
 " │   ├── rst2ctags
