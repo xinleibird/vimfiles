@@ -54,25 +54,6 @@ endif
 " ----------------------
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
-
-" Setup powerline runtime path
-" ----------------------------
-"set rtp+=/home/xinlei/.vim/bundle/powerline/powerline/bindings/vim
-let g:airline_theme="powerlineish"
-" powerline symbols
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.readonly = 'Θ'
-let g:airline_symbols.linenr = '⚓'
-let g:airline_symbols.branch = 'Ψ'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 
 
@@ -151,22 +132,35 @@ endif
 
 " Set Colorcolumn
 " ---------------
-set columns=82
-set colorcolumn=79
-highlight ColorColumn ctermbg=59 guibg=#75715E
+if has("gui_running")
+    set columns=82
+endif
+
+if has("autocmd")
+    autocmd BufEnter * if
+                \ &filetype == "java" ||
+                \ &filetype == "vim" ||
+                \ &filetype == "python" ||
+                \ &filetype == "c" ||
+                \ &filetype == "cpp" ||
+                \ &filetype == "ruby" ||
+                \ &filetype == "txt" ||
+                \ &filetype == "text" ||
+                \ &filetype == "markdown" ||
+                \ &filetype == "rst"
+                \ | setlocal colorcolumn=79 | endif
+endif
 
 " Fcitx terminal vim leave insert mode timeout
 " --------------------------------------------
 if !has('gui_running')
-    set ttimeoutlen=10
+    set ttimeoutlen=50
     augroup FastEscape
         autocmd!
         autocmd InsertEnter * set timeoutlen=0
         autocmd InsertLeave * set timeoutlen=1000
     augroup END
 endif
-
-
 
 " Tagbar auto open
 " ----------------
@@ -272,20 +266,32 @@ endif
 " Plugins global setting {{{
 " ===========
 
-" Fencview
-" --------
-let g:fencview_autodetect=0
-let g:fencview_checklines=100
+" Airline
+" ----------------------------
+let g:airline_theme="molokai"
+"let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = 'ⴄ'
+let g:airline_left_alt_sep = 'ⴅ'
+let g:airline_right_sep = 'ⴆ'
+let g:airline_right_alt_sep = 'ⴇ'
+let g:airline_symbols.readonly = 'ⴃ'
+let g:airline_symbols.linenr = 'ⴂ'
+let g:airline_symbols.branch = 'ⴁ'
+let g:airline_symbols.whitespace = '⚠ '
 
 " Ultisnips trigger
 " -----------------
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsSnippetsDir="/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
-
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 "let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-j>']
 "let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-k>']
+
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsSnippetsDir="/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
+
 
 " Tagbar
 " ------
@@ -394,10 +400,6 @@ nmap <leader>st :SyntasticToggleMode<CR>
 " Tagbar
 " ------
 noremap <silent> <F5> :TagbarToggle<CR>
-
-" FencView
-" --------
-noremap <silent> <F8> :FencView<CR>
 
 " CtrlP
 " -----
@@ -515,14 +517,22 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
 " Remove trailing whitespace
 " --------------------------
 function RemoveTrailingWhitespace()
-    let b:curcol = col(".")
-    let b:curline = line(".")
-    silent! %s/\s\+$//
-    silent! %s/\(\s*\n\)\+\%$//
-    call cursor(b:curline, b:curcol)
+    if &filetype == "java" ||
+                \ &filetype == "python" ||
+                \ &filetype == "vim" ||
+                \ &filetype == "c" ||
+                \ &filetype == "cpp" ||
+                \ &filetype == "ruby" ||
+                \ &filetype == "txt" ||
+                \ &filetype == "text"
+        let b:curcol = col(".")
+        let b:curline = line(".")
+        silent! %s/\s\+$//
+        silent! %s/\(\s*\n\)\+\%$//
+        call cursor(b:curline, b:curcol)
+    endif
 endfunc
-autocmd BufWritePre
-            \ *.java,*.vim,*.c,*.cpp,*.python,*.ruby,*.html,*,txt,*.text,*.rst
+autocmd BufWritePre *
             \ call RemoveTrailingWhitespace()
 
 " | and Tabular
@@ -560,4 +570,10 @@ else
     highlight   everyThingSpaceError    ctermfg=219     ctermbg=89
 endif
 match           everyThingSpaceError     "\s\+$"
+
+" Highlight terminal vim colorcolumn
+" ---------------------
+if !has("gui_running")
+    highlight ColorColumn ctermbg=59 guibg=#75715E
+endif
 " }}}
