@@ -1,38 +1,6 @@
 " Maintainer: Xin Lei <xinleibird@gmail.com>
 " ------------------------------------------
 
-" ├── bundle
-" │   ├── auto-pairs
-" │   ├── ctrlp
-" │   ├── ctrlp-extensions
-" │   ├── easymotion
-" │   ├── eclim
-" │   ├── emmet
-" │   ├── fcitx
-" │   ├── fugitive
-" │   ├── indent-guides
-" │   ├── molokai
-" │   ├── nerdcommenter
-" │   ├── pathogen
-" │   ├── powerline
-" │   ├── python-syntax
-" │   ├── repeat
-" │   ├── rst2ctags
-" │   ├── surround
-" │   ├── syntastic
-" │   ├── tabular
-" │   ├── tagbar
-" │   ├── ultisnips
-" │   ├── vim-cdoc
-" │   ├── vim-git
-" │   ├── vim-markdown
-" │   ├── vimproc
-" │   ├── vimshell
-" │   └── YouCompleteMe
-" ├── dotfile
-" └── vimrc
-
-
 
 " Environment {{{
 " ===============
@@ -55,7 +23,6 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 " }}}
-
 
 " General {{{
 " ===========
@@ -95,8 +62,6 @@ set showcmd                             " cmd complete
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " }}}
 
-
-
 " Vim UI {{{
 " ==========
 
@@ -104,6 +69,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     set guifont=Monaco\ 10
+    "set guifontwide=微软雅黑\ 10
 endif
 
 " Color scheme
@@ -168,8 +134,6 @@ endif
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 " }}}
 
-
-
 " Encoding {{{
 " ========
 
@@ -183,8 +147,6 @@ set fileformats=unix,dos,mac
 set fileformat=unix
 set nobomb
 " }}}
-
-
 
 " Formatting {{{
 " ==============
@@ -227,8 +189,6 @@ set list
 set listchars=tab:‣-,extends:»,precedes:«
 " }}}
 
-
-
 " Omni and complete function {{{
 " ==============================
 
@@ -236,8 +196,6 @@ set listchars=tab:‣-,extends:»,precedes:«
 " ----
 let g:EclimCompletionMethod = 'omnifunc'
 " }}}
-
-
 
 " Astyle and autopep8 {{{
 " =======================
@@ -261,26 +219,26 @@ if has("autocmd")
 endif
 " }}}
 
-
-
 " Plugins global setting {{{
 " ===========
 
 " Airline
 " ----------------------------
-let g:airline_theme="molokai"
+"let g:airline_theme="molokai"
+let g:airline_theme="powerlineish"
 "let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = 'ⴄ'
-let g:airline_left_alt_sep = 'ⴅ'
-let g:airline_right_sep = 'ⴆ'
-let g:airline_right_alt_sep = 'ⴇ'
-let g:airline_symbols.readonly = 'ⴃ'
-let g:airline_symbols.linenr = 'ⴂ'
-let g:airline_symbols.branch = 'ⴁ'
-let g:airline_symbols.whitespace = '⚠ '
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.paste = '⭢'
+let g:airline_symbols.whitespace = '⭣'
 
 " Ultisnips trigger
 " -----------------
@@ -380,8 +338,6 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
 " }}}
 
-
-
 " Key mapping {{{
 " ===============
 
@@ -409,8 +365,6 @@ nnoremap <C-W>u :CtrlPMRU<CR>
 noremap <C-W><C-B> :CtrlPBuffer<CR>
 nnoremap <C-W>b :CtrlPBuffer<CR>
 " }}}
-
-
 
 " Utility function {{{
 " =================
@@ -554,8 +508,6 @@ function! s:align()
     endif
 endfunctio
 " }}}
-
-
 
 " Highlighting {{{
 " ============
