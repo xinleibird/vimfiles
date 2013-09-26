@@ -69,18 +69,17 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     set guifont=Monaco\ 10
-    "set guifontwide=微软雅黑\ 10
 endif
 
 " Color scheme
 " ------------
 if has("gui_running")
     syntax enable
-    let g:molokai_original=1
+    let g:molokai_original = 1
 else
     syntax enable
     set t_Co=256
-    let g:rehash256=1
+    let g:rehash256 = 1
 endif
 colorscheme molokai
 
@@ -127,11 +126,6 @@ if !has('gui_running')
         autocmd InsertLeave * set timeoutlen=1000
     augroup END
 endif
-
-" Tagbar auto open
-" ----------------
-"autocmd VimEnter * nested :TagbarOpen
-"autocmd VimEnter * nested :call tagbar#autoopen(1)
 " }}}
 
 " Encoding {{{
@@ -224,9 +218,7 @@ endif
 
 " Airline
 " ----------------------------
-"let g:airline_theme="molokai"
-let g:airline_theme="powerlineish"
-"let g:airline_powerline_fonts=1
+let g:airline_theme = "powerlineish"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -247,52 +239,54 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 "let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-j>']
 "let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-k>']
 
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsSnippetsDir="/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+"let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
 
 
 " Tagbar
 " ------
-let g:tagbar_width=30
-let g:tagbar_sort=0
+let g:tagbar_width = 30
+let g:tagbar_sort = 0
 
 " Indent guide
 " ------------
-let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size = 1
 
 " Syntastic
 " ---------
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_java_checkstyle_classpath=
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_java_checkstyle_classpath =
             \"/opt/eclipse/plugins/net.sf.eclipsecs
             \.checkstyle_5.6.1.201306282206/checkstyle-5.6-all.jar"
-let g:syntastic_java_checkstyle_conf_file=
+let g:syntastic_java_checkstyle_conf_file =
             \"/home/xinlei/.vim/bundle/eclim/sun_checks_eclipse.xml"
 
 " YouCompleteMe
 " -------------
-let g:ycm_global_ycm_extra_conf=
+let g:ycm_global_ycm_extra_conf =
             \'/home/xinlei/.vim/bundle/
             \YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Python highlighting
 " -------------------
-let python_highlight_all=1
-let python_space_error_highlight=0
-let b:python_version_2=1
+let python_highlight_all = 1
+let python_space_error_highlight = 0
+let b:python_version_2 = 1
 
 " Rst2Ctags
 " ---------
 if executable("rst2ctags")
-    let g:rst2ctags='rst2ctags'
+    let g:rst2ctags = 'rst2ctags'
 else
-    let g:rst2ctags='/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py'
+    let g:rst2ctags = '/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py'
 endif
 
 " Tagbar setting
 " --------------
-let g:tagbar_type_rst={
+let g:tagbar_type_rst = {
             \ 'ctagstype': 'rst',
             \ 'ctagsbin' : g:rst2ctags,
             \ 'ctagsargs' : '-f - --sort=yes',
@@ -466,7 +460,7 @@ endif
 
 " Set non-filetype to text
 " ------------------------
-autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
+autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 
 " Remove trailing whitespace
 " --------------------------
@@ -493,13 +487,13 @@ autocmd BufWritePre *
 " -------------
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
-    let p='^\s*|\s.*\s|\s*$'
+    let p = '^\s*|\s.*\s|\s*$'
     if exists(':Tabularize') && getline('.') =~# '^\s*|' &&
                 \ (getline(line('.')-1) =~# p
                 \ || getline(line('.')+1) =~# p)
-        let column=strlen(substitute
+        let column = strlen(substitute
                     \(getline('.')[0:col('.')],'[^|]','','g'))
-        let position=strlen(matchstr(getline('.')[0:col('.')],
+        let position = strlen(matchstr(getline('.')[0:col('.')],
                     \'.*|\s*\zs.*'))
         Tabularize/|/l1
         normal! 0
