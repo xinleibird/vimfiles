@@ -57,6 +57,7 @@ set ruler                               " ruler
 set number                              " line number
 set showcmd                             " cmd complete
 
+set timeout timeoutlen=2000 ttimeoutlen=50
 " Ignore file type
 " ----------------
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -118,14 +119,15 @@ endif
 
 " Fcitx terminal vim leave insert mode timeout
 " --------------------------------------------
-if !has('gui_running')
-    set ttimeoutlen=50
-    augroup FastEscape
-        autocmd!
-        autocmd InsertEnter * set timeoutlen=0
-        autocmd InsertLeave * set timeoutlen=1000
-    augroup END
-endif
+
+"if !has('gui_running')
+"set ttimeoutlen=50
+"augroup FastEscape
+"autocmd!
+"autocmd InsertEnter * set timeoutlen=0
+"autocmd InsertLeave * set timeoutlen=1000
+"augroup END
+"endif
 " }}}
 
 " Encoding {{{
@@ -217,7 +219,7 @@ endif
 " ===========
 
 " Airline
-" ----------------------------
+" -------
 let g:airline_theme = "powerlineish"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -232,17 +234,22 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.paste = '⭢'
 let g:airline_symbols.whitespace = '⭣'
 
-" Ultisnips trigger
-" -----------------
+" YouCompleteMe setting
+" ---------------------
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 "let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-j>']
 "let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-k>']
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" Ultisnips setting
+" -----------------
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-"let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
+let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
 
 
 " Tagbar
@@ -523,3 +530,17 @@ if !has("gui_running")
     highlight ColorColumn ctermbg=59 guibg=#75715E
 endif
 " }}}
+
+
+
+let delimitMate_balance_matchpairs = 1
+let delimitMate_expand_cr = 1
+let delimitMate_jump_expansion = 1
+
+imap <expr> <CR> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateCR"
+
+imap <expr> <C-L> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateS-Tab"
