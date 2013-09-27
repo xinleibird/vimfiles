@@ -57,7 +57,9 @@ set ruler                               " ruler
 set number                              " line number
 set showcmd                             " cmd complete
 
-set timeout timeoutlen=2000 ttimeoutlen=50
+set ttimeoutlen=50
+"set timeout timeoutlen=2000 ttimeoutlen=50
+
 " Ignore file type
 " ----------------
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -228,12 +230,13 @@ let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.paste = '⭢'
 let g:airline_symbols.whitespace = '⭣'
 
+let g:airline#extensions#branch#enabled = 1
 " YouCompleteMe setting
 " ---------------------
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
@@ -517,7 +520,8 @@ endfunctio
 " -----------
 if has('gui_running')
     highlight   everyThingSpaceError    guifg=#960050   guibg=#1E0010
-elseif exists("g:rehash256") && g:rehash256 == 1
+endif
+if exists("g:rehash256") && g:rehash256 == 1
     highlight   everyThingSpaceError    ctermfg=125     ctermbg=233
 else
     highlight   everyThingSpaceError    ctermfg=219     ctermbg=89
@@ -540,6 +544,10 @@ let delimitMate_jump_expansion = 1
 imap <expr> <CR> pumvisible()
             \ ? "\<C-Y>"
             \ : "<Plug>delimitMateCR"
+
+imap <expr> <C-H> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateS-BS"
 
 imap <expr> <C-L> pumvisible()
             \ ? "\<C-Y>"
