@@ -193,6 +193,7 @@ set listchars=tab:‣-,extends:»,precedes:«
 " Omni
 " ----
 let g:EclimCompletionMethod = 'omnifunc'
+
 " }}}
 
 " Astyle and autopep8 {{{
@@ -222,7 +223,7 @@ endif
 
 " Airline
 " -------
-let g:airline_theme = "powerlineish"
+let g:airline_theme = "molokai"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -236,7 +237,6 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = '⭢'
 let g:airline_symbols.whitespace = '⭣'
 
-let g:airline#extensions#branch#enabled = 1
 " YouCompleteMe setting
 " ---------------------
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
@@ -249,10 +249,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Ultisnips setting
 " -----------------
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
+"let g:UltiSnipsExpandTrigger = '<C-j>'
+"let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+"let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+"let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
 
 
 " Tagbar
@@ -260,10 +260,10 @@ let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
 let g:tagbar_width = 30
 let g:tagbar_sort = 0
 
-" Indent guide
+" IndentLine
 " ------------
-let g:indent_guides_guide_size = 1
 
+let g:indentLine_char = '┊'
 " Syntastic
 " ---------
 let g:syntastic_error_symbol = '✗'
@@ -533,9 +533,11 @@ match           everyThingSpaceError     "\s\+$"
 if !has("gui_running")
     highlight ColorColumn ctermbg=59 guibg=#75715E
 endif
+
+" Syntax performance
+" ------------------
+syntax sync minlines=200 maxlines=5000
 " }}}
-
-
 
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
@@ -545,10 +547,14 @@ imap <expr> <CR> pumvisible()
             \ ? "\<C-Y>"
             \ : "<Plug>delimitMateCR"
 
+imap <expr> <Backspace> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateBS"
+            \ : "<Plug>delimitMateBS"
+
 imap <expr> <C-H> pumvisible()
-            \ ? "\<C-Y>"
+            \ ? "\<C-Y><Plug>delimitMateS-BS"
             \ : "<Plug>delimitMateS-BS"
 
 imap <expr> <C-L> pumvisible()
-            \ ? "\<C-Y>"
+            \ ? "\<C-Y><Plug>delimitMateS-Tab"
             \ : "<Plug>delimitMateS-Tab"
