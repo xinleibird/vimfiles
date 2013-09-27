@@ -247,14 +247,6 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" Ultisnips setting
-" -----------------
-"let g:UltiSnipsExpandTrigger = '<C-j>'
-"let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-"let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-"let g:UltiSnipsSnippetsDir = "/home/xinlei/.vim/bundle/ultisnips/UltiSnips"
-
-
 " Tagbar
 " ------
 let g:tagbar_width = 30
