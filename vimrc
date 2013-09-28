@@ -223,7 +223,7 @@ endif
 
 " Airline
 " -------
-let g:airline_theme = "molokai"
+let g:airline_theme = "powerlineish"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -327,11 +327,16 @@ let g:EclimQuickfixSignText = '⚠'
 let g:EclimLoclistSignText = '✗'
 let g:EclimUserSignText = '✍'
 
-"CtrlP
+" CtrlP
 "-----
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|.class$'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
+
+" DelimitMate
+" -----------
+let delimitMate_balance_matchpairs = 1
+let delimitMate_expand_cr = 1
 " }}}
 
 " Key mapping {{{
@@ -360,6 +365,21 @@ nnoremap <C-W>u :CtrlPMRU<CR>
 
 noremap <C-W><C-B> :CtrlPBuffer<CR>
 nnoremap <C-W>b :CtrlPBuffer<CR>
+
+" DelimitMate
+" -----------
+imap <expr> <CR> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateCR"
+imap <expr> <Backspace> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateBS"
+            \ : "<Plug>delimitMateBS"
+imap <expr> <C-H> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateS-BS"
+            \ : "<Plug>delimitMateS-BS"
+imap <expr> <C-L> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateS-Tab"
+            \ : "<Plug>delimitMateS-Tab"
 " }}}
 
 " Utility function {{{
@@ -419,31 +439,26 @@ nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 " Add trailing semicolon
 " ----------------------
 function! AppendSemicolon()
-    let s:nowPos = col('.')
-    let s:endPos = col('$')
-    let s:len = s:endPos - s:nowPos
-    let s:line = getline('.')
-    let s:lineLen = strlen(s:line)
-    " auto pair bracket
-    if matchend(s:line,"([^)]*$") == s:lineLen
-                \ || matchend(s:line,"([^)]*([^)]*)[^)]*$") == s:lineLen
-        return repeat("\<Right>",s:len).");".repeat("\<Left>",s:len+2)
-    else
-        " ; {
-        if matchend(s:line,"[;{]\\s\*$") == s:lineLen
-            return ";"
-        else
-            if s:nowPos == s:endPos
-                return ";"
-            else
-                return repeat("\<Right>",s:len).";".repeat("\<Left>",s:len + 1)
-            endif
-        endif
+    let len = col('$') - col('.')
+    let line = getline('.')
+    let lineLen = strlen(line)
+    if matchend(line,"[;{]\\s\*$") == lineLen
+        return ";"
     endif
+    if matchend(line,"\^\\s*for\\s\*(.\*)\\s\*$") == lineLen
+        return ";"
+    endif
+    if matchend(line,"([^)]*$") == lineLen
+        return repeat("\<Right>",len).");".repeat("\<Left>",len+2)
+    endif
+    if matchend(line,"([^)]*[)][^;]*$") == lineLen
+        return repeat("\<Right>",len).";".repeat("\<Left>",len+1)
+    endif
+    return ";"
 endfunction
 
-if !exists("s:autocommands_semicolon")
-    let s:autocommands_semicolon = 1
+if !exists("autocommands_semicolon")
+    let autocommands_semicolon = 1
     autocmd FileType c,cc,cpp,java,js,html,css
                 \ inoremap <buffer> ; <C-R>=AppendSemicolon()<CR>
 endif
@@ -528,25 +543,5 @@ endif
 
 " Syntax performance
 " ------------------
-syntax sync minlines=200 maxlines=5000
+syntax sync minlines=200 maxlines=4000
 " }}}
-
-let delimitMate_balance_matchpairs = 1
-let delimitMate_expand_cr = 1
-let delimitMate_jump_expansion = 1
-
-imap <expr> <CR> pumvisible()
-            \ ? "\<C-Y>"
-            \ : "<Plug>delimitMateCR"
-
-imap <expr> <Backspace> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateBS"
-            \ : "<Plug>delimitMateBS"
-
-imap <expr> <C-H> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-BS"
-            \ : "<Plug>delimitMateS-BS"
-
-imap <expr> <C-L> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-Tab"
-            \ : "<Plug>delimitMateS-Tab"
