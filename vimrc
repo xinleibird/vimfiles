@@ -223,7 +223,8 @@ endif
 
 " Airline
 " -------
-let g:airline_theme = "powerlineish"
+"let g:airline_theme = "powerlineish"
+let g:airline_theme = "molokai"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -332,6 +333,7 @@ let g:EclimUserSignText = '✍'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|.class$'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
+let g:ctrlp_open_new_file = 'r'
 
 " DelimitMate
 " -----------
