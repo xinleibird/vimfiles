@@ -118,18 +118,6 @@ if has("autocmd")
                 \ &filetype == "rst"
                 \ | setlocal colorcolumn=79 | endif
 endif
-
-" Fcitx terminal vim leave insert mode timeout
-" --------------------------------------------
-
-"if !has('gui_running')
-"set ttimeoutlen=50
-"augroup FastEscape
-"autocmd!
-"autocmd InsertEnter * set timeoutlen=0
-"autocmd InsertLeave * set timeoutlen=1000
-"augroup END
-"endif
 " }}}
 
 " Encoding {{{
@@ -165,9 +153,9 @@ set smartindent
 " Tab
 " ---
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
-set softtabstop=4
 set smarttab
 
 if has("autocmd")
@@ -187,14 +175,6 @@ set list
 set listchars=tab:‣-,extends:»,precedes:«
 " }}}
 
-" Omni and complete function {{{
-" ==============================
-
-" Omni
-" ----
-let g:EclimCompletionMethod = 'omnifunc'
-
-" }}}
 
 " Astyle and autopep8 {{{
 " =======================
@@ -223,20 +203,17 @@ endif
 
 " Airline
 " -------
-"let g:airline_theme = "powerlineish"
 let g:airline_theme = "molokai"
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.paste = '⭢'
-let g:airline_symbols.whitespace = '⭣'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+    let g:airline_symbols.branch = '⭠'
+    let g:airline_symbols.readonly = '⭤'
+    let g:airline_symbols.linenr = '¶'
+endif
 
 " YouCompleteMe setting
 " ---------------------
@@ -327,6 +304,8 @@ endif
 let g:EclimQuickfixSignText = '⚠'
 let g:EclimLoclistSignText = '✗'
 let g:EclimUserSignText = '✍'
+let g:EclimCompletionMethod = 'omnifunc'
+" }}}
 
 " CtrlP
 "-----
@@ -354,7 +333,7 @@ noremap <leader>fu :set fileformat=unix<CR>
 
 " Syntastic
 " ---------
-nmap <leader>st :SyntasticToggleMode<CR>
+noremap <leader>st :SyntasticToggleMode<CR>
 
 " Tagbar
 " ------
@@ -367,6 +346,10 @@ nnoremap <C-W>u :CtrlPMRU<CR>
 
 noremap <C-W><C-B> :CtrlPBuffer<CR>
 nnoremap <C-W>b :CtrlPBuffer<CR>
+
+" Eclim
+" -----
+map <leader><Enter> :JavaImportOrganize<CR>
 
 " DelimitMate
 " -----------
@@ -545,5 +528,7 @@ endif
 
 " Syntax performance
 " ------------------
-syntax sync minlines=200 maxlines=4000
+au BufEnter * :syntax sync minlines=500 maxlines=5000
+let java_minlines = 500
+"let java_maxlines = 5000
 " }}}
