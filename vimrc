@@ -205,21 +205,31 @@ endif
 
 " Airline
 " -------
-"set fillchars+=stl:\ ,stlnc:\|,
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#eclim#enabled = 1
+"let g:airline#extensions#eclim#enabled = 0
+"let g:airline_enable_eclim = 0
 let g:airline_theme = "molokai"
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    "let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.linenr = '⭡'
 endif
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.branch = ' ⭠ '
+"let g:airline_symbols.readonly = '⭤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.linenr = '⭡'
+"let g:airline_symbols.space = ''
+
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '»'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '«'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = 'Ψ'
+let g:airline_symbols.readonly = 'Θ '
+let g:airline_symbols.whitespace = 'Ξ'
 
 " YouCompleteMe setting
 " ---------------------
@@ -489,8 +499,8 @@ function RemoveTrailingWhitespace()
         call cursor(b:curline, b:curcol)
     endif
 endfunc
-autocmd BufWritePre *
-            \ call RemoveTrailingWhitespace()
+"autocmd BufWritePre *
+"\ call RemoveTrailingWhitespace()
 
 " | and Tabular
 " -------------
