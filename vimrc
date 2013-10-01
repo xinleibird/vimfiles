@@ -72,6 +72,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     set guifont=Monaco\ 10
+    "set guifontwide=微软雅黑\ 10
+    set guifontwide=Hiragino\ Sans\ GB\ 10
 endif
 
 " Color scheme
@@ -203,6 +205,9 @@ endif
 
 " Airline
 " -------
+"set fillchars+=stl:\ ,stlnc:\|,
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#eclim#enabled = 1
 let g:airline_theme = "molokai"
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
@@ -212,7 +217,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
     let g:airline_symbols.branch = '⭠'
     let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '¶'
+    "let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.linenr = '⭡'
 endif
 
 " YouCompleteMe setting
@@ -318,6 +324,7 @@ let g:ctrlp_open_new_file = 'r'
 " -----------
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
+let delimitMate_jump_expansion = 1
 " }}}
 
 " Key mapping {{{
@@ -528,7 +535,7 @@ endif
 
 " Syntax performance
 " ------------------
-au BufEnter * :syntax sync minlines=500 maxlines=5000
-let java_minlines = 500
+syntax sync minlines=512 maxlines=4096
+let java_minlines = 512
 "let java_maxlines = 5000
 " }}}
