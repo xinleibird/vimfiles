@@ -72,8 +72,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     set guifont=Monaco\ 10
-    "set guifontwide=微软雅黑\ 10
-    set guifontwide=Hiragino\ Sans\ GB\ 10
 endif
 
 " Color scheme
