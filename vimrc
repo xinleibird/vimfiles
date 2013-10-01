@@ -545,5 +545,5 @@ endif
 " ------------------
 syntax sync minlines=512 maxlines=4096
 let java_minlines = 512
-"let java_maxlines = 5000
+let java_maxlines = 4096
 " }}}
