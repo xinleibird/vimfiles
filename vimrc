@@ -85,7 +85,9 @@ colorscheme molokai
 
 " Fcitx terminal vim leave insert mode timeout
 " --------------------------------------------
-set timeout timeoutlen=2000 ttimeoutlen=5
+if !has('gui_running')
+    set timeout timeoutlen=2000 ttimeoutlen=20
+endif
 
 " No menu, no scroll bar
 " ----------------------
@@ -201,22 +203,6 @@ endif
 
 " Plugins global setting {{{
 " ===========
-
-" Airline
-" -------
-let g:airline_theme = "powerlineish"
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.whitespace = '♻ '
 
 " YouCompleteMe setting
 " ---------------------
