@@ -536,7 +536,7 @@ match           everyThingSpaceError     "\s\+$"
 " Highlight terminal vim colorcolumn
 " ---------------------
 if !has("gui_running")
-    highlight ColorColumn ctermbg=59 guibg=#75715E
+    highlight ColorColumn ctermbg=236
 endif
 
 " Syntax performance
