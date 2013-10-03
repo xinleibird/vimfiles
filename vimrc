@@ -57,8 +57,6 @@ set ruler                               " ruler
 set number                              " line number
 set showcmd                             " cmd complete
 
-set timeout timeoutlen=2000 ttimeoutlen=5
-
 " Ignore file type
 " ----------------
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -70,7 +68,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Monaco\ 9
+    set guifont=Monaco\ 10
 endif
 
 " Color scheme
@@ -84,6 +82,10 @@ else
     let g:rehash256 = 1
 endif
 colorscheme molokai
+
+" Fcitx terminal vim leave insert mode timeout
+" --------------------------------------------
+set timeout timeoutlen=2000 ttimeoutlen=5
 
 " No menu, no scroll bar
 " ----------------------
@@ -202,7 +204,7 @@ endif
 
 " Airline
 " -------
-let g:airline_theme = "molokai"
+let g:airline_theme = "powerlineish"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -510,15 +512,15 @@ endfunctio
 
 " Tailing white space highlighting
 " -----------
-if has('gui_running')
-    highlight   everyThingSpaceError    guifg=#960050   guibg=#1E0010
-endif
-if exists("g:rehash256") && g:rehash256 == 1
-    highlight   everyThingSpaceError    ctermfg=125     ctermbg=233
-else
-    highlight   everyThingSpaceError    ctermfg=219     ctermbg=89
-endif
-match           everyThingSpaceError     "\s\+$"
+" if has('gui_running')
+"     highlight   everyThingSpaceError    guifg=#960050   guibg=#1E0010
+" endif
+" if exists("g:rehash256") && g:rehash256 == 1
+"     highlight   everyThingSpaceError    ctermfg=125     ctermbg=233
+" else
+"     highlight   everyThingSpaceError    ctermfg=219     ctermbg=89
+" endif
+" match           everyThingSpaceError     "\s\+$"
 
 " Highlight terminal vim colorcolumn
 " ---------------------
