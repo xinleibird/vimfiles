@@ -388,17 +388,18 @@ endif
 
 " Eclim projects tree toggle
 " --------------------------
-if !has("s:eclim_projects_tree_opened")
-    let s:eclim_projects_tree_opened = 0
-endif
-
 function! ToggleEclimProjectsTree()
-    if s:eclim_projects_tree_opened == 0
+    if !exists('s:tree_loaded')
+        let s:tree_loaded = 0
+    endif
+    if s:tree_loaded == 0
         :ProjectsTree
-        let s:eclim_projects_tree_opened = 1
+        if &ft == 'tree'
+            let s:tree_loaded = 1
+        endif
     else
-        :ProjectTreeToggle
-        let s:eclim_projects_tree_opened = 0
+        call eclim#project#tree#ProjectTreeClose()
+        let s:tree_loaded = 0
     endif
 endfunction
 nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
@@ -407,28 +408,11 @@ nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 " ----------------------
 function! AppendSemicolon()
     let movePos = col('$') - col('.')
-    let lineString = getline('.')
-    let lineLength = strlen(lineString)
-    if matchend(lineString,"{\\s\*$") == lineLength
-        return ""
-    endif
-    if matchend(lineString,"\^\\s*for\\s\*(.\*)\\s\*$") == lineLength
-        return ""
-    endif
-    if matchend(lineString,"([^)]*([^)]*([^)]*([^)]*$") == lineLength
-        return repeat("\<Right>",movePos)."))));".repeat("\<Left>",movePos + 5)
-    endif
-    if matchend(lineString,"([^)]*([^)]*([^)]*$") == lineLength
-        return repeat("\<Right>",movePos).")));".repeat("\<Left>",movePos + 4)
-    endif
-    if matchend(lineString,"([^)]*([^)]*$") == lineLength
-        return repeat("\<Right>",movePos)."));".repeat("\<Left>",movePos + 3)
-    endif
-    if matchend(lineString,"([^)]*$") == lineLength
-        return repeat("\<Right>",movePos).");".repeat("\<Left>",movePos + 2)
-    endif
-    if matchend(lineString,"([^)]*[)][^;]*$") == lineLength
-        return repeat("\<Right>",movePos).";".repeat("\<Left>",movePos + 1)
+    let currentLine = getline('.')
+    let lineCharList = split(currentLine, '\zs')
+    let repeatTimes = count(lineCharList, "\(") - count(lineCharList, "\)")
+    if repeatTimes > 0
+        return repeat("\<Right>", movePos) . repeat(")", repeatTimes)
     endif
     return ""
 endfunction
@@ -436,7 +420,7 @@ endfunction
 if !exists("autocommands_semicolon")
     let autocommands_semicolon = 1
     autocmd FileType c,cc,cpp,java,js,html,css
-                \ inoremap <buffer> <C-m> <C-R>=AppendSemicolon()<CR>
+                \ inoremap <buffer> <C-J> <C-R>=AppendSemicolon()<CR>
 endif
 
 " Go to the last post when you open the buffer
