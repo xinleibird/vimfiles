@@ -64,3 +64,9 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/statline"]
+	path = bundle/statline
+	url = https://github.com/xinleibird/vim-statline.git
+[submodule "bundle/rbenv"]
+	path = bundle/rbenv
+	url = https://github.com/tpope/vim-rbenv.git

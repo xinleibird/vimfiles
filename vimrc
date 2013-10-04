@@ -83,12 +83,6 @@ else
 endif
 colorscheme molokai
 
-" Fcitx terminal vim leave insert mode timeout
-" --------------------------------------------
-if !has('gui_running')
-    set timeout timeoutlen=2000 ttimeoutlen=20
-endif
-
 " No menu, no scroll bar
 " ----------------------
 if has("gui_running")
@@ -142,7 +136,7 @@ set nobomb
 
 " Normal
 " ------
-set confirm                             "set cursorline
+set confirm                             "set confirm
 set iskeyword+=_,$,@,%,#,-
 set showmatch
 set matchtime=5
@@ -412,28 +406,37 @@ nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 " Add trailing semicolon
 " ----------------------
 function! AppendSemicolon()
-    let len = col('$') - col('.')
-    let line = getline('.')
-    let lineLen = strlen(line)
-    if matchend(line,"[;{]\\s\*$") == lineLen
-        return ";"
+    let movePos = col('$') - col('.')
+    let lineString = getline('.')
+    let lineLength = strlen(lineString)
+    if matchend(lineString,"{\\s\*$") == lineLength
+        return ""
     endif
-    if matchend(line,"\^\\s*for\\s\*(.\*)\\s\*$") == lineLen
-        return ";"
+    if matchend(lineString,"\^\\s*for\\s\*(.\*)\\s\*$") == lineLength
+        return ""
     endif
-    if matchend(line,"([^)]*$") == lineLen
-        return repeat("\<Right>",len).");".repeat("\<Left>",len+2)
+    if matchend(lineString,"([^)]*([^)]*([^)]*([^)]*$") == lineLength
+        return repeat("\<Right>",movePos)."))));".repeat("\<Left>",movePos + 5)
     endif
-    if matchend(line,"([^)]*[)][^;]*$") == lineLen
-        return repeat("\<Right>",len).";".repeat("\<Left>",len+1)
+    if matchend(lineString,"([^)]*([^)]*([^)]*$") == lineLength
+        return repeat("\<Right>",movePos).")));".repeat("\<Left>",movePos + 4)
     endif
-    return ";"
+    if matchend(lineString,"([^)]*([^)]*$") == lineLength
+        return repeat("\<Right>",movePos)."));".repeat("\<Left>",movePos + 3)
+    endif
+    if matchend(lineString,"([^)]*$") == lineLength
+        return repeat("\<Right>",movePos).");".repeat("\<Left>",movePos + 2)
+    endif
+    if matchend(lineString,"([^)]*[)][^;]*$") == lineLength
+        return repeat("\<Right>",movePos).";".repeat("\<Left>",movePos + 1)
+    endif
+    return ""
 endfunction
 
 if !exists("autocommands_semicolon")
     let autocommands_semicolon = 1
     autocmd FileType c,cc,cpp,java,js,html,css
-                \ inoremap <buffer> ; <C-R>=AppendSemicolon()<CR>
+                \ inoremap <buffer> <C-m> <C-R>=AppendSemicolon()<CR>
 endif
 
 " Go to the last post when you open the buffer
@@ -495,18 +498,6 @@ endfunctio
 
 " Highlighting {{{
 " ============
-
-" Tailing white space highlighting
-" -----------
-" if has('gui_running')
-"     highlight   everyThingSpaceError    guifg=#960050   guibg=#1E0010
-" endif
-" if exists("g:rehash256") && g:rehash256 == 1
-"     highlight   everyThingSpaceError    ctermfg=125     ctermbg=233
-" else
-"     highlight   everyThingSpaceError    ctermfg=219     ctermbg=89
-" endif
-" match           everyThingSpaceError     "\s\+$"
 
 " Highlight terminal vim colorcolumn
 " ---------------------
