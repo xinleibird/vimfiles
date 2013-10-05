@@ -1,5 +1,6 @@
-" Maintainer: Xin Lei <xinleibird@gmail.com>
-" ------------------------------------------
+" MIT License. Copyright (c) 2013 Xin Lei. <xinleibird@gmail.com>
+" vim: et ts=4 sts=4 sw=4
+
 
 
 " Environment {{{
@@ -7,7 +8,9 @@
 
 " Basics
 " ------
+
 set nocompatible    " Must be first line
+
 if v:progname=~?"evim"
     set nobackup
     finish
@@ -20,19 +23,25 @@ endif
 
 " Setup pathogen support
 " ----------------------
+
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
 " }}}
+
+
 
 " General {{{
 " ===========
 
 " Background
 " ----------
+
 set background=dark                     " backgroud
 
 " Other
 " -----
+
 filetype plugin indent on               " indent
 
 if &t_Co > 2 || has("gui_running")
@@ -59,20 +68,26 @@ set showcmd                             " cmd complete
 
 " Ignore file type
 " ----------------
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 " }}}
+
+
 
 " Vim UI {{{
 " ==========
 
 " Font
 " ----
+
 if has("gui_running")
     set guifont=Monaco\ 10
 endif
 
 " Color scheme
 " ------------
+
 if has("gui_running")
     syntax enable
     let g:molokai_original = 1
@@ -85,6 +100,7 @@ colorscheme molokai
 
 " No menu, no scroll bar
 " ----------------------
+
 if has("gui_running")
     set guioptions-=m
     set guioptions-=T
@@ -97,6 +113,7 @@ endif
 
 " Set Colorcolumn
 " ---------------
+
 if has("gui_running")
     set columns=82
 endif
@@ -115,13 +132,17 @@ if has("autocmd")
                 \ &filetype == "rst"
                 \ | setlocal colorcolumn=79 | endif
 endif
+
 " }}}
+
+
 
 " Encoding {{{
 " ========
 
 " encoding
 " --------
+
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -129,13 +150,17 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set fileformat=unix
 set nobomb
+
 " }}}
+
+
 
 " Formatting {{{
 " ==============
 
 " Normal
 " ------
+
 set confirm                             "set confirm
 set iskeyword+=_,$,@,%,#,-
 set showmatch
@@ -143,6 +168,7 @@ set matchtime=5
 
 " Indent
 " ------
+
 set autoindent
 set cindent
 set smartindent
@@ -164,13 +190,16 @@ endif
 
 " Other
 " -----
+
 set wrap
 set laststatus=2
 set wildmenu
 set autoread
 set list
 set listchars=tab:‣-,extends:»,precedes:«
+
 " }}}
+
 
 
 " Astyle and autopep8 {{{
@@ -178,6 +207,7 @@ set listchars=tab:‣-,extends:»,precedes:«
 
 " Astyle
 " ------
+
 if has("autocmd")
     autocmd FileType java setlocal
                 \ equalprg=astyle
@@ -189,17 +219,22 @@ endif
 
 " Autopep8
 " --------
+
 if has("autocmd")
     autocmd FileType python setlocal
                 \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
 endif
+
 " }}}
+
+
 
 " Plugins global setting {{{
 " ===========
 
 " YouCompleteMe setting
 " ---------------------
+
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_add_preview_to_completeopt = 1
@@ -208,6 +243,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Tagbar
 " ------
+
 let g:tagbar_width = 30
 let g:tagbar_sort = 0
 
@@ -215,8 +251,10 @@ let g:tagbar_sort = 0
 " ------------
 
 let g:indentLine_char = '┊'
+
 " Syntastic
 " ---------
+
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_java_checkstyle_classpath =
@@ -227,18 +265,21 @@ let g:syntastic_java_checkstyle_conf_file =
 
 " YouCompleteMe
 " -------------
+
 let g:ycm_global_ycm_extra_conf =
             \'/home/xinlei/.vim/bundle/
             \YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Python highlighting
 " -------------------
+
 let python_highlight_all = 1
 let python_space_error_highlight = 0
 let b:python_version_2 = 1
 
 " Rst2Ctags
 " ---------
+
 if executable("rst2ctags")
     let g:rst2ctags = 'rst2ctags'
 else
@@ -247,6 +288,7 @@ endif
 
 " Tagbar setting
 " --------------
+
 let g:tagbar_type_rst = {
             \ 'ctagstype': 'rst',
             \ 'ctagsbin' : g:rst2ctags,
@@ -263,6 +305,7 @@ let g:tagbar_type_rst = {
 
 " Marktag
 " -------
+
 if executable('marktag')
     let g:tagbar_type_markdown = {
                 \ 'ctagstype' : 'markdown',
@@ -282,31 +325,40 @@ endif
 
 " Eclim
 " -----
+
 let g:EclimQuickfixSignText = '⚠'
 let g:EclimLoclistSignText = '✗'
 let g:EclimUserSignText = '✍'
 let g:EclimCompletionMethod = 'omnifunc'
-" }}}
 
 " CtrlP
 "-----
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|.class$'
+
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '.rvm$\|.class$\|tags$\|tags-cn$\|.swp$'
+            \ }
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
 
 " DelimitMate
 " -----------
+
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 1
+
 " }}}
+
+
 
 " Key mapping {{{
 " ===============
 
 " Normal
 " ------
+
 noremap <silent> <leader>= :<ESC>mP<ESC> gg=G<ESC>`P<ESC>
 noremap <leader>tt :tabnew<cr>
 noremap <leader>tc :tabclose<cr>
@@ -315,14 +367,17 @@ noremap <leader>fu :set fileformat=unix<CR>
 
 " Syntastic
 " ---------
+
 noremap <leader>st :SyntasticToggleMode<CR>
 
 " Tagbar
 " ------
+
 noremap <silent> <F5> :TagbarToggle<CR>
 
 " CtrlP
 " -----
+
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
 
@@ -331,10 +386,12 @@ nnoremap <C-W>b :CtrlPBuffer<CR>
 
 " Eclim
 " -----
+
 map <leader><Enter> :JavaImportOrganize<CR>
 
 " DelimitMate
 " -----------
+
 imap <expr> <CR> pumvisible()
             \ ? "\<C-Y>"
             \ : "<Plug>delimitMateCR"
@@ -347,13 +404,17 @@ imap <expr> <C-H> pumvisible()
 imap <expr> <C-L> pumvisible()
             \ ? "\<C-Y><Plug>delimitMateS-Tab"
             \ : "<Plug>delimitMateS-Tab"
+
 " }}}
+
+
 
 " Utility function {{{
 " =================
 
 " Windows maximum
 " ---------------
+
 function MaxinumGvimWindow()
     if has("gui_running")
         let s:win_name = system("wmctrl -lp | grep " . getpid())
@@ -371,6 +432,7 @@ endif
 
 " Toggle gvim fullscreen
 " ----------------------
+
 let s:fullscreen = 0
 function! ToggleFullscreen()
     if s:fullscreen == 1
@@ -388,6 +450,7 @@ endif
 
 " Eclim projects tree toggle
 " --------------------------
+
 function! ToggleEclimProjectsTree()
     if !exists('s:tree_loaded')
         let s:tree_loaded = 0
@@ -406,6 +469,7 @@ nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
 " Add trailing semicolon
 " ----------------------
+
 function! AppendBrackets()
     let movePos = col('$') - col('.')
     let currentLine = getline('.')
@@ -425,6 +489,7 @@ endif
 
 " Go to the last post when you open the buffer
 " --------------------------------------------
+
 if has("autocmd")
     augroup vimrcEx
         au!
@@ -437,10 +502,12 @@ endif
 
 " Set non-filetype to text
 " ------------------------
+
 autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 
 " Remove trailing whitespace
 " --------------------------
+
 function RemoveTrailingWhitespace()
     if &filetype == "java" ||
                 \ &filetype == "python" ||
@@ -462,6 +529,7 @@ endfunc
 
 " | and Tabular
 " -------------
+
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
@@ -478,7 +546,9 @@ function! s:align()
                     \.repeat('.',position),'ce',line('.'))
     endif
 endfunctio
+
 " }}}
+
 
 
 " Highlighting {{{
@@ -486,14 +556,17 @@ endfunctio
 
 " Highlight terminal vim colorcolumn
 " ---------------------
+
 if !has("gui_running")
     highlight ColorColumn ctermbg=236
 endif
 
 " Syntax performance
 " ------------------
+
 augroup SynPerformance
     autocmd!
     autocmd Syntax * syn sync minlines=512 maxlines=4096
 augroup END
+
 " }}}
