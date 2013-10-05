@@ -67,9 +67,3 @@
 [submodule "bundle/statline"]
 	path = bundle/statline
 	url = https://github.com/xinleibird/vim-statline.git
-[submodule "bundle/rbenv"]
-	path = bundle/rbenv
-	url = https://github.com/tpope/vim-rbenv.git
-[submodule "bundle/pyenv"]
-	path = bundle/pyenv
-	url = https://github.com/xinleibird/vim-pyenv.git
