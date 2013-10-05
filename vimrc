@@ -503,7 +503,7 @@ endif
 " Set non-filetype to text
 " ------------------------
 
-autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
+" autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 
 " Remove trailing whitespace
 " --------------------------
