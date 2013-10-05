@@ -406,7 +406,7 @@ nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
 " Add trailing semicolon
 " ----------------------
-function! AppendSemicolon()
+function! AppendBrackets()
     let movePos = col('$') - col('.')
     let currentLine = getline('.')
     let lineCharList = split(currentLine, '\zs')
@@ -420,7 +420,7 @@ endfunction
 if !exists("autocommands_semicolon")
     let autocommands_semicolon = 1
     autocmd FileType c,cc,cpp,java,js,html,css
-                \ inoremap <buffer> <C-J> <C-R>=AppendSemicolon()<CR>
+                \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
 endif
 
 " Go to the last post when you open the buffer
@@ -480,6 +480,7 @@ function! s:align()
 endfunctio
 " }}}
 
+
 " Highlighting {{{
 " ============
 
@@ -491,7 +492,8 @@ endif
 
 " Syntax performance
 " ------------------
-syntax sync minlines=512 maxlines=4096
-let java_minlines = 512
-let java_maxlines = 4096
+augroup SynPerformance
+    autocmd!
+    autocmd Syntax * syn sync minlines=512 maxlines=4096
+augroup END
 " }}}
