@@ -9,7 +9,7 @@
 " Basics
 " ------
 
-set nocompatible    " Must be first line
+set nocompatible                        " Must be first line
 
 if v:progname=~?"evim" || $USER=="root"
     finish
@@ -480,7 +480,7 @@ endfunction
 
 if has("autocmd") && !exists("s:loaded_append_brackets")
     let s:loaded_append_brackets = 1
-    autocmd FileType c,cc,cpp,java,js,html,css
+    autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
                 \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
 endif
 
@@ -500,21 +500,21 @@ endif
 " Remove trailing whitespace
 " --------------------------
 
-function RemoveTrailingWhitespace()
-    if &filetype == "java" ||
-                \ &filetype == "python" ||
-                \ &filetype == "vim" ||
-                \ &filetype == "c" ||
-                \ &filetype == "cpp" ||
-                \ &filetype == "ruby" ||
-                \ &filetype == "txt" ||
-        let b:curcol = col(".")
-        let b:curline = line(".")
-        silent! %s/\s\+$//
-        silent! %s/\(\s*\n\)\+\%$//
-        call cursor(b:curline, b:curcol)
-    endif
-endfunc
+" function RemoveTrailingWhitespace()
+"     if &filetype == "java" ||
+"                 \ &filetype == "python" ||
+"                 \ &filetype == "vim" ||
+"                 \ &filetype == "c" ||
+"                 \ &filetype == "cpp" ||
+"                 \ &filetype == "ruby" ||
+"                 \ &filetype == "txt" ||
+"         let b:curcol = col(".")
+"         let b:curline = line(".")
+"         silent! %s/\s\+$//
+"         silent! %s/\(\s*\n\)\+\%$//
+"         call cursor(b:curline, b:curcol)
+"     endif
+" endfunc
 "autocmd BufWritePre *
 "\ call RemoveTrailingWhitespace()
 
