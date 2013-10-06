@@ -57,10 +57,7 @@ if has('mouse')
 endif
 
 set history=1000                        " history
-set backup                              " backup
-set backupcopy=yes
-set backupdir=/home/xinlei/.vimbackfile/
-
+set nobackup                            " nobackup
 set backspace=indent,eol,start          " backspace delete
 set ruler                               " ruler
 set number                              " line number
@@ -169,9 +166,9 @@ set matchtime=5
 " Indent
 " ------
 
-set autoindent
 set cindent
 set smartindent
+set autoindent
 
 " Tab
 " ---
@@ -195,6 +192,7 @@ set wrap
 set laststatus=2
 set wildmenu
 set autoread
+set autowrite
 set list
 set listchars=tab:‣-,extends:»,precedes:«
 
@@ -211,10 +209,10 @@ set listchars=tab:‣-,extends:»,precedes:«
 if has("autocmd")
     autocmd FileType java setlocal
                 \ equalprg=astyle
-                \\ -A2s4CSLwYm2M78pHUxeyjcxyxC78xL\ --mode=java
+                \\ -A2s4CSLwYm2M40pHUxeyjcxyxC78\ --mode=java
     autocmd FileType c,cpp setlocal
                 \ equalprg=astyle
-                \\ -A1s4CSNLwYm2M78pHUxek3W3yjcxyxC78xL\ --mode=c
+                \\ -A1s4CSNLwYm2M40pHUxek3W3yjcxyxC78\ --mode=c
 endif
 
 " Autopep8
