@@ -102,26 +102,11 @@ if has("gui_running")
     set guioptions-=b
 endif
 
-" Set Colorcolumn
+" Set columns
 " ---------------
 
 if has("gui_running")
     set columns=82
-endif
-
-if has("autocmd") && !exists("b:loaded_colorcolumn")
-    let b:loaded_colorcolumn = 1
-    autocmd BufEnter * if
-                \ &filetype == "java" ||
-                \ &filetype == "vim" ||
-                \ &filetype == "python" ||
-                \ &filetype == "c" ||
-                \ &filetype == "cpp" ||
-                \ &filetype == "ruby" ||
-                \ &filetype == "txt" ||
-                \ &filetype == "markdown" ||
-                \ &filetype == "rst"
-                \ | setlocal colorcolumn=79 | endif
 endif
 
 " }}}
@@ -172,11 +157,6 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-if has("autocmd") && !exists("b:loaded_ruby_tab")
-    let b:loaded_ruby_tab = 1
-    autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-endif
-
 " Other
 " -----
 
@@ -187,30 +167,6 @@ set autoread
 set autowrite
 set list
 set listchars=tab:‣-,extends:»,precedes:«
-
-" }}}
-
-
-
-" Equalprg {{{
-" ========
-
-" Astyle
-" ------
-
-if has("autocmd")
-    augroup prgSetting
-        autocmd!
-        autocmd FileType java setlocal
-                    \ equalprg=astyle
-                    \\ -A2s4CSLwYm2M40pHUxeyjcxyxC78\ --mode=java
-        autocmd FileType c,cpp setlocal
-                    \ equalprg=astyle
-                    \\ -A1s4CSNLwYm2M40pHUxek3W3yjcxyxC78\ --mode=c
-        autocmd FileType python setlocal
-                    \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
-    augroup END
-endif
 
 " }}}
 
@@ -336,16 +292,6 @@ let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 1
 
-
-" Commentary
-" ----------
-if has("autocmd")
-    augroup commentString
-        autocmd!
-        autocmd FileType apache,cmake setlocal commentstring=#\ %s
-    augroup END
-endif
-
 " }}}
 
 
@@ -422,8 +368,8 @@ function MaxinumGvimWindow()
     endif
 endfunction
 
-if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
-    let s:loaded_maxinum_gvim_window = 1
+if has('gui_running') && !exists('loaded_maxinum_gvim_window')
+    let loaded_maxinum_gvim_window = 1
     autocmd VimEnter * :call MaxinumGvimWindow()
 endif
 
@@ -478,23 +424,10 @@ function! AppendBrackets()
     return ""
 endfunction
 
-if has("autocmd") && !exists("s:loaded_append_brackets")
-    let s:loaded_append_brackets = 1
+if has("autocmd") && !exists("loaded_append_brackets")
+    let loaded_append_brackets = 1
     autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
                 \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
-endif
-
-" Go to the last post when you open the buffer
-" --------------------------------------------
-
-if has("autocmd")
-    augroup vimrcEx
-        autocmd!
-        autocmd BufReadPost * if line("'\"") > 1
-                    \ && line("'\"") <= line("$") |
-                    \ exe "normal! g`\"" |
-                    \ endif
-    augroup END
 endif
 
 " Remove trailing whitespace
@@ -552,12 +485,64 @@ if !has("gui_running")
     highlight ColorColumn ctermbg=236
 endif
 
-" Syntax performance
-" ------------------
+" }}}
 
-if has("autocmd") && !exists("b:synPerformance")
-    let b:synPerformance = 1
-    autocmd Syntax * syn sync minlines=512 maxlines=8192
+
+" Auto Group {{{
+" ==========
+
+" Performance and colorcolumn
+" ---------------------------
+
+if has("autocmd")
+    augroup bufenterGroup
+        autocmd!
+        autocmd BufEnter * :syntax sync minlines=512 maxlines=8192
+        autocmd BufEnter * if
+                    \ &filetype == "java" ||
+                    \ &filetype == "vim" ||
+                    \ &filetype == "python" ||
+                    \ &filetype == "c" ||
+                    \ &filetype == "cpp" ||
+                    \ &filetype == "ruby" ||
+                    \ &filetype == "txt" ||
+                    \ &filetype == "markdown" ||
+                    \ &filetype == "rst"
+                    \ | setlocal colorcolumn=79 | endif
+    augroup END
+endif
+
+" Astyle and autopep8 and ruby type and commentstring
+" ---------------------------------------------------
+
+if has("autocmd")
+    augroup filetypeGroup
+        autocmd!
+        autocmd FileType java setlocal
+                    \ equalprg=astyle
+                    \\ -A2s4CSLwYm2M40pHUxeyjcxyxC78\ --mode=java
+        autocmd FileType c,cpp setlocal
+                    \ equalprg=astyle
+                    \\ -A1s4CSNLwYm2M40pHUxek3W3yjcxyxC78\ --mode=c
+        autocmd FileType python setlocal
+                    \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
+        autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType apache,cmake setlocal commentstring=#\ %s
+    augroup END
+endif
+
+
+" Go to the last post when you open the buffer
+" --------------------------------------------
+
+if has("autocmd")
+    augroup vimrcEx
+        autocmd!
+        autocmd BufReadPost * if line("'\"") > 1
+                    \ && line("'\"") <= line("$") |
+                    \ exe "normal! g`\"" |
+                    \ endif
+    augroup END
 endif
 
 " }}}
