@@ -290,6 +290,7 @@ let g:ctrlp_open_new_file = 'r'
 
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
+" let delimitMate_expand_space = 1
 let delimitMate_jump_expansion = 1
 
 " }}}
@@ -301,8 +302,7 @@ let delimitMate_jump_expansion = 1
 
 " Normal
 " ------
-
-noremap <silent> <leader>= :<ESC>mP<ESC> gg=G<ESC>`P<ESC>
+noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
 noremap <leader>tt :tabnew<cr>
 noremap <leader>tc :tabclose<cr>
 noremap <leader>fd :set fileformat=dos<CR>
@@ -520,14 +520,16 @@ if has("autocmd")
         autocmd!
         autocmd FileType java setlocal
                     \ equalprg=astyle
-                    \\ -A2s4CSLwYm2M40pHUxeyjcxyxC78\ --mode=java
+                    \\ -A2s4CSLwYm2M78pHUyjcxyxC78\ --mode=java
+        autocmd FileType java
+                    \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
                     \ equalprg=astyle
-                    \\ -A1s4CSNLwYm2M40pHUxek3W3yjcxyxC78\ --mode=c
+                    \\ -A1s4CSNLwYm2M78pHUk3W3yjcxyxC78\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,cmake setlocal commentstring=#\ %s
+        autocmd FileType apache,cmake,gtkrc setlocal commentstring=#\ %s
     augroup END
 endif
 
