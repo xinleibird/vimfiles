@@ -497,7 +497,6 @@ endif
 if has("autocmd")
     augroup bufenterGroup
         autocmd!
-        autocmd BufEnter * :syntax sync minlines=512 maxlines=8192
         autocmd BufEnter * if
                     \ &filetype == "java" ||
                     \ &filetype == "vim" ||
@@ -518,9 +517,12 @@ endif
 if has("autocmd")
     augroup filetypeGroup
         autocmd!
+        " autocmd FileType java setlocal
+        "             \ equalprg=astyle
+        "             \\ -A2s4CSLwYm2M78pHUyjcxyxC78\ --mode=java
         autocmd FileType java setlocal
                     \ equalprg=astyle
-                    \\ -A2s4CSLwYm2M78pHUyjcxyxC78\ --mode=java
+                    \\ -A2s4CSLwYm2pHUxeyjcxy\ --mode=java
         autocmd FileType java
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
@@ -547,4 +549,17 @@ if has("autocmd")
     augroup END
 endif
 
+" MAYBE can improve performance....
+" ---------------------------------
+
+if has("autocmd")
+    augroup performanceGroup
+        autocmd!
+        autocmd InsertCharPre * redraw
+        autocmd Syntax * syn sync minlines=512 maxlines=8192
+    augroup END
+endif
+
+" autocmd CompleteDone * :redraw!
 " }}}
+
