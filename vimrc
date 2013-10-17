@@ -73,8 +73,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 
 if has("gui_running")
-    set guifont=Monaco\ 9
-    " set guifontwide=微软雅黑\ 9
+    set guifont=Monaco\ 10
+    set guifontwide=Hiragino\ Sans\ GB\ 10
 endif
 
 " Color scheme
@@ -168,6 +168,7 @@ set autoread
 set autowrite
 set list
 set listchars=tab:‣-,extends:»,precedes:«
+" set wildmode=list:longest
 
 " }}}
 
@@ -292,7 +293,7 @@ let g:ctrlp_open_new_file = 'r'
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 " let delimitMate_expand_space = 1
-let delimitMate_jump_expansion = 1
+" let delimitMate_jump_expansion = 1
 
 " }}}
 
