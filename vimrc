@@ -194,7 +194,6 @@ let g:tagbar_sort = 0
 
 " IndentLine
 " ------------
-
 let g:indentLine_char = '┊'
 
 " Syntastic
@@ -533,7 +532,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,cmake,gtkrc setlocal commentstring=#\ %s
+        autocmd FileType apache,cfg,cmake,gtkrc setlocal commentstring=#\ %s
     augroup END
 endif
 

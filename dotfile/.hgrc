@@ -3,5 +3,5 @@ pull = pull --insecure
 push = push --insecure
 clone = clone --insecure
 [web]
-#cacerts = /usr/local/share/ca-certificates/GoAgent.crt
-#cacerts = /etc/ssl/certs/ca-certificates.crt
+# cacerts = /usr/local/share/ca-certificates/GoAgent.crt
+# cacerts = /etc/ssl/certs/ca-certificates.crt
