@@ -40,12 +40,6 @@
 [submodule "bundle/ctrlp-extensions"]
 	path = bundle/ctrlp-extensions
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/vimshell"]
-	path = bundle/vimshell
-	url = https://github.com/Shougo/vimshell.vim.git
-[submodule "bundle/vimproc"]
-	path = bundle/vimproc
-	url = https://github.com/Shougo/vimproc.vim.git
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
