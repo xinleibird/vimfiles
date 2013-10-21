@@ -75,7 +75,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 if has("gui_running")
     set guifont=Monaco\ 10
     " set guifontwide=Hiragino\ Sans\ GB\ 10
-    " set guifontwide=微软雅黑\ 10
+    " set guifontwide=微软雅黑\ 9
 endif
 
 " Color scheme
@@ -554,13 +554,12 @@ endif
 " MAYBE can improve performance....
 " ---------------------------------
 
-" if has("autocmd")
-"     augroup performanceGroup
-"         autocmd!
-"         autocmd BufEnter * syn sync minlines=256 maxlines=8192
-"     augroup END
-" endif
+if has("autocmd")
+    augroup performanceGroup
+        autocmd!
+        autocmd BufEnter * :syntax sync fromstart
+    augroup END
+endif
 
-" autocmd CompleteDone * :redraw!
 " }}}
 
