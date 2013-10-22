@@ -12,7 +12,7 @@
 set nocompatible                        " Must be first line
 
 if v:progname=~?"evim" || $USER=="root"
-    finish
+    set runtimepath+=/home/xinlei/.vim
 endif
 
 " Setup pathogen support
@@ -81,16 +81,36 @@ endif
 " Color scheme
 " ------------
 
+" syntax enable
+" if has("gui_running")
+"     let g:molokai_original = 1
+" else
+"     set t_Co=256
+"     set background=dark
+"     let g:rehash256 = 1
+" endif
+" colorscheme molokai
+
+" syntax enable
+" set background=light
+" if !has('gui_running')
+"     set t_Co=256
+"     let g:solarized_termcolors=256
+" endif
+" colorscheme solarized
+
+syntax enable
 if has("gui_running")
-    syntax enable
-    let g:molokai_original = 1
+    set background=light
+    colorscheme solarized
 else
-    syntax enable
+    set background=dark
     set t_Co=256
     let g:rehash256 = 1
+    colorscheme molokai
 endif
-colorscheme molokai
 
+" colorscheme molokai
 " No menu, no scroll bar
 " ----------------------
 
@@ -280,12 +300,13 @@ let g:EclimCompletionMethod = 'omnifunc'
 "-----
 
 let g:ctrlp_custom_ignore = {
-            \ 'dir': '\.git$\|\.hg$\|\.svn$',
+            \ 'dir': '\/home\/xinlei$\|\.git$\|\.hg$\|\.svn$',
             \ 'file': '.rvm$\|.class$\|tags$\|tags-cn$\|.swp$'
             \ }
-let g:ctrlp_working_path_mode = 0
 let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_root_markers = ['.project']
 
 " DelimitMate
 " -----------
@@ -349,7 +370,6 @@ imap <expr> <C-H> pumvisible()
 imap <expr> <C-L> pumvisible()
             \ ? "\<C-Y><Plug>delimitMateS-Tab"
             \ : "<Plug>delimitMateS-Tab"
-
 " }}}
 
 
@@ -362,16 +382,13 @@ imap <expr> <C-L> pumvisible()
 
 function MaxinumGvimWindow()
     if has("gui_running")
-        let s:win_name = system("wmctrl -lp | grep " . getpid())
-        let s:win_list = split(s:win_name)
-        let s:win_name_after = s:win_list[0]
-        silent exec "!wmctrl -i -r " . shellescape(s:win_name_after) .
+        silent exec "!wmctrl -i -r " . v:windowid .
                     \ " -b add,maximized_vert,maximized_horz"
     endif
 endfunction
 
-if has('gui_running') && !exists('loaded_maxinum_gvim_window')
-    let loaded_maxinum_gvim_window = 1
+if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
+    let s:loaded_maxinum_gvim_window = 1
     autocmd VimEnter * :call MaxinumGvimWindow()
 endif
 

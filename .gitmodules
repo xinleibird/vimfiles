@@ -61,3 +61,6 @@
 [submodule "bundle/statline"]
 	path = bundle/statline
 	url = https://github.com/xinleibird/vim-statline.git
+[submodule "bundle/solarized"]
+	path = bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
