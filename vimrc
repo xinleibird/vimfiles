@@ -91,24 +91,24 @@ endif
 " endif
 " colorscheme molokai
 
-" syntax enable
-" set background=light
-" if !has('gui_running')
-"     set t_Co=256
-"     let g:solarized_termcolors=256
-" endif
-" colorscheme solarized
-
 syntax enable
-if has("gui_running")
-    set background=light
-    colorscheme solarized
-else
-    set background=dark
+set background=light
+if !has('gui_running')
     set t_Co=256
-    let g:rehash256 = 1
-    colorscheme molokai
+    let g:solarized_termcolors=256
 endif
+colorscheme solarized
+
+" syntax enable
+" if has("gui_running")
+"     set background=light
+"     colorscheme solarized
+" else
+"     set background=dark
+"     set t_Co=256
+"     let g:rehash256 = 1
+"     colorscheme molokai
+" endif
 
 " colorscheme molokai
 " No menu, no scroll bar
@@ -295,6 +295,7 @@ let g:EclimQuickfixSignText = '⚠'
 let g:EclimLoclistSignText = '✗'
 let g:EclimUserSignText = '✍'
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimWarningHighlight = "Question"
 
 " CtrlP
 "-----
@@ -429,7 +430,7 @@ function! ToggleEclimProjectsTree()
 endfunction
 nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
-" Add trailing semicolon
+" Add trailing bracket
 " ----------------------
 
 function! AppendBrackets()
@@ -574,9 +575,10 @@ endif
 if has("autocmd")
     augroup performanceGroup
         autocmd!
+        autocmd CompleteDone * :redraw
+        autocmd InsertLeave * :autocmd! CompleteDone
         autocmd BufEnter * :syntax sync fromstart
     augroup END
 endif
 
 " }}}
-
