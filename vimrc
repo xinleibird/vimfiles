@@ -74,8 +74,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 if has("gui_running")
     set guifont=Monaco\ 10
-    " set guifontwide=Hiragino\ Sans\ GB\ 10
-    " set guifontwide=微软雅黑\ 9
 endif
 
 " Color scheme
@@ -493,19 +491,6 @@ endfunctio
 
 " }}}
 
-
-
-" Highlighting {{{
-" ============
-
-" Highlight terminal vim colorcolumn
-" ---------------------
-
-if !has("gui_running")
-    highlight ColorColumn ctermbg=236
-endif
-
-" }}}
 
 
 " Auto Group {{{
