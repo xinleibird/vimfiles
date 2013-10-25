@@ -118,12 +118,15 @@ then
 #     . /home/xinlei/.vim/dotfile/toggleproxy.sh
 fi
 
+# PATH ============================
+
 # Add /opt/bin to PATH
 export PATH="/opt/bin:$PATH"
 
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# ENV ============================
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -139,6 +142,7 @@ export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
+# Git prompt ====================
 . ~/.bash_aliases
 
 # Add visual env
