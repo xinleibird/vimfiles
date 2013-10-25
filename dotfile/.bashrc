@@ -44,12 +44,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -62,11 +62,11 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -106,6 +106,21 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# gvim bash or vim powerline
+if [ "$VIM" ] && [ "$TERM" = "dumb" ]
+then
+    # For gvim's monochromatic :shell
+    #PS1='\n\u@\h \w\n\$ '
+    PS1='\u@\h \w\$ '
+    unalias ls
+    unalias grep
+# else
+#     . /home/xinlei/.vim/dotfile/toggleproxy.sh
+fi
+
+# Add /opt/bin to PATH
+export PATH="/opt/bin:$PATH"
+
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -124,18 +139,7 @@ export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
-# gvim bash or vim powerline
-if [ "$VIM" ] && [ "$TERM" = "dumb" ]
-then
-    # For gvim's monochromatic :shell
-    #PS1='\n\u@\h \w\n\$ '
-    PS1='\u@\h \w\$ '
-    unalias ls
-    unalias grep
-else
-    . /home/xinlei/.vim/dotfile/toggleproxy.sh
-    . /home/xinlei/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-fi
+. ~/.bash_aliases
 
 # Add visual env
 #alias sudo='sudo env PATH=$PATH'
