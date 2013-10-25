@@ -9,10 +9,14 @@
 " Basics
 " ------
 
-set nocompatible                        " Must be first line
+set nocompatible                        " NO compatible vi
 
-if v:progname=~?"evim" || $USER=="root"
+if v:progname=~?($USER=="root")
     set runtimepath+=/home/xinlei/.vim
+endif
+
+if v:progname=~?"evim"
+    finish
 endif
 
 " Setup pathogen support

@@ -147,3 +147,7 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
 # Add visual env
 #alias sudo='sudo env PATH=$PATH'
+
+export http_proxy=127.0.0.1:8087
+export https_proxy=127.0.0.1:8087
+export ftp_proxy=127.0.0.1:8087
