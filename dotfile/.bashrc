@@ -148,6 +148,19 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 # Add visual env
 #alias sudo='sudo env PATH=$PATH'
 
-export http_proxy=127.0.0.1:8087
-export https_proxy=127.0.0.1:8087
-export ftp_proxy=127.0.0.1:8087
+export http_proxy=http://127.0.0.1:8087
+export https_proxy=https://127.0.0.1:8087
+export ftp_proxy=ftp://127.0.0.1:8087
+
+proxied_git () 
+( 
+    export GIT_PROXY_COMMAND=/tmp/gitproxy;
+
+    cat  > $GIT_PROXY_COMMAND <<EOF
+#!/bin/bash
+/usr/bin/socat - PROXY:172.25.149.2:\$1:\$2,proxyport=3128
+EOF
+    chmod +x $GIT_PROXY_COMMAND;
+
+    git "$@"
+)
