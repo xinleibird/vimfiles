@@ -1,27 +1,28 @@
 [core]
-	excludesfile = /home/xinlei/.gitignoreglobal
-	sslVerify = false
-	gitproxy = git2http
+    excludesfile = /home/xinlei/.gitignoreglobal
+    sslVerify = false
+[http]
+    proxy = http://192.168.1.100:8087
 [user]
-	name = xinleibird
-	email = xinleibird@gmail.com
+    name = xinleibird
+    email = xinleibird@gmail.com
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+    branch = auto
+    diff = auto
+    status = auto
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
