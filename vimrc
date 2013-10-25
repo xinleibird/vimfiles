@@ -78,6 +78,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 if has("gui_running")
     set guifont=Monaco\ 10
+    " set guifont=Envy\ Code\ R\ 11
+    " set guifontwide=Hiragino\ Sans\ GB\ 10
+    " set guifontwide=微软雅黑\ 9
+    " set guifontwide=明兰\ 9
+    " set guifontwide=文泉驿等宽微米黑\ 10
 endif
 
 " Color scheme
@@ -93,12 +98,14 @@ endif
 " endif
 " colorscheme molokai
 
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
 syntax enable
 set background=light
-if !has('gui_running')
-    set t_Co=256
-    let g:solarized_termcolors=256
-endif
+let g:solarized_hitrail=1
+let g:solarized_menu=0
 colorscheme solarized
 
 " syntax enable
@@ -526,12 +533,9 @@ endif
 if has("autocmd")
     augroup filetypeGroup
         autocmd!
-        " autocmd FileType java setlocal
-        "             \ equalprg=astyle
-        "             \\ -A2s4CSLwYm2M78pHUyjcxyxC78\ --mode=java
         autocmd FileType java setlocal
                     \ equalprg=astyle
-                    \\ -A2s4CSLwYm2pHUxeyjcxy\ --mode=java
+                    \\ -A2s4CSLwYm2pHUyjcxy\ --mode=java
         autocmd FileType java
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
@@ -571,3 +575,5 @@ if has("autocmd")
 endif
 
 " }}}
+
+let g:solarized_visibility=1

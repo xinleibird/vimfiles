@@ -142,6 +142,7 @@ export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
+# export TERM="xterm-256color"
 # Git prompt ====================
 . ~/.bash_aliases
 
