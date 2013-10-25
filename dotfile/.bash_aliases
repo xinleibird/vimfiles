@@ -92,14 +92,14 @@ User="\u"
 # This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
 
-export PS1=$IBlack$User$Color_Off'$(git branch &>/dev/null;
+export PS1=$Green$User$Color_Off'$(git branch &>/dev/null;
 if [ $? -eq 0 ]; then
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
     if [ "$?" -eq "0" ]; then
         echo "'$Green'"$(__git_ps1 " (%s)");
     else
         echo "'$IRed'"$(__git_ps1 " {%s}");
-    fi) '$BYellow$PathShort$Color_Off' \$ ";
+    fi) '$Cyan$PathShort$Color_Off' \$ ";
 else
     echo " '$Yellow$PathShort$Color_Off' \$ ";
 fi)'
