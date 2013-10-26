@@ -99,27 +99,18 @@ endif
 " colorscheme molokai
 
 if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
+    set t_Co=256
 endif
-
 syntax enable
-set background=light
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 let g:solarized_hitrail=1
 let g:solarized_menu=0
 colorscheme solarized
 
-" syntax enable
-" if has("gui_running")
-"     set background=light
-"     colorscheme solarized
-" else
-"     set background=dark
-"     set t_Co=256
-"     let g:rehash256 = 1
-"     colorscheme molokai
-" endif
-
-" colorscheme molokai
 " No menu, no scroll bar
 " ----------------------
 
@@ -431,6 +422,8 @@ function! ToggleEclimProjectsTree()
         :ProjectsTree
         if &ft == 'tree'
             let s:tree_loaded = 1
+        else
+            echo "Please run the 'eclimd' first and then confirm the project is created already!"
         endif
     else
         call eclim#project#tree#ProjectTreeClose()
@@ -462,23 +455,14 @@ endif
 " Remove trailing whitespace
 " --------------------------
 
-" function RemoveTrailingWhitespace()
-"     if &filetype == "java" ||
-"                 \ &filetype == "python" ||
-"                 \ &filetype == "vim" ||
-"                 \ &filetype == "c" ||
-"                 \ &filetype == "cpp" ||
-"                 \ &filetype == "ruby" ||
-"                 \ &filetype == "txt" ||
-"         let b:curcol = col(".")
-"         let b:curline = line(".")
-"         silent! %s/\s\+$//
-"         silent! %s/\(\s*\n\)\+\%$//
-"         call cursor(b:curline, b:curcol)
-"     endif
-" endfunc
-"autocmd BufWritePre *
-"\ call RemoveTrailingWhitespace()
+function RemoveTrailingWhitespace()
+    let b:curcol = col(".")
+    let b:curline = line(".")
+    silent! %s/\s\+$//
+    silent! %s/\(\s*\n\)\+\%$//
+    call cursor(b:curline, b:curcol)
+endfunc
+noremap <silent> <leader><leader>= :call RemoveTrailingWhitespace()<CR>
 
 " | and Tabular
 " -------------
@@ -577,3 +561,7 @@ endif
 " }}}
 
 let g:solarized_visibility=1
+
+
+:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
+:nnoremap <C-p><C-r> :Rst<CR>
