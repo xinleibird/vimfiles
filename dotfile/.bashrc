@@ -127,27 +127,37 @@ export PATH="/opt/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ENV ============================
-# Pyenv
+
+# Nvm
+source ~/.nvm/nvm.sh
+
+# PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Rbenv
+# RbEnv
 export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 
-# LLVM and clang
+# LLVM and Clang
 export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
-export TERM="xterm-256color"
+
+# ENV ============================
+
+# Bash solarized
 eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 # Git prompt ====================
 
 . ~/.bash_aliases
+
+
+
 
 # Add visual env
 #alias sudo='sudo env PATH=$PATH'
@@ -155,16 +165,3 @@ eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 # export http_proxy='http://localhost:8087/'
 # export https_proxy='https://localhost:8087/'
 # export ftp_proxy='http://localhost:8087/'
-
-# proxied_git () 
-# ( 
-#     export GIT_PROXY_COMMAND=/tmp/gitproxy;
-
-#     cat  > $GIT_PROXY_COMMAND <<EOF
-# #!/bin/bash
-# /usr/bin/socat - PROXY:172.25.149.2:\$1:\$2,proxyport=3128
-# EOF
-#     chmod +x $GIT_PROXY_COMMAND;
-
-#     git "$@"
-# )

@@ -296,6 +296,12 @@ let g:EclimLoclistSignText = '✗'
 let g:EclimUserSignText = '✍'
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = "Question"
+let g:EclimProjectTreeActions = [
+            \ {'pattern': '.*', 'name': 'Edit', 'action': 'edit'},
+            \ {'pattern': '.*', 'name': 'Split', 'action': 'split'},
+            \ {'pattern': '.*', 'name': 'VSplit', 'action': 'vsplit'},
+            \ {'pattern': '.*', 'name': 'Tab', 'action': 'tablast | tabnew'}
+            \ ]
 
 " CtrlP
 "-----
@@ -467,7 +473,6 @@ noremap <silent> <leader><leader>= :call RemoveTrailingWhitespace()<CR>
 " | and Tabular
 " -------------
 
-inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
     if exists(':Tabularize') && getline('.') =~# '^\s*|' &&
@@ -483,6 +488,7 @@ function! s:align()
                     \.repeat('.',position),'ce',line('.'))
     endif
 endfunctio
+inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 " }}}
 
@@ -560,8 +566,3 @@ endif
 
 " }}}
 
-let g:solarized_visibility=1
-
-
-:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
-:nnoremap <C-p><C-r> :Rst<CR>

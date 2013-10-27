@@ -1,6 +1,7 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
     sslVerify = false
+    gitproxy = git2http
 [http]
     proxy = http://127.0.0.1:8087
 [user]
