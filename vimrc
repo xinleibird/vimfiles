@@ -1,7 +1,7 @@
 " MIT License. Copyright (c) 2013 Xin Lei. <xinleibird@gmail.com>
 " vim: et ts=4 sts=4 sw=4
 
-
+" finish
 
 " Environment {{{
 " ===========
@@ -560,7 +560,7 @@ if has("autocmd")
         autocmd!
         autocmd CompleteDone * :redraw
         autocmd InsertLeave * :autocmd! CompleteDone
-        autocmd BufEnter * :syntax sync fromstart
+        " autocmd BufEnter * :syntax sync minline=256
     augroup END
 endif
 

@@ -131,12 +131,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # Nvm
 source ~/.nvm/nvm.sh
 
-# PyEnv
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# RbEnv
+# Rbenv
 export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
@@ -156,12 +156,7 @@ eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 . ~/.bash_aliases
 
+# Http proxy ====================
 
+export http_proxy='http://localhost:8087/'
 
-
-# Add visual env
-#alias sudo='sudo env PATH=$PATH'
-
-# export http_proxy='http://localhost:8087/'
-# export https_proxy='https://localhost:8087/'
-# export ftp_proxy='http://localhost:8087/'
