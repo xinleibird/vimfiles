@@ -194,7 +194,7 @@ set listchars=tab:‣-,extends:»,precedes:«
 
 
 
-" Plugins global setting {{{
+" Plug-in global setting {{{
 " ======================
 
 " YouCompleteMe setting
@@ -286,6 +286,7 @@ if executable('marktag')
                 \ }
                 \ }
 endif
+
 
 " Eclim
 " -----
