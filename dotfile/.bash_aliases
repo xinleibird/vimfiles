@@ -9,10 +9,6 @@
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
 
-# Gvim no ANSI
-GNo=""        # NOColor
-GNoOff=""        # NOColor
-
 # Regular Colors
 Black="\[\033[0;30m\]"        # Black
 Red="\[\033[0;31m\]"          # Red

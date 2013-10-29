@@ -134,8 +134,9 @@ source ~/.nvm/nvm.sh
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export LD_LIBRARY_PATH="$PYENV_ROOT/versions/2.7.5/lib:$LD_LIBRARY_PATH"
 eval "$(pyenv init -)"
+export LD_LIBRARY_PATH="$PYENV_ROOT/versions/2.7.5/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$PYENV_ROOT/versions/3.3.2/lib:$LD_LIBRARY_PATH"
 
 # Rbenv
 export RBENV_ROOT="$HOME/.rbenv"
