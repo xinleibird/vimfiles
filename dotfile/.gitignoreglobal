@@ -1,3 +1,6 @@
 tags
 tags-cn
 *.pyc
+*.class
+.ruby-version
+.python-version
