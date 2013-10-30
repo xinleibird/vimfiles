@@ -560,7 +560,7 @@ if has("autocmd")
         autocmd!
         autocmd CompleteDone * :redraw
         autocmd InsertLeave * :autocmd! CompleteDone
-        " autocmd BufEnter * :syntax sync minline=256
+        autocmd BufEnter * :syntax sync minlines=256
     augroup END
 endif
 
