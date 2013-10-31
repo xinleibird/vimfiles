@@ -101,11 +101,11 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 syntax enable
-if has('gui_running')
+" if has('gui_running')
     set background=light
-else
-    set background=dark
-endif
+" else
+    " set background=dark
+" endif
 let g:solarized_hitrail=1
 let g:solarized_menu=0
 colorscheme solarized

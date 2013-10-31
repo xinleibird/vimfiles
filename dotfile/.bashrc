@@ -107,14 +107,40 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+# Bash solarized ==================
+
+# Various variables you might want for your PS1 prompt instead
+PS_Path="\w"
+PS_User="\u"
+
+Color_Off="\[\033[0m\]"         # Text Reset
+Color_Black="\[\033[0;30m\]"    # Black
+Color_Green="\[\033[0;32m\]"    # Green
+Color_Red="\[\033[0;91m\]"      # IRed
+Color_Cyan="\[\033[0;36m\]"     # Cyan
+Color_Yellow="\[\033[0;33m\]"   # Yellow
+
+# PS1 
 if [ "$TERM" == "dumb" ]; then
     export PS1='\u@\h \W \$ '
     unalias ls
     unalias grep
 else
-    . ~/.bash_aliases
+    export PS1=$Color_Black$PS_User$Color_Off'$(git branch &>/dev/null;
+    if [ $? -eq 0 ]; then
+        echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
+        if [ "$?" -eq "0" ]; then
+            echo "'$Color_Green'"$(__git_ps1 " (%s)");
+        else
+            echo "'$Color_Red'"$(__git_ps1 " {%s}");
+        fi) '$Color_Cyan$PS_Path$Color_Off' \$ ";
+    else
+        echo " '$Color_Yellow$PS_Path$Color_Off' \$ ";
+    fi)'
 fi
 
+# Solarized gnome-terminal
+eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 
 # PATH ============================
@@ -150,8 +176,6 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
 # ENV ============================
 
-# Bash solarized
-eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 
 # Http proxy ====================
