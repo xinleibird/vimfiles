@@ -107,7 +107,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-# Bash solarized ==================
+# ===============================
+# Bash solarized ================
 
 # Various variables you might want for your PS1 prompt instead
 PS_Path="\w"
@@ -143,7 +144,8 @@ fi
 eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 
-# PATH ============================
+# ===============================
+# PATH ==========================
 
 # Add /opt/bin to PATH
 export PATH="/opt/bin:$PATH"
@@ -151,7 +153,8 @@ export PATH="/opt/bin:$PATH"
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# ENV ============================
+# ===============================
+# ENV ===========================
 
 # Nvm
 source ~/.nvm/nvm.sh
@@ -160,6 +163,7 @@ source ~/.nvm/nvm.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# LD Path
 export LD_LIBRARY_PATH="$PYENV_ROOT/versions/2.7.5/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="$PYENV_ROOT/versions/3.3.2/lib:$LD_LIBRARY_PATH"
 
@@ -173,11 +177,7 @@ export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
-
-# ENV ============================
-
-
-
+# ===============================
 # Http proxy ====================
 
 export http_proxy='http://localhost:8087/'
