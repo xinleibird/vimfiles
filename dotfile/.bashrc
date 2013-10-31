@@ -135,7 +135,7 @@ else
             echo "'$Color_Red'"$(__git_ps1 " {%s}");
         fi) '$Color_Cyan$PS_Path$Color_Off' \$ ";
     else
-        echo " '$Color_Yellow$PS_Path$Color_Off' \$ ";
+        echo " '$Color_Yellow$PS_Path$Color_Off''$Color_Black' \$ '$Color_Off'";
     fi)'
 fi
 
