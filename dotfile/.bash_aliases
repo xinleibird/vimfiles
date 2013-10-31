@@ -12,7 +12,7 @@ Color_Off="\[\033[0m\]"       # Text Reset
 # Regular Colors
 Black="\[\033[0;30m\]"        # Black
 Red="\[\033[0;31m\]"          # Red
-Green="\[\033[0;32m\]"        # Green
+Green="\[\033[0;32m\]"        # Red
 Yellow="\[\033[0;33m\]"       # Yellow
 Blue="\[\033[0;34m\]"         # Blue
 Purple="\[\033[0;35m\]"       # Purple
@@ -88,24 +88,8 @@ NewLine="\n"
 Jobs="\j"
 User="\u"
 
-
 # This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
-
-# export PS1=$Green$User$Color_Off'$(git branch &>/dev/null;
-# if [ $? -eq 0 ]; then
-#     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
-#     if [ "$?" -eq "0" ]; then
-#         echo "'$Green'"$(__git_ps1 " (%s)");
-#     else
-#         echo "'$IRed'"$(__git_ps1 " {%s}");
-#     fi) '$Cyan$PathShort$Color_Off' \$ ";
-# else
-#     echo " '$Yellow$PathShort$Color_Off' \$ ";
-# fi)'
-
-
-# Gvim shell
 export PS1=$Green$User$Color_Off'$(git branch &>/dev/null;
 if [ $? -eq 0 ]; then
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
@@ -117,4 +101,3 @@ if [ $? -eq 0 ]; then
 else
     echo " '$Yellow$PathShort$Color_Off' \$ ";
 fi)'
-if [ "$TERM" == "dumb" ]; then export PS1='\u@\h \W \$ '; fi

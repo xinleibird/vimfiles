@@ -106,17 +106,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# gvim bash or vim powerline
-if [ "$VIM" ] && [ "$TERM" = "dumb" ]
-then
-    # For gvim's monochromatic :shell
-    #PS1='\n\u@\h \w\n\$ '
-    PS1='\u@\h \w\$ '
+
+if [ "$TERM" == "dumb" ]; then
+    export PS1='\u@\h \W \$ '
     unalias ls
     unalias grep
-# else
-#     . /home/xinlei/.vim/dotfile/toggleproxy.sh
+else
+    . ~/.bash_aliases
 fi
+
+
 
 # PATH ============================
 
@@ -154,9 +153,6 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 # Bash solarized
 eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
-# Git prompt ====================
-
-. ~/.bash_aliases
 
 # Http proxy ====================
 
