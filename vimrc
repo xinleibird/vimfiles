@@ -558,8 +558,6 @@ endif
 if has("autocmd")
     augroup performanceGroup
         autocmd!
-        autocmd CompleteDone * :redraw
-        autocmd InsertLeave * :autocmd! CompleteDone
         autocmd BufEnter * :syntax sync minlines=256
     augroup END
 endif
