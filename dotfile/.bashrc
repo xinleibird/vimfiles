@@ -121,7 +121,7 @@ Color_Red="\[\033[0;91m\]"      # IRed
 Color_Cyan="\[\033[0;36m\]"     # Cyan
 Color_Yellow="\[\033[0;33m\]"   # Yellow
 
-# PS1 
+# PS1
 if [ "$TERM" == "dumb" ]; then
     export PS1='\u@\h \W \$ '
     unalias ls
@@ -181,5 +181,3 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 # Http proxy ====================
 
 # export http_proxy='http://localhost:8087/'
-
-
