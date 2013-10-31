@@ -180,6 +180,6 @@ export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 # ===============================
 # Http proxy ====================
 
-export http_proxy='http://localhost:8087/'
+# export http_proxy='http://localhost:8087/'
 
 
