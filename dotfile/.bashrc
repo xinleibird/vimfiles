@@ -163,7 +163,6 @@ source ~/.nvm/nvm.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-# LD Path
 export LD_LIBRARY_PATH="$PYENV_ROOT/versions/2.7.5/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="$PYENV_ROOT/versions/3.3.2/lib:$LD_LIBRARY_PATH"
 
