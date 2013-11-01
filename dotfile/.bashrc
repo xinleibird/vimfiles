@@ -106,7 +106,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
 # ===============================
 # Bash solarized ================
 
@@ -140,7 +139,8 @@ else
     fi)'
 fi
 
-# Solarized gnome-terminal
+# ===============================
+# Solarized gnome-terminal ======
 eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
 
