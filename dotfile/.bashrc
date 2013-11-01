@@ -112,7 +112,7 @@ fi
 
 # Various variables you might want for your PS1 prompt instead
 PS_Path="\w"
-PS_User="\u"
+PS_User="♜ \u"
 
 Color_Off="\[\033[0m\]"         # Text Reset
 Color_Black="\[\033[0;30m\]"    # Black
@@ -176,8 +176,3 @@ eval "$(rbenv init -)"
 export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
-
-# ===============================
-# Http proxy ====================
-
-# export http_proxy='http://localhost:8087/'
