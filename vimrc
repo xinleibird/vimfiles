@@ -378,9 +378,6 @@ imap <expr> <C-L> pumvisible()
             \ ? "\<C-Y><Plug>delimitMateS-Tab"
             \ : "<Plug>delimitMateS-Tab"
 
-" UltiSnips mapping
-" -----------------
-
 " }}}
 
 
