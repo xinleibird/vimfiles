@@ -1,5 +1,5 @@
 # workspace
-osgi.instance.area.default=@user.home/workspace/eclim
+osgi.instance.area.default=@user.home/workspace
 
 # increase heap size
 -Xmx256M

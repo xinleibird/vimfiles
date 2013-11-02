@@ -200,8 +200,8 @@ set listchars=tab:‣-,extends:»,precedes:«
 " YouCompleteMe setting
 " ---------------------
 
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -377,6 +377,10 @@ imap <expr> <C-H> pumvisible()
 imap <expr> <C-L> pumvisible()
             \ ? "\<C-Y><Plug>delimitMateS-Tab"
             \ : "<Plug>delimitMateS-Tab"
+
+" UltiSnips mapping
+" -----------------
+
 " }}}
 
 
