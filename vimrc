@@ -79,7 +79,7 @@ if has("gui_running")
     set guifont=Monaco\ 10
     " set guifont=Envy\ Code\ R\ 11
     " set guifontwide=Hiragino\ Sans\ GB\ 10
-    " set guifontwide=微软雅黑\ 9
+    " set guifontwide=微软雅黑\ 10
     " set guifontwide=明兰\ 9
     " set guifontwide=文泉驿等宽微米黑\ 10
 endif
@@ -535,7 +535,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,cfg,cmake,gitconfig,gtkrc setlocal commentstring=#\ %s
+        autocmd FileType apache,cfg,cmake,desktop,gitconfig,gtkrc setlocal commentstring=#\ %s
     augroup END
 endif
 

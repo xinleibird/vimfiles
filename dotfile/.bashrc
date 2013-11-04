@@ -157,7 +157,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # ENV ===========================
 
 # Nvm
-source ~/.nvm/nvm.sh
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
