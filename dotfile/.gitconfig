@@ -2,7 +2,6 @@
     excludesfile = /home/xinlei/.gitignoreglobal
     gitproxy = /home/xinlei/.local/bin/git2http
     sslVerify = false
-    # gitproxy = /home/xinlei/.local/bin/goagent-wrapper
 [http]
     proxy = http://127.0.0.1:8087
 [user]

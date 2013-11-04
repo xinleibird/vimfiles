@@ -1,7 +1,12 @@
 [alias]
-pull = pull --insecure
-push = push --insecure
-clone = clone --insecure
+# pull = pull --insecure
+# push = push --insecure
+# clone = clone --insecure
 [web]
-# cacerts = /usr/local/share/ca-certificates/GoAgent.crt
+# cacerts = /usr/share/ca-certificates/GoAgent.crt
 # cacerts = /etc/ssl/certs/ca-certificates.crt
+
+[http_proxy]
+host = 127.0.0.1:8087
+user =
+passwd =
