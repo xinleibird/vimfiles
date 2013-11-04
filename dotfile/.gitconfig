@@ -1,5 +1,6 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
+    gitproxy = \"connect -H 192.168.1.100:8087 '$@'\" for example.com
     # sslVerify = false
     # gitproxy = /home/xinlei/.local/bin/goagent-wrapper
 [http]
