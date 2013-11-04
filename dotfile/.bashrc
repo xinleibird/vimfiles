@@ -177,5 +177,5 @@ export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
 
-export GIT_PROXY_COMMAND="goagent-ssh"
-export GIT_SSH="goagent-ssh"
+# export GIT_PROXY_COMMAND="goagent-ssh"
+# export GIT_SSH="goagent-ssh"

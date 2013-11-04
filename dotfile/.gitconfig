@@ -1,8 +1,8 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
-    # gitproxy = \"connect -H 192.168.1.100:8087 '$@'\" for github.com
-    # sslVerify = false
-    gitproxy = /home/xinlei/.local/bin/goagent-wrapper
+    gitproxy = /home/xinlei/.local/bin/git2http
+    sslVerify = false
+    # gitproxy = /home/xinlei/.local/bin/goagent-wrapper
 [http]
     proxy = http://127.0.0.1:8087
 [user]
