@@ -1,6 +1,6 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
-    # gitproxy = /home/xinlei/.vim/dotfile/.local/bin/connect-wrapper
+    gitproxy = /home/xinlei/.vim/dotfile/.local/bin/connect-wrapper
     # sslVerify = false
 [http]
     # proxy = http://127.0.0.1:8087
