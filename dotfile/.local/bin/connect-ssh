@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh -o ProxyCommand="/home/xinlei/.vim/dotfile/.local/bin/goagent-wrapper %h %p" "$@"

@@ -1,0 +1,3 @@
+#!/bin/sh
+# connect -H 127.0.0.1:8087 "$@"
+exec /usr/bin/connect-proxy -S 127.0.0.1:7070 "$@"
