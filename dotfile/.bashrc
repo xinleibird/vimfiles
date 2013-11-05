@@ -176,6 +176,5 @@ export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
 
-
-export GIT_PROXY_COMMAND="/home/xinlei/.vim/dotfile/.local/bin/connect-ssh"
+export GIT_PROXY_COMMAND="/home/xinlei/.vim/dotfile/.local/bin/connect-wrapper"
 export GIT_SSH="/home/xinlei/.vim/dotfile/.local/bin/connect-ssh"
