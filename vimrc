@@ -77,11 +77,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 if has("gui_running")
     set guifont=Monaco\ 10
-    " set guifont=Envy\ Code\ R\ 11
-    " set guifontwide=Hiragino\ Sans\ GB\ 10
-    " set guifontwide=微软雅黑\ 10
-    " set guifontwide=明兰\ 9
-    " set guifontwide=文泉驿等宽微米黑\ 10
 endif
 
 " Color scheme
@@ -102,9 +97,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 syntax enable
 " if has('gui_running')
-    set background=light
+set background=light
 " else
-    " set background=dark
+" set background=dark
 " endif
 let g:solarized_hitrail=1
 let g:solarized_menu=0
@@ -323,6 +318,15 @@ let delimitMate_expand_cr = 1
 " let delimitMate_expand_space = 1
 " let delimitMate_jump_expansion = 1
 
+" UltiSnips
+" ---------
+" let g:UltiSnipsSnippetsDir = $HOME . '/dotfiles/vim/UltiSnips'
+let g:UltiSnipsListSnippets = "<C-F>"
+let g:UltiSnipsExpandTrigger = "<C-J>"
+let g:UltiSnipsJumpForwardTrigger = "<C-J>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
+let g:snips_author = 'Xin Lei'
+
 " }}}
 
 
@@ -456,7 +460,7 @@ endfunction
 if has("autocmd") && !exists("loaded_append_brackets")
     let loaded_append_brackets = 1
     autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
-                \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
+                \ inoremap <buffer> <C-A> <C-R>=AppendBrackets()<CR>
 endif
 
 " Remove trailing whitespace
