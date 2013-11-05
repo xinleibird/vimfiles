@@ -4,7 +4,7 @@
     # sslVerify = false
 [http]
     # proxy = http://127.0.0.1:8087
-    proxy = socket5://127.0.0.1:7070
+    proxy = socks5://127.0.0.1:7070
 [user]
     name = xinleibird
     email = xinleibird@gmail.com
