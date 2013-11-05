@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -o ProxyCommand="/home/xinlei/.local/bin/goagent-wrapper %h %p" "$@"
