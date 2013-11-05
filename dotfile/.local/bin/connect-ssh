@@ -1,2 +1,2 @@
 #!/bin/sh
-ssh -o ProxyCommand="/home/xinlei/.local/bin/goagent-wrapper %h %p" "$@"
+ssh -o ProxyCommand="/home/xinlei/.vim/dotfile/.local/bin/goagent-wrapper %h %p" "$@"
