@@ -147,9 +147,6 @@ eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 # ===============================
 # PATH ==========================
 
-# Add /opt/bin to PATH
-export PATH="/opt/bin:$PATH"
-
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
