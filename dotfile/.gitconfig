@@ -1,8 +1,6 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
     # gitproxy = /home/xinlei/.connect/connect-wrapper-socks
-    gitproxy = /home/xinlei/.connect/connect-wrapper-http
-    # sslVerify = false
 [http]
     proxy = http://127.0.0.1:8087
     # proxy = socks5://127.0.0.1:7070
