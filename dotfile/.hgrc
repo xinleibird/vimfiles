@@ -7,6 +7,6 @@
 # cacerts = /etc/ssl/certs/ca-certificates.crt
 
 [http_proxy]
-host = 127.0.0.1:8087
-user =
-passwd =
+# host = socks5://127.0.0.1:7070
+# user =
+# passwd =
