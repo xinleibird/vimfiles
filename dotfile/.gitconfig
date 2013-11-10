@@ -1,6 +1,7 @@
 [core]
     excludesfile = /home/xinlei/.gitignoreglobal
     gitproxy = /home/xinlei/.connect/connect-wrapper-socks
+	editor = vim
 [http]
     proxy = socks5://127.0.0.1:7070
 [user]
