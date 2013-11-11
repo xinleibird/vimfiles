@@ -143,7 +143,6 @@ fi
 # Solarized gnome-terminal ======
 eval `dircolors /home/xinlei/.ls-colors-solarized/dircolors`
 
-
 # ===============================
 # PATH ==========================
 
