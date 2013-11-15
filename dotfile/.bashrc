@@ -171,3 +171,7 @@ eval "$(rbenv init -)"
 export LLVM_ROOT="/opt/llvm"
 export PATH="$LLVM_ROOT/bin:$PATH"
 export LD_LIBRARY_PATH="$LLVM_ROOT/lib:$LD_LIBRARY_PATH"
+
+
+# Add jdk
+export PATH="/opt/jdk/bin:$PATH"
