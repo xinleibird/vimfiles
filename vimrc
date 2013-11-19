@@ -315,17 +315,6 @@ let g:ctrlp_root_markers = ['.project']
 
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
-" let delimitMate_expand_space = 1
-" let delimitMate_jump_expansion = 1
-
-" UltiSnips
-" ---------
-" let g:UltiSnipsSnippetsDir = $HOME . '/dotfiles/vim/UltiSnips'
-let g:UltiSnipsListSnippets = "<C-F>"
-let g:UltiSnipsExpandTrigger = "<C-J>"
-let g:UltiSnipsJumpForwardTrigger = "<C-J>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
-let g:snips_author = 'Xin Lei'
 
 " }}}
 
