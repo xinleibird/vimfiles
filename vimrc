@@ -449,7 +449,7 @@ endfunction
 if has("autocmd") && !exists("loaded_append_brackets")
     let loaded_append_brackets = 1
     autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
-                \ inoremap <buffer> <C-A> <C-R>=AppendBrackets()<CR>
+                \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
 endif
 
 " Remove trailing whitespace
