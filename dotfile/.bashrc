@@ -150,7 +150,7 @@ else if [ "$TERM" == "xterm" ]; then
 fi
 fi
 
-if [ "$TERM" == "linux" ]; then
+if [ "$TERM" == "linux" ] && [ !-e $SSH_TTY ]; then
     export LANGUAGE=en_US.UTF-8
 fi
 
