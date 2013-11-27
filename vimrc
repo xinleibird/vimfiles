@@ -14,7 +14,7 @@ if v:progname=~?($USER=="root")
     set runtimepath+=/home/xinlei/.vim
 endif
 
-if v:progname=~?"evim"
+if v:progname=~?"evim" || $TERM=~?"linux"
     finish
 endif
 
