@@ -553,7 +553,7 @@ endif
 if has("autocmd")
     augroup performanceGroup
         autocmd!
-        autocmd BufEnter * :syntax sync minlines=256
+        autocmd BufEnter * :syntax sync minlines=128
     augroup END
 endif
 
