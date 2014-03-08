@@ -92,9 +92,9 @@ endif
 " endif
 " colorscheme molokai
 
-if $COLORTERM == 'gnome-terminal'
+" if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-endif
+" endif
 syntax enable
 if $TERM == 'linux'
     set background=dark
