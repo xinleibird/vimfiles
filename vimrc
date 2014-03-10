@@ -54,7 +54,7 @@ if has('mouse')
 endif
 
 set history=1000                        " history
-set nobackup                            " nobackup
+set backupdir=/home/xinlei/.backfile
 set backspace=indent,eol,start          " backspace delete
 set ruler                               " ruler
 set number                              " line number
@@ -77,6 +77,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 if has("gui_running")
     set guifont=Monaco\ 10
+    set guifontwide=微软雅黑\ 10
 endif
 
 " Color scheme
@@ -92,9 +93,9 @@ endif
 " endif
 " colorscheme molokai
 
-" if $COLORTERM == 'gnome-terminal'
+if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-" endif
+endif
 syntax enable
 if $TERM == 'linux'
     set background=dark
