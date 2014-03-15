@@ -319,6 +319,16 @@ let g:ctrlp_root_markers = ['.project']
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 
+" QuickRun
+" --------
+
+let g:quickrun_config = {
+            \ 'markdown': {
+            \ 'type': 'markdown/gfm',
+            \ 'outputter': 'browser'
+            \ }
+            \ }
+
 " }}}
 
 
@@ -556,7 +566,7 @@ endif
 if has("autocmd")
     augroup performanceGroup
         autocmd!
-        autocmd BufEnter * :syntax sync minlines=128
+        autocmd BufEnter * :syntax sync minlines=2000 maxlines=4000
     augroup END
 endif
 
