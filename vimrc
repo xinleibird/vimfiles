@@ -122,7 +122,7 @@ endif
 " ---------------
 
 if has("gui_running")
-    set columns=82
+    set columns=85
 endif
 
 " }}}
@@ -510,7 +510,7 @@ if has("autocmd")
                     \ &filetype == "txt" ||
                     \ &filetype == "markdown" ||
                     \ &filetype == "rst"
-                    \ | setlocal colorcolumn=79 | endif
+                    \ | setlocal colorcolumn=81 | endif
     augroup END
 endif
 
@@ -527,7 +527,7 @@ if has("autocmd")
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
                     \ equalprg=astyle
-                    \\ -A1s4CSNLwYm2M78pHUk3W3yjcxyxC78\ --mode=c
+                    \\ -A1s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
