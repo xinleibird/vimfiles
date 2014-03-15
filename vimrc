@@ -236,21 +236,12 @@ let python_highlight_all = 1
 let python_space_error_highlight = 0
 let b:python_version_2 = 1
 
-" Rst2Ctags
-" ---------
-
-if executable("rst2ctags")
-    let g:rst2ctags = 'rst2ctags'
-else
-    let g:rst2ctags = '/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py'
-endif
-
 " Tagbar setting
 " --------------
 
 let g:tagbar_type_rst = {
             \ 'ctagstype': 'rst',
-            \ 'ctagsbin' : g:rst2ctags,
+            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py',
             \ 'ctagsargs' : '-f - --sort=yes',
             \ 'kinds' : [
             \ 's:sections',
@@ -260,28 +251,40 @@ let g:tagbar_type_rst = {
             \ 'kind2scope' : {
             \ 's' : 'section',
             \ },
+            \ 'sort': 0,
             \ }
 
-" Marktag
-" -------
+" Markdown2Ctags
+" --------------
 
-if executable('marktag')
-    let g:tagbar_type_markdown = {
-                \ 'ctagstype' : 'markdown',
-                \ 'ctagsbin' : 'marktag',
-                \ 'kinds' : [
-                \ 'h:header'
-                \ ],
-                \ 'sro' : '.',
-                \ 'kind2scope' : {
-                \ 'h' : 'header'
-                \  },
-                \ 'scope2kind' : {
-                \ 'header' : 'h'
-                \ }
-                \ }
-endif
+let g:tagbar_type_markdown = {
+            \ 'ctagstype': 'markdown',
+            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/markdown2ctags/markdown2ctags.py',
+            \ 'ctagsargs' : '-f - --sort=yes',
+            \ 'kinds' : [
+            \ 's:sections',
+            \ 'i:images'
+            \ ],
+            \ 'sro' : '|',
+            \ 'kind2scope' : {
+            \ 's' : 'section',
+            \ },
+            \ 'sort': 0,
+            \ }
 
+" Ruby
+" ----
+
+let g:tagbar_type_ruby = {
+            \ 'kinds' : [
+            \ 'm:modules',
+            \ 'c:classes',
+            \ 'd:describes',
+            \ 'C:contexts',
+            \ 'f:methods',
+            \ 'F:singleton methods'
+            \ ]
+            \ }
 
 " Eclim
 " -----
