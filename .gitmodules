@@ -70,15 +70,3 @@
 [submodule "bundle/markdown2ctags"]
 	path = bundle/markdown2ctags
 	url = https://github.com/jszakmeister/markdown2ctags.git
-[submodule "bundle/vim-quickrun"]
-	path = bundle/vim-quickrun
-	url = https://github.com/thinca/vim-quickrun.git
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = https://github.com/mattn/webapi-vim.git
-[submodule "bundle/open-browser"]
-	path = bundle/open-browser
-	url = https://github.com/tyru/open-browser.vim.git
-[submodule "bundle/vim-quickrun-markdown-gfm"]
-	path = bundle/vim-quickrun-markdown-gfm
-	url = https://github.com/superbrothers/vim-quickrun-markdown-gfm.git
