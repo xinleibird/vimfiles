@@ -493,6 +493,18 @@ function! s:align()
 endfunctio
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
+" Gollum auto commit
+" ------------------
+
+function! AutoCommitGollum()
+    :w
+    :cd %:h
+    !git add -A && git commit -m 'update' --amend
+    :redraw
+endfunction
+
+:command! Gollum :call AutoCommitGollum()
+
 " }}}
 
 
@@ -565,5 +577,6 @@ if has("autocmd")
         autocmd BufEnter * :syntax sync minlines=2048 maxlines=4096
     augroup END
 endif
+
 
 " }}}
