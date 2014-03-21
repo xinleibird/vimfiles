@@ -315,16 +315,6 @@ let g:ctrlp_root_markers = ['.project']
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 
-" QuickRun
-" --------
-
-let g:quickrun_config = {
-            \ 'markdown': {
-            \ 'type': 'markdown/gfm',
-            \ 'outputter': 'browser'
-            \ }
-            \ }
-
 " }}}
 
 
@@ -498,12 +488,14 @@ inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 function! AutoCommitGollum()
     :w
-    :cd %:h
-    !git add -A && git commit -m 'update' --amend
+    !cd %:h && git add -A && git commit -m 'update'
     :redraw
 endfunction
 
-:command! Gollum :call AutoCommitGollum()
+if has("autocmd")
+    autocmd FileType markdown
+                \ command! -buffer Gollum :call AutoCommitGollum()
+endif
 
 " }}}
 
@@ -553,7 +545,6 @@ if has("autocmd")
                     \ setlocal commentstring=#\ %s
     augroup END
 endif
-
 
 " Go to the last post when you open the buffer
 " --------------------------------------------
