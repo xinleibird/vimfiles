@@ -14,7 +14,7 @@ if v:progname=~?($USER=="root")
     set runtimepath+=/home/xinlei/.vim
 endif
 
-if v:progname=~?"evim" || $TERM=~?"linux"
+if v:progname=~?"evim"
     finish
 endif
 
@@ -30,11 +30,6 @@ execute pathogen#infect()
 
 " General {{{
 " =======
-
-" Background
-" ----------
-
-set background=dark                     " backgroud
 
 " Other
 " -----
@@ -95,15 +90,16 @@ endif
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-syntax enable
 if $TERM == 'linux'
     set background=dark
+    colorscheme molokai
 else
     set background=light
+    let g:solarized_hitrail=1
+    let g:solarized_menu=0
+    colorscheme solarized
 endif
-let g:solarized_hitrail=1
-let g:solarized_menu=0
-colorscheme solarized
+syntax enable
 
 " No menu, no scroll bar
 " ----------------------
@@ -212,13 +208,15 @@ let g:tagbar_sort = 0
 
 " IndentLine
 " ------------
-let g:indentLine_char = '┊'
+if $TERM != 'linux'
+    let g:indentLine_char = '┊'
+endif
 
 " Syntastic
 " ---------
 
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_error_symbol = 'x'
+let g:syntastic_warning_symbol = '!'
 let g:syntastic_java_checkstyle_classpath =
             \"/opt/eclipse/plugins/net.sf.eclipsecs
             \.checkstyle_5.6.1.201306282206/checkstyle-5.6-all.jar"
@@ -285,9 +283,9 @@ let g:tagbar_type_ruby = {
 " Eclim
 " -----
 
-let g:EclimQuickfixSignText = '⚠'
-let g:EclimLoclistSignText = '✗'
-let g:EclimUserSignText = '✍'
+let g:EclimQuickfixSignText = '!'
+let g:EclimLoclistSignText = 'x'
+let g:EclimUserSignText = 'u'
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = "Question"
 let g:EclimProjectTreeActions = [
