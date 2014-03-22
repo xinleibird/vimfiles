@@ -96,21 +96,20 @@ endif
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-if has("gui_running")
+
+if $TERM == 'linux'
     set background=dark
-    let g:solarized_hitrail=1
-    let g:solarized_menu=0
-    colorscheme solarized
+    colorscheme molokai
 else
-    if $TERM == 'linux'
-        set background=dark
-        colorscheme molokai
-    else
-        set background=light
-        let g:solarized_hitrail=1
-        colorscheme solarized
+    set background=light
+    let g:solarized_hitrail=1
+    if has("gui_running")
+        let g:solarized_menu=0
     endif
+    colorscheme solarized
 endif
+
+
 syntax enable
 
 " No menu, no scroll bar
