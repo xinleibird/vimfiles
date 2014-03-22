@@ -78,7 +78,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 if has("gui_running")
     set guifont=Monaco\ 10
-    " set guifont=Monaco\ for\ Powerline\ 10
 endif
 
 " Color scheme
@@ -97,14 +96,20 @@ endif
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-if $TERM == 'linux'
+if has("gui_running")
     set background=dark
-    colorscheme molokai
-else
-    set background=light
     let g:solarized_hitrail=1
     let g:solarized_menu=0
     colorscheme solarized
+else
+    if $TERM == 'linux'
+        set background=dark
+        colorscheme molokai
+    else
+        set background=light
+        let g:solarized_hitrail=1
+        colorscheme solarized
+    endif
 endif
 syntax enable
 
