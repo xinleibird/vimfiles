@@ -23,10 +23,7 @@ endif
 
 runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = ['statline']
-if v:version < '703584'
-    call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
-execute pathogen#infect()
+
 execute pathogen#infect()
 
 
@@ -102,13 +99,10 @@ if $TERM == 'linux'
     colorscheme molokai
 else
     set background=light
-    let g:solarized_hitrail=1
-    if has("gui_running")
-        let g:solarized_menu=0
-    endif
     colorscheme solarized
+    let g:solarized_menu=0
+    let g:solarized_hitrail=0
 endif
-
 
 syntax enable
 
@@ -189,7 +183,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«
+set listchars=tab:‣-,extends:»,precedes:«,trail:\ 
 " set wildmode=list:longest
 
 " }}}
