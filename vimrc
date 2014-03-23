@@ -183,7 +183,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:\ 
+set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 " set wildmode=list:longest
 
 " }}}
@@ -334,6 +334,12 @@ if $TERM != 'linux'
     let g:airline_symbols.readonly = '⭤'
     let g:airline_symbols.linenr = '⭡'
 endif
+
+" vim-markdown
+" -------
+
+let g:markdown_fenced_languages = ["ruby", "python", "java",
+            \ "sh", "c", "cpp", "vim"]
 
 " }}}
 
@@ -590,3 +596,4 @@ if has("autocmd")
 endif
 
 " }}}
+
