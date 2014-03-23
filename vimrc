@@ -22,10 +22,14 @@ endif
 " ----------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
-let g:pathogen_disabled = ['statline']
+
+if $TERM == 'linux'
+    let g:pathogen_disabled = ['vim-cdoc', "vim-airline"]
+else
+    let g:pathogen_disabled = ['statline']
+endif
 
 execute pathogen#infect()
-
 
 " }}}
 
@@ -79,16 +83,6 @@ endif
 
 " Color scheme
 " ------------
-
-" syntax enable
-" if has("gui_running")
-"     let g:molokai_original = 1
-" else
-"     set t_Co=256
-"     set background=dark
-"     let g:rehash256 = 1
-" endif
-" colorscheme molokai
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -184,7 +178,6 @@ set autoread
 set autowrite
 set list
 set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
-" set wildmode=list:longest
 
 " }}}
 
