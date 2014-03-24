@@ -92,7 +92,11 @@ if $TERM == 'linux'
     set background=dark
     colorscheme molokai
 else
-    set background=light
+    if has("gui_running")
+        set background=dark
+    else
+        set background=light
+    endif
     colorscheme solarized
     let g:solarized_menu=0
     let g:solarized_hitrail=0
@@ -405,10 +409,10 @@ function MaxinumGvimWindow()
     endif
 endfunction
 
-if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
-    let s:loaded_maxinum_gvim_window = 1
-    autocmd VimEnter * :call MaxinumGvimWindow()
-endif
+" if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
+"     let s:loaded_maxinum_gvim_window = 1
+"     autocmd VimEnter * :call MaxinumGvimWindow()
+" endif
 
 " Toggle gvim fullscreen
 " ----------------------
