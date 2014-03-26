@@ -550,6 +550,19 @@ endif
 " ---------------------------------------------------
 
 if has("autocmd")
+    augroup bufReadGroup
+        autocmd!
+        " set conf filetype
+        autocmd BufNewFile,BufRead *.conf
+                    \ if &ft =~# '^\%(conf\|modula2\)$' |
+                    \   set ft=conf |
+                    \ else |
+                    \   setf conf |
+                    \ endif
+    augroup END
+endif
+
+if has("autocmd")
     augroup filetypeGroup
         autocmd!
         autocmd FileType java setlocal
@@ -563,7 +576,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,cfg,cmake,desktop,gitconfig,gtkrc,upstart
+        autocmd FileType apache,conf,cfg,cmake,desktop,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
     augroup END
 endif
