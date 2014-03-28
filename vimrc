@@ -409,10 +409,10 @@ function MaxinumGvimWindow()
     endif
 endfunction
 
-" if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
-"     let s:loaded_maxinum_gvim_window = 1
-"     autocmd VimEnter * :call MaxinumGvimWindow()
-" endif
+if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
+    let s:loaded_maxinum_gvim_window = 1
+    autocmd VimEnter * :call MaxinumGvimWindow()
+endif
 
 " Toggle gvim fullscreen
 " ----------------------
@@ -526,28 +526,8 @@ endif
 " Auto Group {{{
 " ==========
 
-" Performance and colorcolumn
-" ---------------------------
-
-if has("autocmd")
-    augroup bufenterGroup
-        autocmd!
-        autocmd BufEnter * if
-                    \ &filetype == "java" ||
-                    \ &filetype == "vim" ||
-                    \ &filetype == "python" ||
-                    \ &filetype == "c" ||
-                    \ &filetype == "cpp" ||
-                    \ &filetype == "ruby" ||
-                    \ &filetype == "txt" ||
-                    \ &filetype == "markdown" ||
-                    \ &filetype == "rst"
-                    \ | setlocal colorcolumn=81 | endif
-    augroup END
-endif
-
-" Astyle and autopep8 and ruby type and commentstring
-" ---------------------------------------------------
+" Set conf filetype
+" -----------------
 
 if has("autocmd")
     augroup bufReadGroup
@@ -561,6 +541,9 @@ if has("autocmd")
                     \ endif
     augroup END
 endif
+
+" Astyle, autopep8, JavaFormat, ruby type, commentstring, colorcolumn, synmaxcol
+" ------------------------------------------------------------------------------
 
 if has("autocmd")
     augroup filetypeGroup
@@ -578,6 +561,10 @@ if has("autocmd")
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType apache,conf,cfg,cmake,desktop,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
+        autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
+                    \ setlocal colorcolumn=81
+        autocmd FileType markdown,rst,txt
+                    \ setlocal synmaxcol=128
     augroup END
 endif
 
@@ -600,7 +587,7 @@ endif
 if has("autocmd")
     augroup performanceGroup
         autocmd!
-        autocmd BufEnter * :syntax sync minlines=2048 maxlines=4096
+        autocmd BufEnter * :syntax sync minlines=1024 maxlines=4096
     augroup END
 endif
 
