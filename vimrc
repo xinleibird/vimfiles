@@ -117,11 +117,13 @@ if has("gui_running")
     set guioptions-=b
 endif
 
-" Set columns
+" Set columns & lines
 " ---------------
 
 if has("gui_running")
     set columns=85
+    set lines=36
+    winpos 675 50
 endif
 
 " }}}
@@ -409,10 +411,10 @@ function MaxinumGvimWindow()
     endif
 endfunction
 
-if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
-    let s:loaded_maxinum_gvim_window = 1
-    autocmd VimEnter * :call MaxinumGvimWindow()
-endif
+" if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
+"     let s:loaded_maxinum_gvim_window = 1
+"     autocmd VimEnter * :call MaxinumGvimWindow()
+" endif
 
 " Toggle gvim fullscreen
 " ----------------------
@@ -563,8 +565,8 @@ if has("autocmd")
                     \ setlocal commentstring=#\ %s
         autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
                     \ setlocal colorcolumn=81
-        autocmd FileType markdown,rst,txt
-                    \ setlocal synmaxcol=128
+        " autocmd FileType markdown,rst,txt
+        "             \ setlocal synmaxcol=256
     augroup END
 endif
 
