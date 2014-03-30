@@ -92,11 +92,11 @@ if $TERM == 'linux'
     set background=dark
     colorscheme molokai
 else
-    if has("gui_running")
-        set background=dark
-    else
+    " if has("gui_running")
+    "     set background=dark
+    " else
         set background=light
-    endif
+    " endif
     colorscheme solarized
     let g:solarized_menu=0
     let g:solarized_hitrail=0
@@ -122,7 +122,7 @@ endif
 
 if has("gui_running")
     set columns=85
-    set lines=36
+    set lines=37
     winpos 675 50
 endif
 
@@ -561,12 +561,24 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,conf,cfg,cmake,desktop,gitconfig,gtkrc,upstart
+        autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
                     \ setlocal colorcolumn=81
         " autocmd FileType markdown,rst,txt
         "             \ setlocal synmaxcol=256
+    augroup END
+endif
+
+" Terminal ttimeout
+" -----------------
+
+if !has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
     augroup END
 endif
 
