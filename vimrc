@@ -92,11 +92,11 @@ if $TERM == 'linux'
     set background=dark
     colorscheme molokai
 else
-    " if has("gui_running")
-    "     set background=dark
-    " else
+    if has("gui_running")
         set background=light
-    " endif
+    else
+        set background=dark
+    endif
     colorscheme solarized
     let g:solarized_menu=0
     let g:solarized_hitrail=0
