@@ -24,9 +24,9 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ['vim-cdoc', "vim-airline"]
+    let g:pathogen_disabled = ["vim-cdoc", "vim-airline"]
 else
-    let g:pathogen_disabled = ['statline']
+    let g:pathogen_disabled = ["statline"]
 endif
 
 execute pathogen#infect()
@@ -56,6 +56,7 @@ if has('mouse')
 endif
 
 set history=1000                        " history
+set backup
 set backupdir=/home/xinlei/.backfile
 set backspace=indent,eol,start          " backspace delete
 set ruler                               " ruler
@@ -606,4 +607,3 @@ if has("autocmd")
 endif
 
 " }}}
-
