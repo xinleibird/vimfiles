@@ -67,3 +67,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/markdown2ctags"]
+	path = bundle/markdown2ctags
+	url = https://github.com/jszakmeister/markdown2ctags.git
