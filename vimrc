@@ -225,7 +225,7 @@ let g:syntastic_warning_symbol = '!'
 let g:syntastic_java_checkstyle_classpath = "/opt/eclipse/plugins/net.sf.
             \eclipsecs.checkstyle_5.7.0.201402131929/checkstyle-5.7-all.jar"
 let g:syntastic_java_checkstyle_conf_file =
-            \ "/home/xinlei/.vim/bundle/eclim/sun_checks_eclipse.xml"
+            \ "/home/xinlei/.vim/bundle/conf/sun_checks_eclipse.xml"
 
 " Python highlighting
 " -------------------
