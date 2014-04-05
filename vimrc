@@ -486,7 +486,7 @@ function RemoveTrailingWhitespace()
     silent! %s/\(\s*\n\)\+\%$//
     call cursor(b:curline, b:curcol)
 endfunc
-noremap <silent> <leader><leader>= :call RemoveTrailingWhitespace()<CR>
+noremap <silent> <leader><Space> :call RemoveTrailingWhitespace()<CR>
 
 " | and Tabular
 " -------------
