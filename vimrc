@@ -210,6 +210,7 @@ let g:ycm_global_ycm_extra_conf =
 
 let g:tagbar_width = 30
 let g:tagbar_sort = 0
+let g:tagbar_iconchars = ['▸', '▾']
 
 " IndentLine
 " ------------
@@ -333,6 +334,7 @@ if $TERM != 'linux'
     let g:airline_symbols.readonly = '⭤'
     let g:airline_symbols.linenr = '⭡'
 endif
+
 
 " vim-markdown
 " -------
