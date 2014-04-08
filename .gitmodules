@@ -73,6 +73,3 @@
 [submodule "bundle/rst2ctags"]
 	path = bundle/rst2ctags
 	url = https://github.com/jszakmeister/rst2ctags.git
-[submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git

@@ -205,14 +205,6 @@ let g:ycm_global_ycm_extra_conf =
             \'/home/xinlei/.vim/bundle/
             \YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
-" Ultisnips
-" ---------
-
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDirectories=["bundle/UltiSnips"]
-
 " Tagbar
 " ------
 
