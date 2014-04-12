@@ -333,12 +333,6 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 let g:plantuml_executable_script =
             \ "java -jar /home/xinlei/.local/lib/plantuml.jar -svg"
 
-" Indent Guides
-" -------------
-
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
 " }}}
 
 
@@ -349,8 +343,8 @@ let g:indent_guides_guide_size = 1
 " Normal
 " ------
 noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
-noremap <leader>tt :tabnew<cr>
-noremap <leader>tc :tabclose<cr>
+noremap <leader>tt :tabnew<CR>
+noremap <leader>tc :tabclose<CR>
 noremap <leader>fd :set fileformat=dos<CR>
 noremap <leader>fu :set fileformat=unix<CR>
 
