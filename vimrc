@@ -330,7 +330,14 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 " PlantUML
 " --------
 
-let g:plantuml_executable_script="java -jar /home/xinlei/.local/lib/plantuml.jar -v"
+let g:plantuml_executable_script =
+            \ "java -jar /home/xinlei/.local/lib/plantuml.jar -svg"
+
+" Indent Guides
+" -------------
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 " }}}
 
@@ -546,6 +553,8 @@ if has("autocmd")
         autocmd FileType java setlocal
                     \ equalprg=astyle
                     \\ -A2s4CSLwYm2pHUyjcxy\ --mode=java
+        autocmd FileType plantuml setlocal
+                    \ equalprg=astyle
         autocmd FileType java
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
