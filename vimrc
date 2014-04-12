@@ -207,12 +207,6 @@ let g:tagbar_width = 30
 let g:tagbar_sort = 0
 let g:tagbar_iconchars = ['▸', '▾']
 
-" IndentLine
-" ------------
-if $TERM != 'linux'
-    let g:indentLine_char = '┊'
-endif
-
 " Syntastic
 " ---------
 
