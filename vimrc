@@ -330,7 +330,7 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 " PlantUML
 " --------
 
-" let g:plantuml_executable_script="java -jar /home/xinlei/.local/lib/plantuml.jar -v"
+let g:plantuml_executable_script="java -jar /home/xinlei/.local/lib/plantuml.jar -v"
 
 " }}}
 
