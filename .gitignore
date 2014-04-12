@@ -1,0 +1,31 @@
+.netrwhist
+.VimballRecord
+
+# java class
+*.class
+
+# python class
+*.pyc
+
+# vim swp
+.*.*.swp
+.*.swp
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# vim tags
+tags
+tags-cn
+
+# checkstyle config
+sun_checks.xml
+
+# logfile
+*.log
+
+# eclim folder
+bundle/eclim/eclim
+bundle/eclim/plugin
