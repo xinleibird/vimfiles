@@ -218,10 +218,6 @@ endif
 
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
-let g:syntastic_java_checkstyle_classpath = "/opt/eclipse/plugins/net.sf.
-            \eclipsecs.checkstyle_5.7.0.201402131929/checkstyle-5.7-all.jar"
-let g:syntastic_java_checkstyle_conf_file =
-            \ "/home/xinlei/.vim/bundle/eclim/sun_checks_eclipse.xml"
 
 " Python highlighting
 " -------------------
@@ -332,10 +328,15 @@ endif
 
 
 " vim-markdown
-" -------
+" ------------
 
 let g:markdown_fenced_languages = ["ruby", "python", "java",
             \ "sh", "c", "cpp", "vim"]
+
+" PlantUML
+" --------
+
+" let g:plantuml_executable_script="java -jar /home/xinlei/.local/lib/plantuml.jar -v"
 
 " }}}
 
