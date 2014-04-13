@@ -336,9 +336,9 @@ let g:plantuml_executable_script =
 " IndentLine
 " ----------
 
-if $TERM != 'linux'
-    let g:indentLine_char = '┊'
-endif
+" if $TERM != 'linux'
+"     let g:indentLine_char = '┊'
+" endif
 
 " }}}
 
