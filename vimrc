@@ -327,11 +327,11 @@ endif
 let g:markdown_fenced_languages = ["ruby", "python", "java",
             \ "sh", "c", "cpp", "vim"]
 
-" PlantUML
-" --------
+" indentLine
+" ----------
 
-let g:plantuml_executable_script =
-            \ "java -jar /home/xinlei/.local/lib/plantuml.jar -svg"
+if &term ==# "linux"
+endif
 
 " }}}
 

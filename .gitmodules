@@ -72,4 +72,4 @@
 	url = https://github.com/jszakmeister/rst2ctags.git
 [submodule "bundle/plantuml"]
 	path = bundle/plantuml
-	url = https://github.com/aklt/plantuml-syntax.git
+	url = https://github.com/xinleibird/plantuml-syntax.git
