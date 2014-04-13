@@ -73,3 +73,6 @@
 [submodule "bundle/plantuml"]
 	path = bundle/plantuml
 	url = https://github.com/xinleibird/plantuml-syntax.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = https://github.com/xinleibird/indentLine.git

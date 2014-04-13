@@ -327,11 +327,6 @@ endif
 let g:markdown_fenced_languages = ["ruby", "python", "java",
             \ "sh", "c", "cpp", "vim"]
 
-" indentLine
-" ----------
-
-if &term ==# "linux"
-endif
 
 " }}}
 
