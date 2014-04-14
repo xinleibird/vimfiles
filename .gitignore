@@ -26,5 +26,4 @@ tags-cn
 # eclim folder
 bundle/eclim/eclim
 bundle/eclim/plugin
-bundle/eclim/workbench.xmi
 bundle/eclim/sun_checks.xml
