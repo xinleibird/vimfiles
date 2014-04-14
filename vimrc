@@ -323,11 +323,12 @@ let g:indentLine_char = get(g:,'indentLine_char',
 " AG (silver searcher)
 " --------------------
 
-let g:agprg="ag --column"
+" let g:agprg="ag --column"
+let g:agprg="ag --column --smart-case"
 
-" py-ctrlp-patcher
-" ----------------
-"
+" PyMatcher for CtrlP
+" -------------------
+
 if !has('python')
     echo 'In order to use pymatcher plugin, you need +python compiled vim'
 else
@@ -337,11 +338,16 @@ endif
 " CtrlP
 "-----
 
-" let g:ctrlp_custom_ignore = {
-"             \ 'dir': '\/home\/xinlei$\|\.git$\|\.hg$\|\.svn$',
-"             \ 'file': '.rvm$\|.class$\|tags$\|tags-cn$\|.swp$
-"             \\|.project$\|.classpath$'
-"             \ }
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden -g ""'
+else
+    let g:ctrlp_custom_ignore = {
+                \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+                \ 'file': '.rvm$\|.class$\|tags$\|tags-cn$
+                \\|.swp$\|.project$\|.classpath$'
+                \ }
+endif
 
 let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
@@ -350,23 +356,6 @@ let g:ctrlp_root_markers = ['.project']
 let g:ctrlp_lazy_update = 350
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
-
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command =
-                \ 'ag %s -i --nocolor --nogroup
-                \ --ignore ''.git''
-                \ --ignore ''.DS_Store''
-                \ --ignore ''.rvm''
-                \ --ignore ''.class''
-                \ --ignore ''tags''
-                \ --ignore ''tags-cn''
-                \ --ignore ''tags-ja''
-                \ --ignore ''.swp''
-                \ --ignore ''.project''
-                \ --ignore ''.classpath''
-                \ --hidden -g ""'
-endif
 
 " }}}
 
