@@ -20,12 +20,11 @@
 tags
 tags-cn
 
-# checkstyle config
-sun_checks.xml
-
 # logfile
 *.log
 
 # eclim folder
 bundle/eclim/eclim
 bundle/eclim/plugin
+bundle/eclim/workbench.xmi
+bundle/eclim/sun_checks.xml
