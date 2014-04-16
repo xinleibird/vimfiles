@@ -185,6 +185,61 @@ set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 
 
 
+" Key mapping {{{
+" ===========
+
+" Normal
+" ------
+noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
+noremap <leader>tt :tabnew<CR>
+noremap <leader>tc :tabclose<CR>
+noremap <leader>fd :set fileformat=dos<CR>
+noremap <leader>fu :set fileformat=unix<CR>
+
+" Syntastic
+" ---------
+
+noremap <leader>st :SyntasticToggleMode<CR>
+
+" Tagbar
+" ------
+
+noremap <silent> <F5> :TagbarToggle<CR>
+
+" CtrlP
+" -----
+
+noremap <C-W><C-U> :CtrlPMRU<CR>
+nnoremap <C-W>u :CtrlPMRU<CR>
+
+noremap <C-W><C-B> :CtrlPBuffer<CR>
+nnoremap <C-W>b :CtrlPBuffer<CR>
+
+" Eclim
+" -----
+
+map <leader><Enter> :JavaImportOrganize<CR>
+
+" DelimitMate
+" -----------
+
+imap <expr> <CR> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateCR"
+imap <expr> <Backspace> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateBS"
+            \ : "<Plug>delimitMateBS"
+imap <expr> <C-H> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateS-BS"
+            \ : "<Plug>delimitMateS-BS"
+imap <expr> <C-L> pumvisible()
+            \ ? "\<C-Y><Plug>delimitMateS-Tab"
+            \ : "<Plug>delimitMateS-Tab"
+
+" }}}
+
+
+
 " Plug-in global setting {{{
 " ======================
 
@@ -321,75 +376,30 @@ let g:indentLine_char = get(g:,'indentLine_char',
             \(&encoding is# "utf-8" && &term isnot# "linux" ? '┊' : '|'))
 
 " CtrlP
-"-----
+" -----
 
 let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_root_markers = ['.project']
-let g:ctrlp_lazy_update = 350
+let g:ctrlp_lazy_update = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
-
 let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '.rvm$\|.class$\|tags$\|tags-cn$
-            \\|.swp$\|.project$\|.classpath$'
-            \ }
-" }}}
+            \'dir':
+            \'\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
+            \\~\.dot\|\~\.nib\|\~\.plst\|\.pc\|_MTN\|blib\|CVS\|RCS\|
+            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build',
+            \'file':
+            \'\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
+            \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar\.gz$\|
+            \\.class$\|\.classpath$\|\.project$\|\.svg\|\.ico'
+            \}
 
-
-
-" Key mapping {{{
-" ===========
-
-" Normal
-" ------
-noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
-noremap <leader>tt :tabnew<CR>
-noremap <leader>tc :tabclose<CR>
-noremap <leader>fd :set fileformat=dos<CR>
-noremap <leader>fu :set fileformat=unix<CR>
-
-" Syntastic
-" ---------
-
-noremap <leader>st :SyntasticToggleMode<CR>
-
-" Tagbar
-" ------
-
-noremap <silent> <F5> :TagbarToggle<CR>
-
-" CtrlP
-" -----
-
-noremap <C-W><C-U> :CtrlPMRU<CR>
-nnoremap <C-W>u :CtrlPMRU<CR>
-
-noremap <C-W><C-B> :CtrlPBuffer<CR>
-nnoremap <C-W>b :CtrlPBuffer<CR>
-
-" Eclim
-" -----
-
-map <leader><Enter> :JavaImportOrganize<CR>
-
-" DelimitMate
-" -----------
-
-imap <expr> <CR> pumvisible()
-            \ ? "\<C-Y>"
-            \ : "<Plug>delimitMateCR"
-imap <expr> <Backspace> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateBS"
-            \ : "<Plug>delimitMateBS"
-imap <expr> <C-H> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-BS"
-            \ : "<Plug>delimitMateS-BS"
-imap <expr> <C-L> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-Tab"
-            \ : "<Plug>delimitMateS-Tab"
+" Matcher Settings
+let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_match_func = {'match': 'GoodMatch'}
 
 " }}}
 
@@ -397,6 +407,28 @@ imap <expr> <C-L> pumvisible()
 
 " Utility function {{{
 " ================
+
+" GoodMatch
+" ---------
+
+function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+    " Create a cache file if not yet exists
+    let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+    if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+        call writefile(a:items, cachefile)
+    endif
+    if !filereadable(cachefile)
+        return []
+    endif
+    " a:mmode is currently ignored. In the future, we should probably do
+    " something about that. the matcher behaves like "full-line".
+    let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
+    if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+        let cmd = cmd.'--no-dotfiles '
+    endif
+    let cmd = cmd.a:str
+    return split(system(cmd), "\n")
+endfunction
 
 " Windows maximum
 " ---------------
