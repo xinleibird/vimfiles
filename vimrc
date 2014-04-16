@@ -87,16 +87,23 @@ endif
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
+    set background=light
+    colorscheme solarized
+    let g:solarized_menu=0
+    let g:solarized_hitrail=0
 endif
 
 if has("gui_running")
-    set background=light
-else
     set background=dark
+    colorscheme molokai
+    let g:molokai_original = 1
 endif
-colorscheme solarized
-let g:solarized_menu=0
-let g:solarized_hitrail=0
+
+if &term is# "linux"
+    set background=dark
+    colorscheme solarized
+endif
+
 
 syntax enable
 
@@ -349,8 +356,15 @@ let delimitMate_expand_cr = 1
 " AirLine
 " -------
 
-if $TERM != 'linux'
+if has("gui_running")
+    let g:airline_theme="molokai"
+endif
+
+if $COLORTERM == 'gnome-terminal'
     let g:airline_theme="solarized"
+endif
+
+if $TERM != 'linux'
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -482,7 +496,7 @@ function! ToggleEclimProjectsTree()
         let s:tree_loaded = 0
     endif
 endfunction
-nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
+nmap <silent> <F4> <ESC>:call ToggleEclimProjectsTree()<CR>
 
 " Add trailing bracket
 " ----------------------
