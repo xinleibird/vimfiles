@@ -356,15 +356,15 @@ let delimitMate_expand_cr = 1
 " AirLine
 " -------
 
+if &term is# "xterm" || &term is# "xterm-256"
+    let g:airline_theme="solarized"
+endif
+
 if has("gui_running")
     let g:airline_theme="molokai"
 endif
 
-if $COLORTERM == 'gnome-terminal'
-    let g:airline_theme="solarized"
-endif
-
-if $TERM != 'linux'
+if &term isnot# "linux"
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -388,6 +388,8 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 
 let g:indentLine_char = get(g:,'indentLine_char',
             \(&encoding is# "utf-8" && &term isnot# "linux" ? '┊' : '|'))
+" let g:indentLine_color_tty_light = 7
+" let g:indentLine_color_tty_dark = 1
 
 " CtrlP
 " -----
