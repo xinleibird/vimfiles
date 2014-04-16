@@ -76,9 +76,6 @@
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
-[submodule "bundle/vim-ag"]
-	path = bundle/vim-ag
-	url = https://github.com/rking/ag.vim.git
 [submodule "bundle/ctrlp-py-matcher"]
 	path = bundle/ctrlp-py-matcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
