@@ -400,15 +400,18 @@ let g:ctrlp_lazy_update = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-            \'dir':
-            \'\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
+            \'dir':'
+            \Video\|Music\|\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
             \\~\.dot\|\~\.nib\|\~\.plst\|\.pc\|_MTN\|blib\|CVS\|RCS\|
-            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build',
-            \'file':
-            \'\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
-            \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar\.gz$\|
-            \\.class$\|\.classpath$\|\.project$\|\.svg\|\.ico'
-            \}
+            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build
+            \',
+            \
+            \'file':'
+            \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
+            \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar\.gz$\|\.jar$\|.7z$\|
+            \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
+            \\.pdf$
+            \'}
 
 " Matcher Settings
 let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
