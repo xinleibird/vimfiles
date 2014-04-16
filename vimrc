@@ -388,8 +388,6 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 
 let g:indentLine_char = get(g:,'indentLine_char',
             \(&encoding is# "utf-8" && &term isnot# "linux" ? '┊' : '|'))
-" let g:indentLine_color_tty_light = 7
-" let g:indentLine_color_tty_dark = 1
 
 " CtrlP
 " -----
