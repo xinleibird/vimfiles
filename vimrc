@@ -125,8 +125,8 @@ endif
 
 if has("gui_running")
     set columns=85
-    set lines=37
-    winpos 675 43
+    set lines=38
+    winpos 675 40
 endif
 
 " }}}
