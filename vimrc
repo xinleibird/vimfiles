@@ -197,7 +197,7 @@ set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 
 " Normal
 " ------
-noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
+noremap <silent> <leader>= <ESC>mRgg=GGdd`R<ESC>
 noremap <leader>tt :tabnew<CR>
 noremap <leader>tc :tabclose<CR>
 noremap <leader>fd :set fileformat=dos<CR>
@@ -410,7 +410,7 @@ let g:ctrlp_custom_ignore = {
             \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
             \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar\.gz$\|\.jar$\|.7z$\|
             \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
-            \\.pdf$
+            \\.pdf$\|\.out$
             \'}
 
 " Matcher Settings
@@ -605,12 +605,14 @@ if has("autocmd")
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
                     \ equalprg=astyle
-                    \\ -A1s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
+                    \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
+        autocmd FileType c
+                    \ setlocal commentstring=//\ %s
         autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
                     \ setlocal colorcolumn=81
         " autocmd FileType markdown,rst,txt
