@@ -83,25 +83,23 @@ endif
 " Color scheme
 " ------------
 
-if $COLORTERM == 'gnome-terminal' || has("gui_running")
+if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-    set background=light
-    colorscheme solarized
-    let g:solarized_menu=0
-    let g:solarized_hitrail=0
+    set background=dark
 endif
 
-" if has("gui_running")
-"     set background=dark
-"     colorscheme molokai
-"     let g:molokai_original = 1
-" endif
+if has("gui_running")
+    set background=light
+    let g:solarized_termcolors=256
+endif
 
 if &term is# "linux"
     set background=dark
-    colorscheme solarized
 endif
 
+colorscheme solarized
+let g:solarized_menu=0
+let g:solarized_hitrail=0
 
 syntax enable
 
