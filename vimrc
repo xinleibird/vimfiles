@@ -22,12 +22,9 @@ endif
 " ----------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
-set rtp+=/home/xinlei/.vim/bundle/powerline/powerline/bindings/vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["vim-cdoc", "vim-airline"]
-else
-    let g:pathogen_disabled = ["vim-airline"]
+    let g:pathogen_disabled = ["vim-cdoc"]
 endif
 
 execute pathogen#infect()
@@ -86,7 +83,7 @@ endif
 " Color scheme
 " ------------
 
-if $COLORTERM == 'gnome-terminal'
+if $COLORTERM == 'gnome-terminal' || has("gui_running")
     set t_Co=256
     set background=light
     colorscheme solarized
@@ -94,11 +91,11 @@ if $COLORTERM == 'gnome-terminal'
     let g:solarized_hitrail=0
 endif
 
-if has("gui_running")
-    set background=dark
-    colorscheme molokai
-    let g:molokai_original = 1
-endif
+" if has("gui_running")
+"     set background=dark
+"     colorscheme molokai
+"     let g:molokai_original = 1
+" endif
 
 if &term is# "linux"
     set background=dark
@@ -353,30 +350,6 @@ let g:EclimProjectTreeActions = [
 
 let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
-
-" AirLine
-" -------
-
-if &term is# "xterm" || &term is# "xterm-256"
-    let g:airline_theme="solarized"
-endif
-
-if has("gui_running")
-    let g:airline_theme="molokai"
-endif
-
-if &term isnot# "linux"
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = '⮀'
-    let g:airline_left_alt_sep = '⮁'
-    let g:airline_right_sep = '⮂'
-    let g:airline_right_alt_sep = '⮃'
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
-endif
 
 " vim-markdown
 " ------------
