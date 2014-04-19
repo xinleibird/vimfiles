@@ -86,10 +86,12 @@ endif
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
     set background=dark
+    let g:solarized_termtrans = 1
 endif
 
 if has("gui_running")
     set background=light
+    let g:solarized_termtrans = 1
     let g:solarized_termcolors=256
 endif
 
@@ -463,6 +465,7 @@ function! ToggleEclimProjectsTree()
         :ProjectsTree
         if &ft == 'tree'
             let s:tree_loaded = 1
+            :wincmd p
         else
             echo "Please run the 'eclimd' first and then confirm the project is created already!"
         endif
