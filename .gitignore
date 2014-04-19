@@ -3,7 +3,6 @@
 
 # java class
 *.class
-workbench.xmi
 
 # python class
 *.pyc
