@@ -22,11 +22,12 @@ endif
 " ----------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
+set rtp+=/home/xinlei/.vim/bundle/powerline/powerline/bindings/vim
 
 if $TERM == 'linux'
     let g:pathogen_disabled = ["vim-cdoc", "vim-airline"]
 else
-    let g:pathogen_disabled = ["statline"]
+    let g:pathogen_disabled = ["vim-airline"]
 endif
 
 execute pathogen#infect()
@@ -197,7 +198,7 @@ set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 
 " Normal
 " ------
-noremap <silent> <leader>= <ESC>mRgg=GGdd`R<ESC>
+noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
 noremap <leader>tt :tabnew<CR>
 noremap <leader>tc :tabclose<CR>
 noremap <leader>fd :set fileformat=dos<CR>
