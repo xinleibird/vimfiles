@@ -31,8 +31,6 @@ execute pathogen#infect()
 
 " }}}
 
-
-
 " General {{{
 " =======
 
@@ -67,8 +65,6 @@ set showcmd                             " cmd complete
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " }}}
-
-
 
 " Vim UI {{{
 " ======
@@ -127,8 +123,6 @@ endif
 
 " }}}
 
-
-
 " Encoding {{{
 " ========
 
@@ -142,10 +136,9 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set fileformat=unix
 set nobomb
+" language en_US.UTF-8
 
 " }}}
-
-
 
 " Formatting {{{
 " ==========
@@ -185,8 +178,6 @@ set list
 set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 
 " }}}
-
-
 
 " Key mapping {{{
 " ===========
@@ -241,8 +232,6 @@ imap <expr> <C-L> pumvisible()
 
 " }}}
 
-
-
 " Plug-in global setting {{{
 " ======================
 
@@ -254,9 +243,6 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf =
-            \'/home/xinlei/.vim/bundle/
-            \YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Tagbar
 " ------
@@ -391,8 +377,6 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-stan
 let g:ctrlp_match_func = {'match': 'GoodMatch'}
 
 " }}}
-
-
 
 " Utility function {{{
 " ================
@@ -541,8 +525,6 @@ if has("autocmd")
 endif
 
 " }}}
-
-
 
 " Auto Group {{{
 " ==========
