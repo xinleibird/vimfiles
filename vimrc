@@ -376,10 +376,35 @@ let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_match_func = {'match': 'GoodMatch'}
 
+let g:ctrlp_status_func = {
+            \ 'main': 'CtrlP_Statusline_1',
+            \ 'prog': 'CtrlP_Statusline_2',
+            \ }
+
 " }}}
 
 " Utility function {{{
 " ================
+
+" CtrlP Statusline function
+" -------------------------
+function! CtrlP_Statusline_1(...)
+    let focus = '%#LineNr# '.a:1.' %*'
+    let byfname = '%#Character# '.a:2.' %*'
+    let regex = a:3 ? '%#LineNr# regex %*' : ''
+    let prv = ' '.a:4.' '
+    let item = ' %#Character# '.a:5.' %* '
+    let nxt = ' '.a:6.' '
+    let marked = ' '.a:7.' '
+    let dir = ' %=%<%#LineNr# '.getcwd().' %*'
+    return focus.byfname.regex.prv.item.nxt.marked.dir
+endfunction
+
+function! CtrlP_Statusline_2(...)
+    let len = '%#Function# '.a:1.' %*'
+    let dir = ' %=%<%#LineNr# '.getcwd().' %*'
+    return len.dir
+endfunction
 
 " GoodMatch
 " ---------
