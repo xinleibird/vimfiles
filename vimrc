@@ -393,16 +393,16 @@ function! CtrlP_Statusline_1(...)
     let byfname = '%#Character# '.a:2.' %*'
     let regex = a:3 ? '%#LineNr# regex %*' : ''
     let prv = ' '.a:4.' '
-    let item = ' %#Character# '.a:5.' %* '
+    let item ='%#Character#%4* '.a:5.' %*'
     let nxt = ' '.a:6.' '
     let marked = ' '.a:7.' '
-    let dir = ' %=%<%#LineNr# '.getcwd().' %*'
+    let dir = ' '.'%=%<%#LineNr#%* '.getcwd().' %*'
     return focus.byfname.regex.prv.item.nxt.marked.dir
 endfunction
 
 function! CtrlP_Statusline_2(...)
     let len = '%#Function# '.a:1.' %*'
-    let dir = ' %=%<%#LineNr# '.getcwd().' %*'
+    let dir = ' '.'%=%<%#LineNr# '.getcwd().' %*'
     return len.dir
 endfunction
 
