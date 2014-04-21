@@ -523,7 +523,6 @@ if has("autocmd")
     autocmd FileType markdown
                 \ command! -buffer Gollum :call AutoCommitGollum()
 endif
-
 " }}}
 
 " Auto Group {{{
