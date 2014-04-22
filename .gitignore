@@ -27,3 +27,6 @@ tags-cn
 # eclim folder
 bundle/eclim/eclim
 bundle/eclim/plugin
+
+eclim/
+plugin/

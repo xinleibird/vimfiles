@@ -198,7 +198,7 @@ noremap <leader>st :SyntasticToggleMode<CR>
 " Tagbar
 " ------
 
-noremap <silent> <F5> :TagbarToggle<CR>
+noremap <silent> <F9> :TagbarToggle<CR>
 
 " CtrlP
 " -----
@@ -212,7 +212,11 @@ nnoremap <C-W>b :CtrlPBuffer<CR>
 " Eclim
 " -----
 
-map <leader><Enter> :JavaImportOrganize<CR>
+noremap <leader><leader><Enter> :JavaImportOrganize<CR>
+noremap <F5> :ProjectRefresh<CR>
+noremap <F6> :ProjectBuild<CR>
+noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR> :Java<CR>
+noremap <F8> :ProjectRefresh<CR> :Java<CR>
 
 " DelimitMate
 " -----------
@@ -497,8 +501,8 @@ function! AppendBrackets()
     return ""
 endfunction
 
-if has("autocmd") && !exists("loaded_append_brackets")
-    let loaded_append_brackets = 1
+if has("autocmd") && !exists("s:loaded_append_brackets")
+    let s:loaded_append_brackets = 1
     autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
                 \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
 endif
@@ -544,9 +548,12 @@ function! AutoCommitGollum()
     :redraw
 endfunction
 
-if has("autocmd")
+if has("autocmd") && !exists("s:loaded_markdown_make")
+    let s:loaded_markdown_make = 1
     autocmd FileType markdown
                 \ command! -buffer Gollum :call AutoCommitGollum()
+    autocmd FileType markdown
+                \ let &l:makeprg="cd %:h && git add -A && git commit -m 'update'"
 endif
 " }}}
 
