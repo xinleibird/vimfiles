@@ -215,8 +215,8 @@ nnoremap <C-W>b :CtrlPBuffer<CR>
 noremap <leader><leader><Enter> :JavaImportOrganize<CR>
 noremap <F5> :ProjectRefresh<CR>
 noremap <F6> :ProjectBuild<CR>
-noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR> :Java<CR>
-noremap <F8> :ProjectRefresh<CR> :Java<CR>
+noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR>
+noremap <F8> :Java<CR>
 
 " DelimitMate
 " -----------
@@ -321,6 +321,7 @@ let g:tagbar_type_ruby = {
 " Eclim
 " -----
 
+let g:EclimTempFilesEnable = 0 " Important! Do *NOT* use temp file!
 let g:EclimQuickfixSignText = '!'
 let g:EclimLoclistSignText = 'x'
 let g:EclimUserSignText = 'u'
