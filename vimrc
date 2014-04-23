@@ -230,9 +230,6 @@ imap <expr> <Backspace> pumvisible()
 imap <expr> <C-H> pumvisible()
             \ ? "\<C-Y><Plug>delimitMateS-BS"
             \ : "<Plug>delimitMateS-BS"
-imap <expr> <C-L> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-Tab"
-            \ : "<Plug>delimitMateS-Tab"
 
 " }}}
 
@@ -337,7 +334,7 @@ let g:EclimProjectTreeActions = [
 " DelimitMate
 " -----------
 
-let delimitMate_balance_matchpairs = 1
+" let delimitMate_balance_matchpairs = 1
 let delimitMate_expand_cr = 1
 
 " vim-markdown
@@ -487,26 +484,6 @@ function! ToggleEclimProjectsTree()
     endif
 endfunction
 nmap <silent> <F4> <ESC>:call ToggleEclimProjectsTree()<CR>
-
-" Add trailing bracket
-" ----------------------
-
-function! AppendBrackets()
-    let movePos = col('$') - col('.')
-    let currentLine = getline('.')
-    let lineCharList = split(currentLine, '\zs')
-    let repeatTimes = count(lineCharList, "\(") - count(lineCharList, "\)")
-    if repeatTimes > 0
-        return repeat("\<Right>", movePos) . repeat(")", repeatTimes)
-    endif
-    return ""
-endfunction
-
-if has("autocmd") && !exists("s:loaded_append_brackets")
-    let s:loaded_append_brackets = 1
-    autocmd FileType c,cc,cpp,java,js,html,css,ruby,python
-                \ inoremap <buffer> <C-J> <C-R>=AppendBrackets()<CR>
-endif
 
 " Remove trailing whitespace
 " --------------------------
