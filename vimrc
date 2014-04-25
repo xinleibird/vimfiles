@@ -218,19 +218,6 @@ noremap <F6> :ProjectBuild<CR>
 noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR>
 noremap <F8> :Java<CR>
 
-" DelimitMate
-" -----------
-
-imap <expr> <CR> pumvisible()
-            \ ? "\<C-Y>"
-            \ : "<Plug>delimitMateCR"
-imap <expr> <Backspace> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateBS"
-            \ : "<Plug>delimitMateBS"
-imap <expr> <C-H> pumvisible()
-            \ ? "\<C-Y><Plug>delimitMateS-BS"
-            \ : "<Plug>delimitMateS-BS"
-
 " }}}
 
 " Plug-in global setting {{{
@@ -330,12 +317,6 @@ let g:EclimProjectTreeActions = [
             \ {'pattern': '.*', 'name': 'VSplit', 'action': 'vsplit'},
             \ {'pattern': '.*', 'name': 'Tab', 'action': 'tablast | tabnew'}
             \ ]
-
-" DelimitMate
-" -----------
-
-" let delimitMate_balance_matchpairs = 1
-let delimitMate_expand_cr = 1
 
 " vim-markdown
 " ------------
