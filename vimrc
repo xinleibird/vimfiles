@@ -318,7 +318,7 @@ let g:EclimProjectTreeActions = [
             \ {'pattern': '.*', 'name': 'Tab', 'action': 'tablast | tabnew'}
             \ ]
 
-" vim-markdown
+" Vim-markdown
 " ------------
 
 let g:markdown_fenced_languages = ["ruby", "python", "java",
@@ -601,3 +601,7 @@ if has("autocmd")
 endif
 
 " }}}
+
+" inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+imap <c-l> <Plug>MatchemSkipNext
+imap <c-j> <Plug>MatchemSkipAll
