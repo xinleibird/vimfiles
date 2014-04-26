@@ -7,7 +7,6 @@
 
 " Basics
 " ------
-
 set nocompatible                        " NO compatible vi
 
 if v:progname=~?($USER=="root")
@@ -20,7 +19,6 @@ endif
 
 " Setup pathogen support
 " ----------------------
-
 runtime bundle/pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
@@ -36,7 +34,6 @@ execute pathogen#infect()
 
 " Other
 " -----
-
 filetype plugin indent on               " indent
 
 if &t_Co > 2 || has("gui_running")
@@ -61,7 +58,6 @@ set showcmd                             " cmd complete
 
 " Ignore file type
 " ----------------
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " }}}
@@ -71,14 +67,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " Font
 " ----
-
 if has("gui_running")
     set guifont=Monaco\ 10
 endif
 
 " Color scheme
 " ------------
-
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
     set background=light
@@ -101,7 +95,6 @@ syntax enable
 
 " No menu, no scroll bar
 " ----------------------
-
 if has("gui_running")
     set guioptions-=m
     set guioptions-=T
@@ -113,8 +106,7 @@ if has("gui_running")
 endif
 
 " Set columns & lines
-" ---------------
-
+" -------------------
 if has("gui_running")
     set columns=85
     set lines=38
@@ -128,7 +120,6 @@ endif
 
 " encoding
 " --------
-
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -145,7 +136,6 @@ set nobomb
 
 " Normal
 " ------
-
 set confirm                             "set confirm
 set iskeyword+=_,$,@,%,#,-
 set showmatch
@@ -153,7 +143,6 @@ set matchtime=5
 
 " Indent
 " ------
-
 set cindent
 set smartindent
 set autoindent
@@ -168,7 +157,6 @@ set smarttab
 
 " Other
 " -----
-
 set wrap
 set laststatus=2
 set wildmenu
@@ -192,17 +180,14 @@ noremap <leader>fu :set fileformat=unix<CR>
 
 " Syntastic
 " ---------
-
 noremap <leader>st :SyntasticToggleMode<CR>
 
 " Tagbar
 " ------
-
 noremap <silent> <F9> :TagbarToggle<CR>
 
 " CtrlP
 " -----
-
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
 
@@ -211,12 +196,16 @@ nnoremap <C-W>b :CtrlPBuffer<CR>
 
 " Eclim
 " -----
-
 noremap <leader><leader><Enter> :JavaImportOrganize<CR>
 noremap <F5> :ProjectRefresh<CR>
 noremap <F6> :ProjectBuild<CR>
 noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR>
 noremap <F8> :Java<CR>
+
+" Matchem
+" -------
+imap <c-l> <Plug>MatchemSkipNext
+imap <c-j> <Plug>MatchemSkipAll
 
 " }}}
 
@@ -225,7 +214,6 @@ noremap <F8> :Java<CR>
 
 " YouCompleteMe setting
 " ---------------------
-
 let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_add_preview_to_completeopt = 1
@@ -234,27 +222,23 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Tagbar
 " ------
-
 let g:tagbar_width = 30
 let g:tagbar_sort = 0
 let g:tagbar_iconchars = ['▸', '▾']
 
 " Syntastic
 " ---------
-
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
 
 " Python highlighting
 " -------------------
-
 let python_highlight_all = 1
 let python_space_error_highlight = 0
 let b:python_version_2 = 1
 
 " Tagbar setting
 " --------------
-
 let g:tagbar_type_rst = {
             \ 'ctagstype': 'rst',
             \ 'ctagsbin' : '/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py',
@@ -272,7 +256,6 @@ let g:tagbar_type_rst = {
 
 " Markdown2Ctags
 " --------------
-
 let g:tagbar_type_markdown = {
             \ 'ctagstype': 'markdown',
             \ 'ctagsbin' : '/home/xinlei/.vim/bundle/markdown2ctags/markdown2ctags.py',
@@ -290,7 +273,6 @@ let g:tagbar_type_markdown = {
 
 " Ruby
 " ----
-
 let g:tagbar_type_ruby = {
             \ 'kinds' : [
             \ 'm:modules',
@@ -304,7 +286,6 @@ let g:tagbar_type_ruby = {
 
 " Eclim
 " -----
-
 let g:EclimTempFilesEnable = 0 " Important! Do *NOT* use temp file!
 let g:EclimQuickfixSignText = '!'
 let g:EclimLoclistSignText = 'x'
@@ -320,19 +301,16 @@ let g:EclimProjectTreeActions = [
 
 " Vim-markdown
 " ------------
-
 let g:markdown_fenced_languages = ["ruby", "python", "java",
             \ "sh", "c", "cpp", "vim"]
 
 " indentLine
 " ----------
-
 let g:indentLine_char = get(g:,'indentLine_char',
             \(&encoding is# "utf-8" && &term isnot# "linux" ? '┊' : '|'))
 
 " CtrlP
 " -----
-
 let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_use_caching = 1
@@ -354,7 +332,8 @@ let g:ctrlp_custom_ignore = {
             \\.pdf$\|\.out$
             \'}
 
-" Matcher Settings
+" CtrlP Matcher Settings
+" ----------------------
 let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_match_func = {'match': 'GoodMatch'}
@@ -391,7 +370,6 @@ endfunction
 
 " GoodMatch
 " ---------
-
 function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
     " Create a cache file if not yet exists
     let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
@@ -413,7 +391,6 @@ endfunction
 
 " Windows maximum
 " ---------------
-
 function MaxinumGvimWindow()
     if has("gui_running")
         silent exec "!wmctrl -i -r " . v:windowid .
@@ -428,7 +405,6 @@ endfunction
 
 " Toggle gvim fullscreen
 " ----------------------
-
 let s:fullscreen = 0
 function! ToggleFullscreen()
     if s:fullscreen == 1
@@ -446,7 +422,6 @@ endif
 
 " Eclim projects tree toggle
 " --------------------------
-
 function! ToggleEclimProjectsTree()
     if !exists('s:tree_loaded')
         let s:tree_loaded = 0
@@ -468,7 +443,6 @@ nmap <silent> <F4> <ESC>:call ToggleEclimProjectsTree()<CR>
 
 " Remove trailing whitespace
 " --------------------------
-
 function RemoveTrailingWhitespace()
     let b:curcol = col(".")
     let b:curline = line(".")
@@ -480,7 +454,6 @@ noremap <silent> <leader><Space> :call RemoveTrailingWhitespace()<CR>
 
 " | and Tabular
 " -------------
-
 function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
     if exists(':Tabularize') && getline('.') =~# '^\s*|' &&
@@ -500,7 +473,6 @@ inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 " Gollum auto commit
 " ------------------
-
 function! AutoCommitGollum()
     :w
     !cd %:h && git add -A && git commit -m 'update'
@@ -521,7 +493,6 @@ endif
 
 " Set conf filetype
 " -----------------
-
 if has("autocmd")
     augroup bufReadGroup
         autocmd!
@@ -537,7 +508,6 @@ endif
 
 " Astyle, autopep8, JavaFormat, ruby type, commentstring, colorcolumn, synmaxcol
 " ------------------------------------------------------------------------------
-
 if has("autocmd")
     augroup filetypeGroup
         autocmd!
@@ -567,7 +537,6 @@ endif
 
 " Terminal ttimeout
 " -----------------
-
 if !has('gui_running')
     set ttimeoutlen=10
     augroup FastEscape
@@ -579,7 +548,6 @@ endif
 
 " Go to the last post when you open the buffer
 " --------------------------------------------
-
 if has("autocmd")
     augroup vimrcEx
         autocmd!
@@ -592,7 +560,6 @@ endif
 
 " MAYBE can improve performance....
 " ---------------------------------
-
 if has("autocmd")
     augroup performanceGroup
         autocmd!
@@ -601,7 +568,3 @@ if has("autocmd")
 endif
 
 " }}}
-
-" inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-imap <c-l> <Plug>MatchemSkipNext
-imap <c-j> <Plug>MatchemSkipAll
