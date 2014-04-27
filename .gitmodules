@@ -76,3 +76,6 @@
 [submodule "bundle/matchem"]
 	path = bundle/matchem
 	url = https://github.com/ervandew/matchem.git
+[submodule "bundle/lightline"]
+	path = bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git

@@ -24,6 +24,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 if $TERM == 'linux'
     let g:pathogen_disabled = ["vim-cdoc"]
 endif
+let g:pathogen_disabled = ["statline"]
 
 execute pathogen#infect()
 
@@ -68,7 +69,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Monaco\ 9
+    set guifont=Monaco\ 10
 endif
 
 " Color scheme
@@ -88,8 +89,8 @@ if &term is# "linux"
 endif
 colorscheme solarized
 
-let g:solarized_menu=0
-let g:solarized_hitrail=0
+" let g:solarized_menu=0
+" let g:solarized_hitrail=0
 
 syntax enable
 
@@ -108,9 +109,8 @@ endif
 " Set columns & lines
 " -------------------
 if has("gui_running")
-    set columns=139
-    set lines=46
-    winpos 380 35
+    set lines=38 columns=125
+    winpos 320 33
 endif
 
 " }}}
