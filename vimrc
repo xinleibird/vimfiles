@@ -22,9 +22,14 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["vim-cdoc"]
+    let g:pathogen_disabled = ["vim-cdoc", "lightline", "lightline-extensions"]
+else
+    let g:pathogen_disabled = ["statline"]
 endif
-let g:pathogen_disabled = ["statline"]
+
+
+
+
 
 execute pathogen#infect()
 
@@ -77,20 +82,16 @@ endif
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
     set background=light
+    colorscheme solarized
 endif
 
 if has("gui_running")
-    set background=light
-    let g:solarized_termcolors=256
+    colorscheme jellybeans
 endif
 
 if &term is# "linux"
-    set background=dark
+    colorscheme jellybeans
 endif
-colorscheme solarized
-
-" let g:solarized_menu=0
-" let g:solarized_hitrail=0
 
 syntax enable
 
