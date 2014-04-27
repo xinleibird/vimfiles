@@ -68,7 +68,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Monaco\ 10
+    set guifont=Monaco\ 9
 endif
 
 " Color scheme
@@ -108,8 +108,8 @@ endif
 " Set columns & lines
 " -------------------
 if has("gui_running")
-    set columns=121
-    set lines=38
+    set columns=139
+    set lines=46
     winpos 380 35
 endif
 
