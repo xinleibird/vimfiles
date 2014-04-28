@@ -90,7 +90,7 @@ if has("gui_running")
 endif
 
 if &term is# "linux"
-    colorscheme jellybeans
+    colorscheme molokai
 endif
 
 syntax enable
@@ -308,7 +308,7 @@ let g:markdown_fenced_languages = ["ruby", "python", "java",
 " indentLine
 " ----------
 let g:indentLine_char = get(g:,'indentLine_char',
-            \(&encoding is# "utf-8" && &term isnot# "linux" ? '┊' : '|'))
+            \(&encoding is# "utf-8" && &term isnot# "linux" ? '┆' : '|'))
 
 " CtrlP
 " -----

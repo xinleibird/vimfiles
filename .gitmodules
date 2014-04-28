@@ -82,3 +82,6 @@
 [submodule "bundle/jellybeans"]
 	path = bundle/jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/lightline-extensions"]
+	path = bundle/lightline-extensions
+	url = https://github.com/xinleibird/lightline-extensions.git
