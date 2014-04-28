@@ -106,7 +106,9 @@ if has("gui_running")
 endif
 
 if &term is# "linux"
-    colorscheme molokai
+    let g:jellybeans_use_lowcolor_black = 0
+    let g:indentLine_color_tty_dark = 7
+    colorscheme jellybeans
 endif
 
 syntax enable
@@ -431,7 +433,8 @@ function! ToggleEclimProjectsTree()
             let s:tree_loaded = 1
             :wincmd p
         else
-            echo "Please run the 'eclimd' first and then confirm the project is created already!"
+            echo "Please run the 'eclimd' first and then confirm the project is
+                        \ created already!"
         endif
     else
         call eclim#project#tree#ProjectTreeClose()
