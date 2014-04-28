@@ -433,8 +433,10 @@ function! ToggleEclimProjectsTree()
             let s:tree_loaded = 1
             :wincmd p
         else
-            echo "Please run the 'eclimd' first and then confirm the project is
-                        \ created already!"
+            let avaiableEclim = eclim#EclimAvailable()
+            if avaiableEclim
+                echo "Please confirm the project is created already!"
+            endif
         endif
     else
         call eclim#project#tree#ProjectTreeClose()
