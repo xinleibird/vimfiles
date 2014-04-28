@@ -219,7 +219,8 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf =
+            \ '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Tagbar
 " ------
@@ -259,7 +260,8 @@ let g:tagbar_type_rst = {
 " --------------
 let g:tagbar_type_markdown = {
             \ 'ctagstype': 'markdown',
-            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/markdown2ctags/markdown2ctags.py',
+            \ 'ctagsbin' :
+            \ '/home/xinlei/.vim/bundle/markdown2ctags/markdown2ctags.py',
             \ 'ctagsargs' : '-f - --sort=yes',
             \ 'kinds' : [
             \ 's:sections',
@@ -336,7 +338,8 @@ let g:ctrlp_custom_ignore = {
 " CtrlP Matcher Settings
 " ----------------------
 let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_user_command =
+            \ ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_match_func = {'match': 'GoodMatch'}
 
 let g:ctrlp_status_func = {
@@ -487,8 +490,8 @@ if has("autocmd") && !exists("s:loaded_markdown_make")
     let s:loaded_markdown_make = 1
     autocmd FileType markdown
                 \ command! -buffer Gollum :call AutoCommitGollum()
-    autocmd FileType markdown
-                \ let &l:makeprg="cd %:h && git add -A && git commit -m 'update'"
+    autocmd FileType markdown let &l:makeprg=
+                \"cd %:h && git add -A && git commit -m 'update'"
 endif
 " }}}
 
@@ -528,7 +531,8 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
+        autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
+                    \upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
