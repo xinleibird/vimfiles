@@ -27,16 +27,32 @@ else
     let g:pathogen_disabled = ["statline"]
 endif
 
-
-
-
-
 execute pathogen#infect()
 
 " }}}
 
 " General {{{
 " =======
+
+" No menu, no scroll bar
+" ----------------------
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=b
+    set guioptions-=e   " gui tabline close
+endif
+
+" Set columns & lines
+" -------------------
+if has("gui_running")
+    winpos 320 60
+    set lines=34 columns=120
+endif
 
 " Other
 " -----
@@ -68,7 +84,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " }}}
 
-" Vim UI {{{
+" Vim Appearance {{{
 " ======
 
 " Font
@@ -94,25 +110,6 @@ if &term is# "linux"
 endif
 
 syntax enable
-
-" No menu, no scroll bar
-" ----------------------
-if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=b
-endif
-
-" Set columns & lines
-" -------------------
-if has("gui_running")
-    set lines=38 columns=125
-    winpos 320 33
-endif
 
 " }}}
 
@@ -220,6 +217,7 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Tagbar
 " ------
