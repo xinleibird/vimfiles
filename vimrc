@@ -204,8 +204,8 @@ noremap <F8> :Java<CR>
 
 " Matchem
 " -------
-imap <c-l> <Plug>MatchemSkipNext
-imap <c-j> <Plug>MatchemSkipAll
+" imap <c-l> <Plug>MatchemSkipNext
+" imap <c-j> <Plug>MatchemSkipAll
 
 " }}}
 
@@ -304,8 +304,8 @@ let g:EclimProjectTreeActions = [
 
 " Vim-markdown
 " ------------
-let g:markdown_fenced_languages = ["ruby", "python", "java",
-            \ "sh", "c", "cpp", "vim"]
+let g:markdown_fenced_languages = ["ruby", "python", "java", "sh", "c", "cpp",
+            \ "vim"]
 
 " indentLine
 " ----------
