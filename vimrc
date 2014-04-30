@@ -289,7 +289,7 @@ let g:tagbar_type_ruby = {
 
 " Eclim
 " -----
-let g:EclimTempFilesEnable = 0 " Important! Do *NOT* use temp file!
+" let g:EclimTempFilesEnable = 0 " Important! Do *NOT* use temp file!
 let g:EclimQuickfixSignText = '!'
 let g:EclimLoclistSignText = 'x'
 let g:EclimUserSignText = 'u'
