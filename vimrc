@@ -22,7 +22,7 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["vim-cdoc", "lightline", "lightline-extensions"]
+    let g:pathogen_disabled = ["vim-cdoc", "lightline", "lightline-extension"]
 else
     let g:pathogen_disabled = ["statline"]
 endif
@@ -314,7 +314,6 @@ let g:indentLine_char = get(g:,'indentLine_char',
 
 " CtrlP
 " -----
-let g:ctrlp_extensions = ['sample']
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_root_markers = ['.project']
@@ -322,76 +321,20 @@ let g:ctrlp_lazy_update = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-            \'dir':'
-            \Video\|Music\|\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
-            \\~\.dot\|\~\.nib\|\~\.plst\|\.pc\|_MTN\|blib\|CVS\|RCS\|
-            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build
-            \',
-            \
-            \'file':'
-            \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
-            \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar\.gz$\|\.jar$\|.7z$\|
-            \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
-            \\.pdf$\|\.out$
-            \'}
+            \'dir':
+            \'\Video\|Music\',
+            \'file':
+            \'\.7z$\|\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|
+            \\.ico$\|\.pdf$\|\.out$'}
 
 " CtrlP Matcher Settings
 " ----------------------
-let g:path_to_matcher = "/home/xinlei/.vim/bundle/util/matcher/matcher"
-let g:ctrlp_user_command =
-            \ ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
-let g:ctrlp_match_func = {'match': 'GoodMatch'}
-
-let g:ctrlp_status_func = {
-            \ 'main': 'CtrlP_Statusline_1',
-            \ 'prog': 'CtrlP_Statusline_2',
-            \ }
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " }}}
 
 " Utility function {{{
 " ================
-
-" CtrlP Statusline function
-" -------------------------
-function! CtrlP_Statusline_1(...)
-    let focus = '%#LineNr# '.a:1.' %*'
-    let byfname = '%#Character# '.a:2.' %*'
-    let regex = a:3 ? '%#LineNr# regex %*' : ''
-    let prv = ' '.a:4.' '
-    let item ='%#Character#%4* '.a:5.' %*'
-    let nxt = ' '.a:6.' '
-    let marked = ' '.a:7.' '
-    let dir = ' '.'%=%<%#LineNr#%* '.getcwd().' %*'
-    return focus.byfname.regex.prv.item.nxt.marked.dir
-endfunction
-
-function! CtrlP_Statusline_2(...)
-    let len = '%#Function# '.a:1.' %*'
-    let dir = ' '.'%=%<%#LineNr# '.getcwd().' %*'
-    return len.dir
-endfunction
-
-" GoodMatch
-" ---------
-function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
-    " Create a cache file if not yet exists
-    let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
-    if !( filereadable(cachefile) && a:items == readfile(cachefile) )
-        call writefile(a:items, cachefile)
-    endif
-    if !filereadable(cachefile)
-        return []
-    endif
-    " a:mmode is currently ignored. In the future, we should probably do
-    " something about that. the matcher behaves like "full-line".
-    let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
-    if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
-        let cmd = cmd.'--no-dotfiles '
-    endif
-    let cmd = cmd.a:str
-    return split(system(cmd), "\n")
-endfunction
 
 " Windows maximum
 " ---------------
