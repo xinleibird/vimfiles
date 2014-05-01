@@ -328,8 +328,8 @@ let g:ctrlp_custom_ignore = {
             \',
             \'file':'
             \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
-            \\.png$\|\.jpg$\|\.gif$\|\.zip$\|\.rar$\|\.tar$\|\.gz$\|\.bz2$\|
-            \\.jar$\|.7z$\|
+            \\.png$\|\.jpg$\|\.jpeg$\|\.swf$\|\.gif$\|\.zip$\|\.rar$\|\.tar$\|
+            \\.gz$\|\.bz2$\|\.jar$\|.7z$\|
             \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
             \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$
             \'}
