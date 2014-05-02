@@ -85,3 +85,6 @@
 [submodule "bundle/regex"]
 	path = bundle/regex
 	url = https://github.com/ervandew/regex.git
+[submodule "bundle/vim-eunuch"]
+	path = bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
