@@ -485,8 +485,8 @@ if has("autocmd")
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
-        autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
-                    \ setlocal colorcolumn=81
+        " autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
+        "             \ setlocal colorcolumn=81
         " autocmd FileType markdown,rst,txt
         "             \ setlocal synmaxcol=256
     augroup END

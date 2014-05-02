@@ -82,3 +82,6 @@
 [submodule "bundle/lightline-extension"]
 	path = bundle/lightline-extension
 	url = https://github.com/xinleibird/lightline-extension.git
+[submodule "bundle/regex"]
+	path = bundle/regex
+	url = https://github.com/ervandew/regex.git
