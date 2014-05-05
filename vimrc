@@ -333,6 +333,7 @@ let g:ctrlp_custom_ignore = {
             \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
             \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$
             \'}
+
 " CtrlP Matcher Settings
 " ----------------------
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
