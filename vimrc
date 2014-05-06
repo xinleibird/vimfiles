@@ -70,7 +70,7 @@ if has('mouse')
     set mousehide                       " hide mouse when typing
 endif
 
-set history=1000                        " history
+set history=100                         " history
 set backup
 set backupdir=/home/xinlei/.backfile
 set backspace=indent,eol,start          " backspace delete
