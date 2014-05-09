@@ -173,10 +173,7 @@ set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 " Normal
 " ------
 noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
-noremap <leader>tt :tabnew<CR>
-noremap <leader>tc :tabclose<CR>
-noremap <leader>fd :set fileformat=dos<CR>
-noremap <leader>fu :set fileformat=unix<CR>
+noremap <leader><leader>t :tabnew<CR>
 
 " Syntastic
 " ---------
