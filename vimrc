@@ -213,9 +213,12 @@ noremap <F8> :Java<CR>
 " ---------------------
 let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
-let g:ycm_add_preview_to_completeopt = 1
+" let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+
 let g:ycm_global_ycm_extra_conf =
             \ '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
