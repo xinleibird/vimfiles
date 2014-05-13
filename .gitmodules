@@ -82,6 +82,3 @@
 [submodule "bundle/regex"]
 	path = bundle/regex
 	url = https://github.com/ervandew/regex.git
-[submodule "bundle/matchem"]
-	path = bundle/matchem
-	url = https://github.com/xinleibird/matchem.git

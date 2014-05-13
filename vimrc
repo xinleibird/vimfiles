@@ -449,9 +449,9 @@ endfunction
 
 if has("autocmd") && !exists("s:loaded_markdown_make")
     let s:loaded_markdown_make = 1
-    autocmd FileType markdown
+    autocmd FileType markdown,rst
                 \ command! -buffer Gollum :call AutoCommitGollum()
-    autocmd FileType markdown let &l:makeprg=
+    autocmd FileType markdown,rst let &l:makeprg=
                 \"cd %:h && git add -A && git commit -m 'update'"
 endif
 " }}}
