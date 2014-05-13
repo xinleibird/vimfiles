@@ -203,6 +203,9 @@ noremap <F8> :Java<CR>
 " -------
 " imap <c-l> <Plug>MatchemSkipNext
 " imap <c-j> <Plug>MatchemSkipAll
+imap <expr> <CR> pumvisible()
+                     \ ? "\<C-Y>"
+                     \ : "<CR>"
 
 " }}}
 
