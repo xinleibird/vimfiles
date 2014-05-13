@@ -47,13 +47,6 @@ if has("gui_running")
     set guioptions-=e   " gui tabline close
 endif
 
-" Set columns & lines
-" -------------------
-if has("gui_running")
-    winpos 320 60
-    set lines=34 columns=120
-endif
-
 " Other
 " -----
 filetype plugin indent on               " indent
@@ -97,18 +90,21 @@ endif
 " ------------
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-    set background=light
-    colorscheme solarized
+    set background=dark
+    colorscheme jellybeans
+    let g:indentLine_color_term = 244
 endif
 
 if has("gui_running")
+    set background=dark
     colorscheme jellybeans
 endif
 
 if &term is# "linux"
+    set background=dark
+    colorscheme jellybeans
     let g:jellybeans_use_lowcolor_black = 0
     let g:indentLine_color_tty_dark = 7
-    colorscheme jellybeans
 endif
 
 syntax enable
