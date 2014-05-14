@@ -198,9 +198,6 @@ noremap <F8> :Java<CR>
 " -------
 " imap <c-l> <Plug>MatchemSkipNext
 " imap <c-j> <Plug>MatchemSkipAll
-imap <expr> <CR> pumvisible()
-                     \ ? "\<C-Y>"
-                     \ : "<CR>"
 
 " }}}
 
@@ -211,7 +208,7 @@ imap <expr> <CR> pumvisible()
 " ---------------------
 let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
-" let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
