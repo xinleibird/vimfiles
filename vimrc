@@ -169,7 +169,6 @@ set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 " Normal
 " ------
 noremap <silent> <leader>= <ESC>mRgg=G`R<ESC>
-noremap <leader><leader>t :tabnew<CR>
 
 " Syntastic
 " ---------
