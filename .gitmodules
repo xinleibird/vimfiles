@@ -82,3 +82,6 @@
 [submodule "bundle/matchem"]
 	path = bundle/matchem
 	url = https://github.com/ervandew/matchem.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
