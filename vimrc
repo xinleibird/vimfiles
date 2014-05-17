@@ -199,6 +199,9 @@ noremap <F8> :Java<CR>
 " imap <c-l> <Plug>MatchemSkipNext
 " imap <c-j> <Plug>MatchemSkipAll
 
+" Zeal
+nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+
 " }}}
 
 " Plug-in global setting {{{
