@@ -200,7 +200,7 @@ noremap <F8> :Java<CR>
 " imap <c-j> <Plug>MatchemSkipAll
 
 " Zeal
-nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+nnoremap gz :!zeal --query "<cword>"&<CR> :redraw!<CR>
 
 " }}}
 
