@@ -304,7 +304,8 @@ let g:EclimQuickfixSignText = '!'
 let g:EclimLoclistSignText = 'x'
 let g:EclimUserSignText = 'u'
 let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimWarningHighlight = "Question"
+let g:EclimWarningHighlight = 'Question'
+let g:EclimBrowser = 'webbrowser-app'
 let g:EclimProjectTreeActions = [
             \ {'pattern': '.*', 'name': 'Edit', 'action': 'edit'},
             \ {'pattern': '.*', 'name': 'Split', 'action': 'split'},
