@@ -93,7 +93,6 @@ if $COLORTERM == 'gnome-terminal'
     set background=dark
     colorscheme jellybeans
     let g:jellybeans_background_color_256 = "None"
-    let g:indentLine_color_term = 244
 endif
 
 if has("gui_running")
@@ -105,7 +104,6 @@ if &term is# "linux"
     set background=dark
     colorscheme jellybeans
     let g:jellybeans_use_lowcolor_black = 0
-    let g:indentLine_color_tty_dark = 7
 endif
 
 syntax enable
@@ -217,6 +215,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_strings = 0
 let g:ycm_global_ycm_extra_conf =
             \ '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {
@@ -317,11 +317,6 @@ let g:EclimProjectTreeActions = [
 " ------------
 let g:markdown_fenced_languages = ["ruby", "python", "java", "sh", "c", "cpp",
             \ "vim"]
-
-" indentLine
-" ----------
-let g:indentLine_char = get(g:,'indentLine_char',
-            \(&encoding is# "utf-8" && &term isnot# "linux" ? '┆' : '|'))
 
 " CtrlP
 " -----
