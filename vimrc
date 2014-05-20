@@ -92,6 +92,7 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
     set background=dark
     colorscheme jellybeans
+    let g:jellybeans_background_color_256 = "None"
     let g:indentLine_color_term = 244
 endif
 
