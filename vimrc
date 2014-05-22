@@ -501,15 +501,40 @@ endif
 
 " Terminal ttimeout
 " -----------------
-if !has('gui_running')
-    set ttimeoutlen=100
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
+" if !has('gui_running')
+"     set ttimeoutlen=100
+"     augroup FastEscape
+"         autocmd!
+"         au InsertEnter * set timeoutlen=0
+"         au InsertLeave * set timeoutlen=1000
+"     augroup END
+" endif
 
+function! <SID>AC_IBusDisable()
+    if ibus#is_enabled()
+        call ibus#disable()
+        let b:ibustoggle = 1
+    endif
+    set timeoutlen=1000
+endfunction
+
+function! <SID>AC_IBusRenable()
+    if exists("b:ibustoggle")
+        if b:ibustoggle == 1
+            call ibus#enable()
+            let b:ibustoggle = 0
+            set timeoutlen=100
+        endif
+    else
+        let b:ibustoggle = 0
+    endif
+endfunction
+
+autocmd InsertLeave *
+            \ call <SID>AC_IBusDisable()
+
+autocmd InsertEnter *
+            \ call <SID>AC_IBusRenable()
 " Go to the last post when you open the buffer
 " --------------------------------------------
 if has("autocmd")
