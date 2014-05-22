@@ -502,7 +502,7 @@ endif
 " Terminal ttimeout
 " -----------------
 if !has('gui_running')
-    set ttimeoutlen=10
+    set ttimeoutlen=100
     augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
