@@ -218,7 +218,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 0
 let g:ycm_complete_in_strings = 0
 let g:ycm_global_ycm_extra_conf =
-            \ '/home/xinlei/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+            \ '/home/xinlei/.vim/bundle/util/ycm/c_conf.py'
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
