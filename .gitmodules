@@ -85,3 +85,6 @@
 [submodule "bundle/fcitx"]
 	path = bundle/fcitx
 	url = https://github.com/lilydjwg/fcitx.vim.git
+[submodule "bundle/vim-instant-markdown"]
+	path = bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown.git
