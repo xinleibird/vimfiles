@@ -301,12 +301,6 @@ let g:EclimLoclistSignText = 'x'
 let g:EclimUserSignText = 'u'
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Question'
-let g:EclimProjectTreeActions = [
-            \ {'pattern': '.*', 'name': 'Edit', 'action': 'edit'},
-            \ {'pattern': '.*', 'name': 'Split', 'action': 'split'},
-            \ {'pattern': '.*', 'name': 'VSplit', 'action': 'vsplit'},
-            \ {'pattern': '.*', 'name': 'Tab', 'action': 'tablast | tabnew'}
-            \ ]
 
 " Vim-markdown
 " ------------
