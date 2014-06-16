@@ -55,9 +55,6 @@
 [submodule "bundle/rst2ctags"]
 	path = bundle/rst2ctags
 	url = https://github.com/jszakmeister/rst2ctags.git
-[submodule "bundle/plantuml"]
-	path = bundle/plantuml
-	url = https://github.com/xinleibird/plantuml-syntax.git
 [submodule "bundle/lightline"]
 	path = bundle/lightline
 	url = https://github.com/itchyny/lightline.vim.git
