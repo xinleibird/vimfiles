@@ -466,8 +466,6 @@ if has("autocmd")
         autocmd FileType java setlocal
                     \ equalprg=astyle
                     \\ -A2s4CSLwYm2pHUyjcxy\ --mode=java
-        autocmd FileType plantuml setlocal
-                    \ equalprg=astyle
         autocmd FileType java
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
         autocmd FileType c,cpp setlocal
