@@ -473,16 +473,13 @@ if has("autocmd")
                     \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
-        autocmd FileType ruby,java setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType ruby,java,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType plantuml setlocal nocindent nosmartindent
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
                     \upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
-        " autocmd FileType java,vim,python,c,cpp,ruby,markdown,rst,txt
-        "             \ setlocal colorcolumn=81
-        " autocmd FileType markdown,rst,txt
-        "             \ setlocal synmaxcol=256
     augroup END
 endif
 
