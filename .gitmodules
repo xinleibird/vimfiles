@@ -96,4 +96,4 @@
 	url = https://github.com/jonathanfilip/vim-lucius.git
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/vim-github-colorscheme
-	url = https://github.com/endel/vim-github-colorscheme.git
+	url = https://github.com/xinleibird/vim-github-colorscheme.git

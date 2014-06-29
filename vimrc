@@ -100,7 +100,6 @@ if has("gui_running")
     " colorscheme jellybeans
     set background=light
     colorscheme github
-    hi! link NonText    Normal
 endif
 
 if &term is# "linux"
@@ -341,6 +340,11 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 if &term isnot# 'linux'
     let g:indentLine_char = '┊'
 endif
+
+" Java Highlight
+" --------------
+" let java_highlight_java_lang_ids=1
+" let java_highlight_functions="style"
 
 " }}}
 
