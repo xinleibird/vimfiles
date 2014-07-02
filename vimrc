@@ -486,7 +486,7 @@ if has("autocmd")
                     \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
-        autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType ruby,plantuml,java setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType plantuml,html setlocal nocindent nosmartindent
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
                     \upstart
