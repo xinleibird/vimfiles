@@ -328,7 +328,7 @@ let g:ctrlp_custom_ignore = {
             \\.png$\|\.jpg$\|\.jpeg$\|\.swf$\|\.gif$\|\.zip$\|\.rar$\|\.tar$\|
             \\.gz$\|\.bz2$\|\.jar$\|.7z$\|
             \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
-            \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$
+            \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$\|\.dll$\|\.jnilib$\|\.dylib$
             \'}
 
 " CtrlP Matcher Settings
@@ -488,6 +488,7 @@ if has("autocmd")
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType plantuml,html setlocal nocindent nosmartindent
+        autocmd FileType java setlocal cinoptions=l1
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
                     \upstart
                     \ setlocal commentstring=#\ %s
