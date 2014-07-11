@@ -29,10 +29,10 @@
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/vim-git"]
-	path = bundle/vim-git
+	path = bundle/git
 	url = https://github.com/tpope/vim-git.git
 [submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
+	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/commentary"]
 	path = bundle/commentary
@@ -44,7 +44,7 @@
 	path = bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-ruby"]
-	path = bundle/vim-ruby
+	path = bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
@@ -77,13 +77,13 @@
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/vim-eunuch"]
-	path = bundle/vim-eunuch
+	path = bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "bundle/fcitx"]
 	path = bundle/fcitx
 	url = https://github.com/lilydjwg/fcitx.vim.git
 [submodule "bundle/vim-instant-markdown"]
-	path = bundle/vim-instant-markdown
+	path = bundle/instant-markdown
 	url = https://github.com/suan/vim-instant-markdown.git
 [submodule "bundle/plantuml"]
 	path = bundle/plantuml
@@ -92,5 +92,5 @@
 	path = bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/vim-github-colorscheme"]
-	path = bundle/vim-github-colorscheme
+	path = bundle/github-colorscheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
