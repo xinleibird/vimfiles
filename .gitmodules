@@ -94,6 +94,3 @@
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/github-colorscheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git

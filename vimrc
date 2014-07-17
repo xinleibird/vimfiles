@@ -24,7 +24,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 if $TERM == 'linux'
     let g:pathogen_disabled = ["vim-cdoc", "lightline", "lightline-extension"]
 else
-    let g:pathogen_disabled = ["statline", "YouCompleteMe"]
+    let g:pathogen_disabled = ["statline"]
 endif
 
 execute pathogen#infect()
