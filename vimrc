@@ -95,8 +95,6 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 if has("gui_running")
-    " set background=dark
-    " colorscheme jellybeans
     set background=light
     colorscheme github
 endif
