@@ -63,9 +63,8 @@ if has('mouse')
     set mousehide                       " hide mouse when typing
 endif
 
-set history=100                         " history
-set backup
-set backupdir=/home/xinlei/.backfile
+set history=500                         " history
+set nobackup
 set backspace=indent,eol,start          " backspace delete
 set ruler                               " ruler
 set number                              " line number
@@ -140,9 +139,8 @@ set matchtime=5
 
 " Indent
 " ------
-set cindent
-set smartindent
 set autoindent
+set smartindent
 
 " Tab
 " ---
@@ -152,6 +150,19 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+" Undo
+" ----
+if has("persistent_undo")
+    set undofile
+    set undolevels=1000
+    set undodir=~/.undodir
+    au BufWritePre ~/.undodir/* setlocal noundofile
+endif
+
+" Fcitx setting
+" -------------
+set imdisable
+
 " Other
 " -----
 set wrap
@@ -160,7 +171,8 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
+set ambiwidth=double
+set listchars=tab:>-,extends:>,precedes:<,trail:\ ,
 
 " }}}
 
@@ -197,11 +209,16 @@ noremap <F8> :Java<CR>
 
 " Matchem
 " -------
-" imap <c-l> <Plug>MatchemSkipNext
-" imap <c-j> <Plug>MatchemSkipAll
+" imap <C-L> <Plug>MatchemSkipNext
+" imap <C-J> <Plug>MatchemSkipAll
 
 " Zeal
+" ----
 nnoremap gz :!zeal --query "<cword>"&<CR> :redraw!<CR>
+
+" Virtual search
+vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " }}}
 
@@ -488,8 +505,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType plantuml,html setlocal nocindent nosmartindent
-        autocmd FileType java setlocal cinoptions=l1
+        autocmd FileType java,c,cpp setlocal cindent cinoptions=l1
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
                     \upstart
                     \ setlocal commentstring=#\ %s
@@ -508,10 +524,6 @@ if !has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
-
-" Fcitx setting
-" -------------
-set imdisable
 
 " Go to the last post when you open the buffer
 " --------------------------------------------
