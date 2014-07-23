@@ -169,8 +169,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set ambiwidth=double
-set listchars=tab:>-,extends:>,precedes:<,trail:\ ,
+set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
 
 " }}}
 
