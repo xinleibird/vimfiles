@@ -94,9 +94,3 @@
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/github-colorscheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
-[submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/snippets"]
-	path = bundle/snippets
-	url = https://github.com/honza/vim-snippets.git
