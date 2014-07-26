@@ -20,7 +20,7 @@
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/python-syntax"]
-	path = bundle/python-syntax
+	path = bundle/python
 	url = https://github.com/hdima/python-syntax.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
