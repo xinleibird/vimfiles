@@ -19,12 +19,12 @@ endif
 
 " Setup pathogen support
 " ----------------------
-runtime bundle/pathogen/autoload/pathogen.vim
+runtime bundle/Pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["vim-cdoc", "lightline", "lightline-extension"]
+    let g:pathogen_disabled = ["cnDoc", "LightLine", "LightLineExtension"]
 else
-    let g:pathogen_disabled = ["statline"]
+    let g:pathogen_disabled = ["StatLine"]
 endif
 
 execute pathogen#infect()
