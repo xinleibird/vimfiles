@@ -1,4 +1,5 @@
 " Highlight Class and Function names
 syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
 syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
+syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*<"me=e-1      " generic
 hi link javaCustomFunc Function
