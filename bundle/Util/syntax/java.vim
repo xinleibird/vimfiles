@@ -1,5 +1,7 @@
-" Highlight Class and Function names
-syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
-syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
-syn match javaCustomFunc "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*<"me=e-1      " generic
+" Highlight method names
+syn match javaCustomParen "(" contains=javaParen
+syn match javaCustomFunc "\w\+\s*(\@=" contains=javaCustomParen
+syn match javaCustomAngle "<\w*>"
+syn match javaCustomGeneric "\w\+\s*<\w*>(\@=" contains=javaCustomAngle
 hi link javaCustomFunc Function
+hi link javaCustomGeneric Function
