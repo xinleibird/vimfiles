@@ -10,9 +10,9 @@ hi def link javaMethodGenericInvoke Constant
 " new object
 syn match javaMethodDefine "\(\(\s*\(new\)\s*\)\@<=\)\w\+" contains=javaAngle
 " define method
-syn match javaMethodDefine "\(\(\s*\(void\|[A-Z_]\+[a-zA-Z_<>]*\)\s*\)\@<=\s*[a-z]\w*\s*\)(\@=" contains=javaAngle
+syn match javaMethodDefine "\(\(\s*\(void\|boolean\|byte\|char\|int\|long\|float\|double\|[A-Z_]\+[a-zA-Z_<>]*\)\s*\)\@<=\s*[a-z]\w*\s*\)(\@=" contains=javaAngle
 " constructor
-syn match javaMethodDefine "\(\(^\s*\(public\|private\|default\|\|protected\)\s*\)\@<=\s*[A-Z_]\w*\s*\)(\@=" contains=javaAngle
+syn match javaMethodDefine "\(\(^\s*\(public\|private\|default\|\|protected\|synchronized\)\s*\)\@<=\s*[A-Z_]\w*\s*\)(\@=" contains=javaAngle
 hi def link javaMethodDefine Function
 
 " define class enum interface
