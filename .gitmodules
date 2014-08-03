@@ -38,7 +38,7 @@
 	path = bundle/StatLine
 	url = https://github.com/xinleibird/vim-statline.git
 [submodule "bundle/solarized"]
-	path = bundle/Solarized
+	path = bundle/SolarizedColorScheme
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/Ruby

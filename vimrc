@@ -82,7 +82,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Monaco\ 10
+    " set guifont=Monaco\ 10
+    set guifont=Envy\ Code\ R\ 11
+    set guifontwide=monospace\ 10
 endif
 
 " Color scheme
@@ -95,8 +97,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 if has("gui_running")
-    set background=light
-    colorscheme github
+    set background=dark
+    colorscheme molokai
+    let g:molokai_original = 1
 endif
 
 if &term is# "linux"
@@ -169,7 +172,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
+set listchars=tab:‣-,extends:»,precedes:«,trail:█
 
 " }}}
 
@@ -354,6 +357,7 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 if &term isnot# 'linux'
     let g:indentLine_char = '┊'
 endif
+let g:indentLine_fileTypeExclude = ['help', 'tree']
 
 " Java Highlight
 " --------------
