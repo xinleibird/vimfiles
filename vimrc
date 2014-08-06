@@ -83,7 +83,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     " set guifont=Monaco\ 10
-    set guifont=Envy\ Code\ R\ 11
+    " set guifont=Envy\ Code\ R\ 11
+    " set guifontwide=monospace\ 10
+    set guifont=Ubuntu\ Mono\ 12
     set guifontwide=monospace\ 10
 endif
 
@@ -172,7 +174,8 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:█
+set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
+hi SpecialKey guibg=#3B3A32
 
 " }}}
 
@@ -211,6 +214,7 @@ noremap <F8> :Java<CR>
 " -------
 " imap <C-L> <Plug>MatchemSkipNext
 " imap <C-J> <Plug>MatchemSkipAll
+" let g:MatchemEndOfLineMapping = 1
 
 " Zeal
 " ----
@@ -227,11 +231,10 @@ vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " YouCompleteMe setting
 " ---------------------
-let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<Up>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_global_ycm_extra_conf =
             \ '/home/xinlei/.vim/bundle/util/ycm/c_conf.py'
 let g:ycm_filetype_blacklist = {

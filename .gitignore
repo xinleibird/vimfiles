@@ -11,6 +11,7 @@ workbench.xmi
 # vim swp
 .*.*.swp
 .*.swp
+.swp
 
 # Package Files #
 *.jar
