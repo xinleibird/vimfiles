@@ -231,8 +231,8 @@ vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " YouCompleteMe setting
 " ---------------------
-let g:ycm_key_list_select_completion = ['<TAB>', '<Up>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Down>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf =
