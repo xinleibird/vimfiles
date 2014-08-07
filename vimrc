@@ -175,7 +175,6 @@ set autoread
 set autowrite
 set list
 set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
-hi SpecialKey guibg=#3B3A32
 
 " }}}
 
