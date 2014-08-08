@@ -85,9 +85,6 @@
 [submodule "bundle/plantuml"]
 	path = bundle/Plantuml
 	url = https://github.com/xinleibird/plantuml-syntax.git
-[submodule "bundle/indentLine"]
-	path = bundle/IndentLine
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/GithubColorScheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git

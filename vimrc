@@ -22,7 +22,7 @@ endif
 runtime bundle/Pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["cnDoc", "LightLine", "LightLineExtension"]
+    let g:pathogen_disabled = ["CnDoc", "LightLine", "LightLineExtension"]
 else
     let g:pathogen_disabled = ["StatLine"]
 endif
@@ -174,7 +174,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,
+set listchars=tab:‣-,extends:»,precedes:«,trail:₋
 
 " }}}
 
@@ -353,13 +353,6 @@ let g:ctrlp_custom_ignore = {
 " CtrlP Matcher Settings
 " ----------------------
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-
-" IndentLine
-" ----------
-if &term isnot# 'linux'
-    let g:indentLine_char = '┊'
-endif
-let g:indentLine_fileTypeExclude = ['help', 'tree']
 
 " Java Highlight
 " --------------
