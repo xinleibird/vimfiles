@@ -84,7 +84,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 if has("gui_running")
     " set guifont=Monaco\ 10
     " set guifont=Envy\ Code\ R\ 11
-    " set guifontwide=monospace\ 10
     set guifont=Ubuntu\ Mono\ 12
     set guifontwide=monospace\ 10
 endif
