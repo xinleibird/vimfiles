@@ -82,11 +82,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    " set guifont=Monaco\ 10
-    " set guifont=Envy\ Code\ R\ 11
-    " set guifont=Ubuntu\ Mono\ 12
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
-    set guifontwide=monospace\ 10
+    set guifont=Monaco\ 10
 endif
 
 " Color scheme
@@ -99,9 +95,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 if has("gui_running")
-    set background=dark
-    colorscheme molokai
-    let g:molokai_original = 1
+    set background=light
+    colorscheme github
+    " let g:molokai_original = 1
 endif
 
 if &term is# "linux"
@@ -338,7 +334,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
             \'dir':'
-            \Video\|Music\|\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
+            \Video\|Music\|\Picture\|\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
             \\~\.dot\|\~\.nib\|\~\.plst\|\.pc\|_MTN\|blib\|CVS\|RCS\|
             \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build
             \',
@@ -346,7 +342,7 @@ let g:ctrlp_custom_ignore = {
             \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
             \\.png$\|\.jpg$\|\.jpeg$\|\.swf$\|\.gif$\|\.zip$\|\.rar$\|\.tar$\|
             \\.gz$\|\.bz2$\|\.jar$\|.7z$\|
-            \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|
+            \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|\.bmp\|
             \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$\|\.dll$\|\.jnilib$\|\.dylib$
             \'}
 
