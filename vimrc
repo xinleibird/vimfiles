@@ -83,7 +83,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ----
 if has("gui_running")
     set guifont=Gvim\ 10.5
-    " set guifontwide= Gvim\ 10
     set columns=999 lines=99
 endif
 
@@ -99,7 +98,6 @@ endif
 if has("gui_running")
     set background=light
     colorscheme github
-    " let g:molokai_original = 1
 endif
 
 if &term is# "linux"
@@ -172,8 +170,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:₋
-
+set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,nbsp:+
 " }}}
 
 " Key mapping {{{
