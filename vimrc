@@ -82,7 +82,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Monaco\ 10
+    set guifont=Gvim\ 10.5
+    " set guifontwide= Gvim\ 10
+    set columns=999 lines=99
 endif
 
 " Color scheme
