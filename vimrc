@@ -72,7 +72,7 @@ set showcmd                             " cmd complete
 
 " Ignore file type
 " ----------------
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,types_java.taghl
 
 " }}}
 
@@ -97,7 +97,7 @@ endif
 
 if has("gui_running")
     set background=light
-    colorscheme github
+    colorscheme github_tags
 endif
 
 if &term is# "linux"
@@ -422,7 +422,7 @@ function RemoveTrailingWhitespace()
     silent! %s/\s\+$//
     silent! %s/\(\s*\n\)\+\%$//
     call cursor(b:curline, b:curcol)
-endfunc
+endfunction
 noremap <silent> <leader><Space> :call RemoveTrailingWhitespace()<CR>
 
 " Gollum auto commit

@@ -1,0 +1,17 @@
+# Saving this file will update the current colour scheme.
+Basis:github
+
+# No Dark colour scheme defined
+
+Light:
+	
+	Class:@Type
+	EnumerationValue:@Type
+	Field:@Normal
+	EnumeratorName:@Type
+	Interface:@Type
+	LocalVariable:@Underlined
+	Method:@Function
+	Package:@Include
+	
+# vim: ff=unix:noet:ft=EasyColour
