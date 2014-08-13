@@ -22,7 +22,7 @@ endif
 runtime bundle/Pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["CnDoc", "LightLine", "LightLineExtension"]
+    let g:pathogen_disabled = ["CnDocs", "LightLine", "LightLineExtension"]
 else
     let g:pathogen_disabled = ["StatLine"]
 endif
@@ -82,7 +82,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Font
 " ----
 if has("gui_running")
-    set guifont=Gvim\ 10.5
+    set guifont=Lucida\ Sans\ Typewriter\ Std\ 10.5
     set columns=999 lines=99
 endif
 
