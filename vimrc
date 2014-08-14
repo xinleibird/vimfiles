@@ -37,14 +37,8 @@ execute pathogen#infect()
 " No menu, no scroll bar
 " ----------------------
 if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=b
-    set guioptions-=e   " gui tabline close
+    set guiheadroom=0
+    set guioptions=ag
 endif
 
 " Other
@@ -83,6 +77,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ----
 if has("gui_running")
     set guifont=Gvim\ 10.5
+    " set guifont=Consolas\ 10.5
     set columns=999 lines=99
 endif
 
