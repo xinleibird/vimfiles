@@ -72,7 +72,7 @@ set showcmd                             " cmd complete
 
 " Ignore file type
 " ----------------
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,types_java.taghl
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 
 " }}}
 
@@ -82,7 +82,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,types_java.taghl
 " Font
 " ----
 if has("gui_running")
-    set guifont=Lucida\ Sans\ Typewriter\ Std\ 10.5
+    set guifont=Lucida\ Sans\ Typewriter\ Std\ 10
     set columns=999 lines=99
 endif
 
@@ -97,7 +97,7 @@ endif
 
 if has("gui_running")
     set background=light
-    colorscheme github_tags
+    colorscheme github
 endif
 
 if &term is# "linux"
