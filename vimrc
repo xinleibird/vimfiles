@@ -77,7 +77,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ----
 if has("gui_running")
     set guifont=Gvim\ 10.5
-    " set guifont=Consolas\ 10.5
     set columns=999 lines=99
 endif
 
