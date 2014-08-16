@@ -261,7 +261,7 @@ let b:python_version_2 = 1
 " --------------
 let g:tagbar_type_rst = {
             \ 'ctagstype': 'rst',
-            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/rst2ctags/rst2ctags.py',
+            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/Rst2Ctags/rst2ctags.py',
             \ 'ctagsargs' : '-f - --sort=yes',
             \ 'kinds' : [
             \ 's:sections',
