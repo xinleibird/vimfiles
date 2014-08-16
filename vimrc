@@ -78,6 +78,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 if has("gui_running")
     " set guifont=Consolas\ 10.5
     set guifont=Lucida\ Sans\ Typewriter\ Std\ 10.5
+    " set guifont=Lucida\ Sans\ Typewriter\ 10.5
+    " set linespace=1
     set columns=999 lines=99
 endif
 
