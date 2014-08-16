@@ -224,7 +224,8 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf =
-            \ '/home/xinlei/.vim/bundle/util/ycm/c_conf.py'
+            \ '/home/xinlei/.vim/bundle/YouCompleteMe/
+            \third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {
             \ 'tagbar' : 1,
             \ 'qf' : 1,
