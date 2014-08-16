@@ -76,8 +76,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " Font
 " ----
 if has("gui_running")
-    set guifont=Consolas\ 10.5
-    " set guifont=Lucida\ Sans\ Typewriter\ Std\ 10.5
+    " set guifont=Consolas\ 10.5
+    set guifont=Lucida\ Sans\ Typewriter\ Std\ 10.5
     set columns=999 lines=99
 endif
 
@@ -279,7 +279,7 @@ let g:tagbar_type_rst = {
 let g:tagbar_type_markdown = {
             \ 'ctagstype': 'markdown',
             \ 'ctagsbin' :
-            \ '/home/xinlei/.vim/bundle/markdown2ctags/markdown2ctags.py',
+            \ '/home/xinlei/.vim/bundle/Markdown2Ctags/markdown2ctags.py',
             \ 'ctagsargs' : '-f - --sort=yes',
             \ 'kinds' : [
             \ 's:sections',
