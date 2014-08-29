@@ -304,15 +304,6 @@ let g:tagbar_type_ruby = {
             \ ]
             \ }
 
-" Eclim
-" -----
-let g:EclimTempFilesEnable = 0 " Important! Do *NOT* use temp file!
-let g:EclimQuickfixSignText = '!'
-let g:EclimLoclistSignText = 'x'
-let g:EclimUserSignText = 'u'
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimWarningHighlight = 'Question'
-
 " Vim-markdown
 " ------------
 let g:markdown_fenced_languages = ["ruby", "python", "java", "sh", "c", "cpp",
