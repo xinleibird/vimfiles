@@ -327,14 +327,16 @@ let g:ctrlp_custom_ignore = {
             \'dir':'
             \Video\|Music\|\Picture\|\.git\|\.hg\|\.svn\|_darcs\|\.bzr\|\.cdv\|\~\.dep\|
             \\~\.dot\|\~\.nib\|\~\.plst\|\.pc\|_MTN\|blib\|CVS\|RCS\|
-            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build
+            \SCCS\|_sgbak\|autom4te\.cache\|cover_db\|_build\|IntelGraphicsProfiles\|
+            \Searches
             \',
             \'file':'
             \\~$\|#.+#$\|[._].*\.swp$\|core\.\d+$\|\.exe$\|\.so$\|\.bak$\|
             \\.png$\|\.jpg$\|\.jpeg$\|\.swf$\|\.gif$\|\.zip$\|\.rar$\|\.tar$\|
             \\.gz$\|\.bz2$\|\.jar$\|.7z$\|
             \\.xmi$\|\.class$\|\.classpath$\|\.project$\|\.svg$\|\.ico$\|\.bmp\|
-            \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$\|\.dll$\|\.jnilib$\|\.dylib$
+            \\.pdf$\|\.out$\|\.chm$\|\.deb$\|\.fskin$\|\.ttf$\|\.dll$\|\.jnilib$\|\.dylib$\|
+            \\.contact$\|.regtrans-ms$\|.blf$\|desktop.ini$\|.DAT\|.link\|ntuser.ini\|.url
             \'}
 
 " CtrlP Matcher Settings
