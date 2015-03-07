@@ -9,9 +9,7 @@
 " ------
 set nocompatible                        " NO compatible vi
 
-if v:progname=~?($USER=="root")
-    set runtimepath+=/home/xinlei/.vim
-endif
+set runtimepath+=~/vimfiles/vim-bundle
 
 if v:progname=~?"evim"
     finish
@@ -25,7 +23,12 @@ if $TERM == 'linux'
     let g:pathogen_disabled = ["CnDocs", "LightLine", "LightLineExtension"]
 else
     let g:pathogen_disabled = ["StatLine"]
+    if has("win32")
+        let g:pathogen_disabled = ["YouCompleteMe", "Fcitx"]
+    endif
 endif
+
+
 
 execute pathogen#infect()
 
@@ -76,7 +79,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " Font
 " ----
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ 10
+    set guifont=Consolas:h12
+    set guifontwide=Microsoft_YaHei_Mono:h12
     set columns=999 lines=99
 endif
 
@@ -116,7 +120,7 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set fileformat=unix
 set nobomb
-" language en_US.UTF-8
+"language en_US.UTF-8
 
 " }}}
 
@@ -154,7 +158,9 @@ endif
 
 " Fcitx setting
 " -------------
-set imdisable
+if has("unix")
+    set imdisable
+endif
 
 " Other
 " -----
@@ -164,7 +170,7 @@ set wildmenu
 set autoread
 set autowrite
 set list
-set listchars=tab:‣-,extends:»,precedes:«,trail:\ ,nbsp:+
+set listchars=tab:>-,extends:»,precedes:«,trail:\ ,nbsp:+
 " }}}
 
 " Key mapping {{{
@@ -340,6 +346,9 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 " let java_highlight_java_lang_ids=1
 " let java_highlight_functions="style"
 
+" Eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
 " }}}
 
 " Utility function {{{
@@ -501,6 +510,23 @@ if has("autocmd")
         autocmd!
         autocmd BufEnter * :syntax sync minlines=1024 maxlines=4096
     augroup END
+endif
+
+" No windows bell
+if has("win32")
+    set noerrorbells visualbell
+    if has('autocmd')
+        autocmd GUIEnter * set visualbell
+    endif
+endif
+
+" Windows toggle im
+if has("win32")
+    set noimdisable
+    if has('autocmd')
+        autocmd! InsertLeave * set imdisable|set iminsert=0
+        autocmd! InsertEnter * set noimdisable|set iminsert=0
+    endif
 endif
 
 " }}}
