@@ -88,3 +88,6 @@
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/GithubColorScheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
+[submodule "bundle/LightLineExtension"]
+	path = bundle/LightLineExtension
+	url = https://github.com/xinleibird/lightline-extension.git
