@@ -279,6 +279,39 @@ let g:tagbar_type_rst = {
             \ 'sort': 0,
             \ }
 
+let g:tagbar_type_css = {
+            \ 'ctagstype' : 'css',
+            \ 'kinds' : [
+            \ 'v:variables',
+            \ 'c:classes',
+            \ 'i:identities',
+            \ 't:tags',
+            \ 'm:medias'
+            \ ]
+            \}
+
+let g:tagbar_type_less = {
+            \ 'ctagstype' : 'css',
+            \ 'kinds' : [
+            \ 'v:variables',
+            \ 'c:classes',
+            \ 'i:identities',
+            \ 't:tags',
+            \ 'm:medias'
+            \ ]
+            \}
+
+let g:tagbar_type_scss = {
+            \ 'ctagstype' : 'css',
+            \ 'kinds' : [
+            \ 'v:variables',
+            \ 'c:classes',
+            \ 'i:identities',
+            \ 't:tags',
+            \ 'm:medias'
+            \ ]
+            \}
+
 " Markdown2Ctags
 " --------------
 let g:tagbar_type_markdown = {
@@ -350,6 +383,10 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Eclim
 let g:EclimCompletionMethod = 'omnifunc'
+
+" Php Indenting
+let g:PHP_default_indenting = 1
+
 
 " }}}
 
@@ -462,14 +499,14 @@ endif
 if has("autocmd")
     augroup filetypeGroup
         autocmd!
-        autocmd FileType java setlocal
-                    \ equalprg=astyle
-                    \\ -A2s4CSLwYm2pHUyjcxy\ --mode=java
+        " autocmd FileType java setlocal
+        "             \ equalprg=astyle
+        "             \\ -A2s4CSLwYm2pHUyjcxy\ --mode=java
         autocmd FileType java
                     \ noremap <buffer> <leader><leader>= :%JavaFormat<CR>
-        autocmd FileType c,cpp setlocal
-                    \ equalprg=astyle
-                    \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
+        " autocmd FileType c,cpp setlocal
+        "             \ equalprg=astyle
+        "             \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
