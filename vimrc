@@ -41,7 +41,7 @@ execute pathogen#infect()
 " ----------------------
 if has("gui_running")
     set guiheadroom=0
-    set guioptions=ag
+    set guioptions=agi
 endif
 
 " Other
@@ -79,9 +79,14 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " Font
 " ----
 if has("gui_running")
-    set guifont=Consolas:h12
-    set guifontwide=Microsoft_YaHei_Mono:h12
-    set columns=999 lines=99
+    if has("win32")
+        set guifont=Consolas:h12
+        set guifontwide=Microsoft_YaHei_Mono:h12
+    else
+        set guifont=Consolas\ 12
+        set guifontwide=Microsoft_YaHei_Mono\ 12
+    endif
+    set columns=200 lines=39
 endif
 
 " Color scheme
@@ -385,7 +390,7 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:EclimCompletionMethod = 'omnifunc'
 
 " Php Indenting
-let g:PHP_default_indenting = 1
+let g:PHP_default_indenting = 0
 
 
 " }}}
@@ -510,7 +515,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType java,c,cpp setlocal cindent cinoptions=l1
+        autocmd FileType php,java,c,cpp setlocal cindent cinoptions=l1j1
         autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
                     \upstart
                     \ setlocal commentstring=#\ %s
