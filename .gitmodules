@@ -91,3 +91,6 @@
 [submodule "bundle/VimPhpManual"]
 	path = bundle/VimPhpManual
 	url = https://github.com/alvan/vim-php-manual.git
+[submodule "bundle/Matchem"]
+	path = bundle/Matchem
+	url = https://github.com/xinleibird/matchem.git
