@@ -88,3 +88,6 @@
 [submodule "bundle/LightLineExtension"]
 	path = bundle/LightLineExtension
 	url = https://github.com/xinleibird/lightline-extension.git
+[submodule "bundle/VimPhpManual"]
+	path = bundle/VimPhpManual
+	url = https://github.com/alvan/vim-php-manual.git

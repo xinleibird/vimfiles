@@ -82,11 +82,11 @@ if has("gui_running")
     if has("win32")
         set guifont=Consolas:h12
         set guifontwide=Microsoft_YaHei_Mono:h12
+        set columns=200 lines=39
     else
         set guifont=Consolas\ 12
         set guifontwide=Microsoft_YaHei_Mono\ 12
     endif
-    set columns=200 lines=39
 endif
 
 " Color scheme
