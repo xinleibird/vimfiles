@@ -94,3 +94,6 @@
 [submodule "bundle/Matchem"]
 	path = bundle/Matchem
 	url = https://github.com/xinleibird/matchem.git
+[submodule "bundle/PhpVim"]
+	path = bundle/PhpVim
+	url = https://github.com/StanAngeloff/php.vim.git
