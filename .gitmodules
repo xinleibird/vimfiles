@@ -97,3 +97,6 @@
 [submodule "bundle/PhpVim"]
 	path = bundle/PhpVim
 	url = https://github.com/StanAngeloff/php.vim.git
+[submodule "bundle/PhpGetterSetter"]
+	path = bundle/PhpGetterSetter
+	url = https://github.com/docteurklein/php-getter-setter.vim.git
