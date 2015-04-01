@@ -387,11 +387,12 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 " let java_highlight_functions="style"
 
 " Eclim
+" -----
 let g:EclimCompletionMethod = 'omnifunc'
 
 " Php Indenting
+" -------------
 let g:PHP_default_indenting = 0
-
 
 " }}}
 
