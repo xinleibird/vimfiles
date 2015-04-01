@@ -100,3 +100,6 @@
 [submodule "bundle/PhpGetterSetter"]
 	path = bundle/PhpGetterSetter
 	url = https://github.com/docteurklein/php-getter-setter.vim.git
+[submodule "bundle/PhpIndent"]
+	path = bundle/PhpIndent
+	url = https://github.com/2072/PHP-Indenting-for-VIm.git
