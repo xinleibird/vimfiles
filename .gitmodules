@@ -103,3 +103,6 @@
 [submodule "bundle/PhpIndent"]
 	path = bundle/PhpIndent
 	url = https://github.com/2072/PHP-Indenting-for-VIm.git
+[submodule "bundle/IndentLine"]
+	path = bundle/IndentLine
+	url = https://github.com/Yggdroot/indentLine.git
