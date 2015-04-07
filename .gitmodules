@@ -103,3 +103,6 @@
 [submodule "bundle/IndentLine"]
 	path = bundle/IndentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/IndentGuides"]
+	path = bundle/IndentGuides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git

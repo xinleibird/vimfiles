@@ -214,6 +214,7 @@ noremap <F8> :Java<CR>
 " imap <C-L> <Plug>MatchemSkipNext
 " imap <C-J> <Plug>MatchemSkipAll
 " let g:MatchemEndOfLineMapping = 1
+" let g:MatchemExpandCrEndChars = ['}', ']', '>', ')']
 
 " Zeal
 " ----
@@ -393,6 +394,11 @@ let g:EclimCompletionMethod = 'omnifunc'
 " Php Indenting
 " -------------
 let g:PHP_default_indenting = 0
+
+" IndentGuides
+" ------------
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 " }}}
 
@@ -586,3 +592,5 @@ augroup phpSyntaxOverride
 augroup END
 
 " }}}
+
+imap <C-J> <Del>
