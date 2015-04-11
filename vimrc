@@ -81,11 +81,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 if has("gui_running")
     if has("win32")
         set guifont=Consolas:h12
-        set guifontwide=Microsoft_YaHei_Mono:h12
+        " set guifontwide=Microsoft_YaHei_Mono:h12
         set columns=200 lines=39
     else
         set guifont=Consolas\ 12
-        set guifontwide=Microsoft_YaHei_Mono\ 12
+        " set guifontwide=Microsoft_YaHei_Mono\ 12
     endif
 endif
 
@@ -523,8 +523,7 @@ if has("autocmd")
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType html,css,ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType php,java,c,cpp setlocal cindent cinoptions=l1j1
-        autocmd FileType apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,
-                    \upstart
+        autocmd FileType php,apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
