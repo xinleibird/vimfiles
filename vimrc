@@ -118,7 +118,11 @@ syntax enable
 
 " encoding
 " --------
-set encoding=utf-8
+if has("win32")
+    set encoding=cpp936
+else
+    set encoding=utf-8
+endif
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
@@ -580,13 +584,13 @@ endif
 
 " Php syntax highlight
 function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
 endfunction
 
 augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
 " }}}
