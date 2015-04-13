@@ -80,9 +80,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h12
-        " set guifontwide=Microsoft_YaHei_Mono:h12
-        set columns=200 lines=39
+        set guifont=Consolas:h13
+        set guifontwide=Microsoft_YaHei_Mono:h12
+        set columns=999 lines=999
     else
         set guifont=Consolas\ 12
         " set guifontwide=Microsoft_YaHei_Mono\ 12
@@ -120,7 +120,6 @@ syntax enable
 " --------
 set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set fileformat=unix
@@ -593,3 +592,7 @@ augroup END
 " }}}
 
 imap <C-J> <Del>
+
+
+" set shell=\"C:\Program\ Files\ \(x86\)\Console2\Console.exe\"
+

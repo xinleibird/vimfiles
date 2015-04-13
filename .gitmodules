@@ -106,3 +106,6 @@
 [submodule "bundle/IndentGuides"]
 	path = bundle/IndentGuides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/Fencview"]
+	path = bundle/Fencview
+	url = https://github.com/mbbill/fencview.git
