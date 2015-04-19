@@ -118,17 +118,12 @@ syntax enable
 
 " encoding
 " --------
-if has("win32")
-    set encoding=cpp936
-else
-    set encoding=utf-8
-endif
+set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileformats=unix,dos,mac
 set fileformat=unix
 set nobomb
-"language en_US.UTF-8
 
 " }}}
 
@@ -226,6 +221,9 @@ nnoremap gz :!zeal --query "<cword>"&<CR> :redraw!<CR>
 " Virtual search
 vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+
+" <C-J> = <Del>
+imap <C-J> <Del>
 
 " }}}
 
@@ -594,9 +592,3 @@ augroup phpSyntaxOverride
 augroup END
 
 " }}}
-
-imap <C-J> <Del>
-
-
-" set shell=\"C:\Program\ Files\ \(x86\)\Console2\Console.exe\"
-
