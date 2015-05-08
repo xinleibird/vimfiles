@@ -80,8 +80,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h13
-        set guifontwide=Microsoft_YaHei_Mono:h12
+        set guifont=Consolas:h12
+        set guifontwide=Microsoft_YaHei_Mono:h11.5
         set columns=999 lines=999
     else
         set guifont=Consolas\ 12
@@ -564,6 +564,7 @@ if has("autocmd")
 endif
 
 " No windows bell
+" ---------------
 if has("win32")
     set noerrorbells visualbell
     if has('autocmd')
@@ -572,15 +573,17 @@ if has("win32")
 endif
 
 " Windows toggle im
+" -----------------
 if has("win32")
     set noimdisable
     if has('autocmd')
         autocmd! InsertLeave * set imdisable|set iminsert=0
-        autocmd! InsertEnter * set noimdisable|set iminsert=0
+        autocmd! InsertEnter * set noimdisable|set iminsert=2
     endif
 endif
 
 " Php syntax highlight
+" --------------------
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
     hi! def link phpDocParam phpType
