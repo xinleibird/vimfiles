@@ -522,7 +522,7 @@ if has("autocmd")
         "             \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
-        autocmd FileType html,css,ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType php,java,c,cpp setlocal cindent cinoptions=l1j1
         autocmd FileType php,apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
