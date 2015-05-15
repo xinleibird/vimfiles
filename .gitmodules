@@ -109,3 +109,6 @@
 [submodule "bundle/Fencview"]
 	path = bundle/Fencview
 	url = https://github.com/mbbill/fencview.git
+[submodule "bundle/Emmet"]
+	path = bundle/Emmet
+	url = https://github.com/mattn/emmet-vim.git
