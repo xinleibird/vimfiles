@@ -9,8 +9,6 @@
 " ------
 set nocompatible                        " NO compatible vi
 
-set runtimepath+=~/vimfiles/vim-bundle
-
 if v:progname=~?"evim"
     finish
 endif
@@ -20,15 +18,13 @@ endif
 runtime bundle/Pathogen/autoload/pathogen.vim
 
 if $TERM == 'linux'
-    let g:pathogen_disabled = ["CnDocs", "LightLine", "LightLineExtension"]
+    let g:pathogen_disabled = ["LightLine", "LightLineExtension"]
 else
     let g:pathogen_disabled = ["StatLine"]
     if has("win32")
         let g:pathogen_disabled = ["YouCompleteMe", "Fcitx"]
     endif
 endif
-
-
 
 execute pathogen#infect()
 
@@ -80,9 +76,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h12
-        set guifontwide=Microsoft_YaHei_Mono:h11.5
-        set columns=999 lines=999
+        set guifont=Consolas:h12.5
+        " set guifontwide=Microsoft_YaHei_Mono:h11.5
+        " set columns=208 lines=48
     else
         set guifont=Consolas\ 12
         " set guifontwide=Microsoft_YaHei_Mono\ 12
@@ -574,11 +570,19 @@ endif
 
 " Windows toggle im
 " -----------------
+" if has("win32")
+"     set noimdisable
+"     if has('autocmd')
+"         autocmd! InsertLeave * set imdisable|set iminsert=0
+"         autocmd! InsertEnter * set noimdisable|set iminsert=2
+"     endif
+" endif
+
+" Windows max window
+" ------------------
 if has("win32")
-    set noimdisable
     if has('autocmd')
-        autocmd! InsertLeave * set imdisable|set iminsert=0
-        autocmd! InsertEnter * set noimdisable|set iminsert=2
+        autocmd! GUIEnter * simalt ~x
     endif
 endif
 
