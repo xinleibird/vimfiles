@@ -30,6 +30,20 @@ execute pathogen#infect()
 
 " }}}
 
+" Encoding {{{
+" ========
+
+" encoding
+" --------
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileformats=unix,dos,mac
+set fileformat=unix
+set nobomb
+
+" }}}
+
 " General {{{
 " =======
 
@@ -42,8 +56,6 @@ endif
 
 " Other
 " -----
-filetype plugin indent on               " indent
-
 if &t_Co > 2 || has("gui_running")
     syntax on                           " syntax
     set hlsearch                        " search highlight
@@ -72,16 +84,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " Vim Appearance {{{
 " ======
 
+" Windows possion
+" ---------------
+winpos 51 27
+set lines=45 columns=200
+
 " Font
 " ----
 if has("gui_running")
     if has("win32")
         set guifont=Consolas:h12.5
-        " set guifontwide=Microsoft_YaHei_Mono:h11.5
-        " set columns=208 lines=48
+        set guifontwide=simhei:h12
     else
         set guifont=Consolas\ 12
-        " set guifontwide=Microsoft_YaHei_Mono\ 12
     endif
 endif
 
@@ -109,20 +124,6 @@ syntax enable
 
 " }}}
 
-" Encoding {{{
-" ========
-
-" encoding
-" --------
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set fileformats=unix,dos,mac
-set fileformat=unix
-set nobomb
-
-" }}}
-
 " Formatting {{{
 " ==========
 
@@ -137,6 +138,7 @@ set matchtime=5
 " ------
 set autoindent
 set smartindent
+filetype plugin indent on               " indent
 
 " Tab
 " ---
@@ -392,6 +394,10 @@ let g:EclimCompletionMethod = 'omnifunc'
 " -------------
 let g:PHP_default_indenting = 0
 
+" Html Indenting
+" --------------
+let g:html_indent_inctags = "head,tbody"
+
 " IndentGuides
 " ------------
 let g:indent_guides_guide_size = 1
@@ -415,23 +421,6 @@ endfunction
 "     let s:loaded_maxinum_gvim_window = 1
 "     autocmd VimEnter * :call MaxinumGvimWindow()
 " endif
-
-" Toggle gvim fullscreen
-" ----------------------
-let s:fullscreen = 0
-function! ToggleFullscreen()
-    if s:fullscreen == 1
-        let s:fullscreen = 0
-        let mod = "remove"
-    else
-        let s:fullscreen = 1
-        let mod = "add"
-    endif
-    call system("wmctrl -ir " . v:windowid . " -b " . mod . ",fullscreen")
-endfunction
-if has("gui_running")
-    nmap <silent> <F11> :call ToggleFullscreen()<CR>
-endif
 
 " Eclim projects tree toggle
 " --------------------------
@@ -558,44 +547,5 @@ if has("autocmd")
         autocmd BufEnter * :syntax sync minlines=1024 maxlines=4096
     augroup END
 endif
-
-" No windows bell
-" ---------------
-if has("win32")
-    set noerrorbells visualbell
-    if has('autocmd')
-        autocmd GUIEnter * set visualbell
-    endif
-endif
-
-" Windows toggle im
-" -----------------
-" if has("win32")
-"     set noimdisable
-"     if has('autocmd')
-"         autocmd! InsertLeave * set imdisable|set iminsert=0
-"         autocmd! InsertEnter * set noimdisable|set iminsert=2
-"     endif
-" endif
-
-" Windows max window
-" ------------------
-if has("win32")
-    if has('autocmd')
-        autocmd! GUIEnter * simalt ~x
-    endif
-endif
-
-" Php syntax highlight
-" --------------------
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
 
 " }}}
