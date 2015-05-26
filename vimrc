@@ -93,7 +93,7 @@ set lines=45 columns=200
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h12.5
+        set guifont=Consolas:h13
         set guifontwide=simhei:h12
     else
         set guifont=Consolas\ 12
@@ -138,7 +138,8 @@ set matchtime=5
 " ------
 set autoindent
 set smartindent
-filetype plugin indent on               " indent
+set cindent
+filetype plugin indent on               "indent
 
 " Tab
 " ---
@@ -396,7 +397,9 @@ let g:PHP_default_indenting = 0
 
 " Html Indenting
 " --------------
-let g:html_indent_inctags = "head,tbody"
+let g:html_indent_inctags = "head,body,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " IndentGuides
 " ------------
@@ -508,7 +511,7 @@ if has("autocmd")
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
         autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-        autocmd FileType php,java,c,cpp setlocal cindent cinoptions=l1j1
+        autocmd FileType php,java,c,cpp setlocal cinoptions=l1j1
         autocmd FileType php,apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
