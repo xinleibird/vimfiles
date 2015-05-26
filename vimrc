@@ -86,8 +86,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 
 " Windows possion
 " ---------------
-winpos 51 27
-set lines=45 columns=200
+if has("win32") && has("gui_running")
+    winpos 51 27
+    set lines=45 columns=200
+endif
 
 " Font
 " ----
