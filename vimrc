@@ -86,17 +86,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 
 " Windows possion
 " ---------------
-if has("win32") && has("gui_running")
-    winpos 51 27
-    set lines=45 columns=200
-endif
+winpos 17 21
+set lines=45 columns=207
 
 " Font
 " ----
 if has("gui_running")
     if has("win32")
         set guifont=Consolas:h13
-        set guifontwide=simhei:h12
+        set guifontwide=XHei_Nokia_Mono:h12
     else
         set guifont=Consolas\ 12
     endif
@@ -204,9 +202,6 @@ nnoremap <C-W>b :CtrlPBuffer<CR>
 " -----
 noremap <leader><leader><Enter> :JavaImportOrganize<CR>
 noremap <F5> :ProjectRefresh<CR>
-noremap <F6> :ProjectBuild<CR>
-noremap <F7> :ProjectRefresh<CR> :ProjectBuild<CR>
-noremap <F8> :Java<CR>
 
 " Matchem
 " -------
@@ -223,8 +218,10 @@ nnoremap gz :!zeal --query "<cword>"&<CR> :redraw!<CR>
 vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-" <C-J> = <Del>
-imap <C-J> <Del>
+" Winpos
+nnoremap <silent> <C-Left> :winpos 17 21<CR>:set lines=45 columns=102<CR>
+nnoremap <silent> <C-Up> :winpos 17 21<CR>:set lines=45 columns=207<CR>
+nnoremap <silent> <C-Right> :winpos 961 21<CR>:set lines=45 columns=102<CR>
 
 " }}}
 
@@ -237,6 +234,9 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<PageUp>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<PageDown>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_global_ycm_extra_conf =
             \ '/home/xinlei/.vim/bundle/YouCompleteMe/
             \third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
