@@ -112,6 +112,6 @@
 [submodule "bundle/Emmet"]
 	path = bundle/Emmet
 	url = https://github.com/mattn/emmet-vim.git
-[submodule ".\\bundle\\Solarized"]
-	path = .\\bundle\\Solarized
+[submodule "bundle/Solarized"]
+	path = bundle/Solarized
 	url = https://github.com/xinleibird/vim-colors-solarized.git
