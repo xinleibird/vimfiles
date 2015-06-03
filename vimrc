@@ -479,6 +479,22 @@ if has("autocmd") && !exists("s:loaded_markdown_make")
     autocmd FileType markdown,rst let &l:makeprg=
                 \"cd %:h && git add -A && git commit -m 'update'"
 endif
+
+" OpenIt()
+" -------------------
+" function! OpenIt()
+"     let file = expand('%:p')
+"     let url = 'file://' . file
+"     call eclim#web#OpenUrl(url)
+" endfunction
+
+" " Start
+" if has("autocmd") && !exists("s:loaded_open_it")
+"     let s:loaded_open_it = 1
+"     autocmd FileType html,xhtml
+"                 \ command! -complete=file -buffer Start :call OpenIt()
+" endif
+
 " }}}
 
 " Auto Group {{{
