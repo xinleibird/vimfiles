@@ -25,8 +25,8 @@ else
         let g:pathogen_disabled = ["YouCompleteMe", "Fcitx"]
     endif
 endif
-
 execute pathogen#infect()
+execute pathogen#interpose('bundle/Util')
 
 " }}}
 
