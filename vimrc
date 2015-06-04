@@ -88,15 +88,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ---------------
 if has("win32") && has("gui_running")
     winpos 17 21
-    set lines=45 columns=207
+    set lines=51 columns=232
 endif
 
 " Font
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h13
-        set guifontwide=XHei_Nokia_Mono:h12
+        set guifont=Consolas:h11
+        set guifontwide=XHei_Nokia_Mono:h10
     else
         set guifont=Consolas\ 12
     endif
@@ -221,9 +221,9 @@ vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " Winpos
-nnoremap <silent> <C-Left> :winpos 17 21<CR>:set lines=45 columns=102<CR>
-nnoremap <silent> <C-Up> :winpos 17 21<CR>:set lines=45 columns=207<CR>
-nnoremap <silent> <C-Right> :winpos 961 21<CR>:set lines=45 columns=102<CR>
+nnoremap <silent> <C-Left> :winpos 17 21<CR>:set lines=51 columns=114<CR>
+nnoremap <silent> <C-Up> :winpos 17 21<CR>:set lines=51 columns=232<CR>
+nnoremap <silent> <C-Right> :winpos 961 21<CR>:set lines=51 columns=114<CR>
 
 " }}}
 
@@ -394,6 +394,15 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 " Eclim
 " -----
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimHtmlValidate=0
+let g:EclimCssValidate=0
+let g:EclimXmlValidate=0
+let g:EclimPhpIndentDisabled=1
+let g:EclimCssIndentDisabled=1
+let g:EclimDtdIndentDisabled=1
+let g:EclimXmlIndentDisabled=1
+let g:EclimJavascriptIndentDisabled=1
+let g:EclimHtmlIndentDisabled=1
 
 " Php Indenting
 " -------------
