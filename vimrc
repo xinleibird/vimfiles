@@ -22,7 +22,7 @@ if $TERM == 'linux'
 else
     let g:pathogen_disabled = ["StatLine"]
     if has("win32")
-        let g:pathogen_disabled = ["YouCompleteMe", "Fcitx"]
+        let g:pathogen_disabled = ["Fcitx"]
     endif
 endif
 execute pathogen#infect()
@@ -384,8 +384,8 @@ let g:ctrlp_custom_ignore = {
 
 " CtrlP Matcher Settings
 " ----------------------
-" let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Java Highlight
 " --------------
