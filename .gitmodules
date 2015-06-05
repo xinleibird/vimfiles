@@ -121,3 +121,6 @@
 [submodule "bundle/CtrlpPyMatcher"]
 	path = bundle/CtrlpPyMatcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
+[submodule "bundle/CtrlPCMatcher"]
+	path = bundle/CtrlPCMatcher
+	url = https://github.com/JazzCore/ctrlp-cmatcher.git
