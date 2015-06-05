@@ -384,7 +384,8 @@ let g:ctrlp_custom_ignore = {
 
 " CtrlP Matcher Settings
 " ----------------------
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+" let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Java Highlight
 " --------------
