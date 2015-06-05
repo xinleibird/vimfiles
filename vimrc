@@ -26,6 +26,7 @@ else
     endif
 endif
 execute pathogen#infect()
+execute pathogen#interpose('bundle/Html5')
 execute pathogen#interpose('bundle/Util')
 
 " }}}
@@ -157,7 +158,6 @@ if has("persistent_undo")
     set undofile
     set undolevels=1000
     set undodir=~/.undodir
-    au BufWritePre ~/.undodir/* setlocal noundofile
 endif
 
 " Fcitx setting
@@ -263,8 +263,8 @@ let g:tagbar_iconchars = ['▸', '▾']
 
 " Syntastic
 " ---------
-let g:syntastic_error_symbol = 'x'
-let g:syntastic_warning_symbol = '!'
+let g:syntastic_error_symbol = "x"
+let g:syntastic_warning_symbol = "!"
 
 " Python highlighting
 " -------------------
@@ -521,6 +521,7 @@ if has("autocmd")
                     \ else |
                     \   setf conf |
                     \ endif
+        autocmd! BufWritePre ~/.undodir/* setlocal noundofile
     augroup END
 endif
 
@@ -539,9 +540,11 @@ if has("autocmd")
         "             \\ -A2s4CSNLwYm2M80pHUk3W3yjcxyxC80\ --mode=c
         autocmd FileType python setlocal
                     \ equalprg=autopep8\ --ignore=W191\ /dev/stdin
-        autocmd FileType ruby,plantuml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+        autocmd FileType ruby,plantuml setlocal
+                    \ tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType php,java,c,cpp setlocal cinoptions=l1j1
-        autocmd FileType php,apache,conf,cfg,cmake,desktop,dnsmasq,gitconfig,gtkrc,upstart
+        autocmd FileType php,apache,conf,cfg,cmake,desktop,
+                    \dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
