@@ -124,3 +124,6 @@
 [submodule "bundle/CtrlPCMatcher"]
 	path = bundle/CtrlPCMatcher
 	url = https://github.com/JazzCore/ctrlp-cmatcher.git
+[submodule ".\\bundle\\IndentLine"]
+	path = .\\bundle\\IndentLine
+	url = https://github.com/Yggdroot/indentLine.git

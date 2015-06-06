@@ -239,9 +239,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_complete_in_comments = 1
 " let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_global_ycm_extra_conf =
-            \ '/home/xinlei/.vim/bundle/YouCompleteMe/
-            \third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+if has("win32")
+    let g:ycm_global_ycm_extra_conf =
+                \ '$HOME\vimfiles\bundle\YouCompleteMe\
+                \third_party\ycmd\cpp\ycm\.ycm_extra_conf.py'
+else
+    let g:ycm_global_ycm_extra_conf =
+                \ '/home/xinlei/.vim/bundle/YouCompleteMe/
+                \third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+endif
 let g:ycm_filetype_blacklist = {
             \ 'tagbar' : 1,
             \ 'qf' : 1,
@@ -274,20 +280,37 @@ let b:python_version_2 = 1
 
 " Tagbar setting
 " --------------
-let g:tagbar_type_rst = {
-            \ 'ctagstype': 'rst',
-            \ 'ctagsbin' : '/home/xinlei/.vim/bundle/Rst2Ctags/rst2ctags.py',
-            \ 'ctagsargs' : '-f - --sort=yes',
-            \ 'kinds' : [
-            \ 's:sections',
-            \ 'i:images'
-            \ ],
-            \ 'sro' : '|',
-            \ 'kind2scope' : {
-            \ 's' : 'section',
-            \ },
-            \ 'sort': 0,
-            \ }
+if has("win32")
+    let g:tagbar_type_rst = {
+                \ 'ctagstype': 'rst',
+                \ 'ctagsbin' : '$HOME\vimfiles\bundle\Rst2Ctags\rst2ctags.py',
+                \ 'ctagsargs' : '-f - --sort=yes',
+                \ 'kinds' : [
+                \ 's:sections',
+                \ 'i:images'
+                \ ],
+                \ 'sro' : '|',
+                \ 'kind2scope' : {
+                \ 's' : 'section',
+                \ },
+                \ 'sort': 0,
+                \ }
+else
+    let g:tagbar_type_rst = {
+                \ 'ctagstype': 'rst',
+                \ 'ctagsbin' : '/home/xinlei/.vim/bundle/Rst2Ctags/rst2ctags.py',
+                \ 'ctagsargs' : '-f - --sort=yes',
+                \ 'kinds' : [
+                \ 's:sections',
+                \ 'i:images'
+                \ ],
+                \ 'sro' : '|',
+                \ 'kind2scope' : {
+                \ 's' : 'section',
+                \ },
+                \ 'sort': 0,
+                \ }
+endif
 
 let g:tagbar_type_css = {
             \ 'ctagstype' : 'css',
@@ -324,21 +347,39 @@ let g:tagbar_type_scss = {
 
 " Markdown2Ctags
 " --------------
-let g:tagbar_type_markdown = {
-            \ 'ctagstype': 'markdown',
-            \ 'ctagsbin' :
-            \ '/home/xinlei/.vim/bundle/Markdown2Ctags/markdown2ctags.py',
-            \ 'ctagsargs' : '-f - --sort=yes',
-            \ 'kinds' : [
-            \ 's:sections',
-            \ 'i:images'
-            \ ],
-            \ 'sro' : '|',
-            \ 'kind2scope' : {
-            \ 's' : 'section',
-            \ },
-            \ 'sort': 0,
-            \ }
+if has("win32")
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype': 'markdown',
+                \ 'ctagsbin' :
+                \ '$HOME\vimfiles\bundle\Markdown2Ctags\markdown2ctags.py',
+                \ 'ctagsargs' : '-f - --sort=yes',
+                \ 'kinds' : [
+                \ 's:sections',
+                \ 'i:images'
+                \ ],
+                \ 'sro' : '|',
+                \ 'kind2scope' : {
+                \ 's' : 'section',
+                \ },
+                \ 'sort': 0,
+                \ }
+else
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype': 'markdown',
+                \ 'ctagsbin' :
+                \ '/home/xinlei/.vim/bundle/Markdown2Ctags/markdown2ctags.py',
+                \ 'ctagsargs' : '-f - --sort=yes',
+                \ 'kinds' : [
+                \ 's:sections',
+                \ 'i:images'
+                \ ],
+                \ 'sro' : '|',
+                \ 'kind2scope' : {
+                \ 's' : 'section',
+                \ },
+                \ 'sort': 0,
+                \ }
+endif
 
 " Ruby
 " ----
@@ -419,6 +460,9 @@ let g:html_indent_style1 = "inc"
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
+" IndentLine
+" ----------
+let g:indentLine_fileTypeExclude = ['help', 'text']
 " }}}
 
 " Utility function {{{
