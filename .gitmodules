@@ -58,9 +58,6 @@
 [submodule "bundle/jellybeans"]
 	path = bundle/JellybeansColorScheme
 	url = https://github.com/nanotech/jellybeans.vim.git
-[submodule "bundle/ctrlp-cmatcher"]
-	path = bundle/CtrlPCMatcher
-	url = https://github.com/JazzCore/ctrlp-cmatcher.git
 [submodule "bundle/regex"]
 	path = bundle/Regex
 	url = https://github.com/ervandew/regex.git
@@ -121,6 +118,9 @@
 [submodule "bundle/CtrlpPyMatcher"]
 	path = bundle/CtrlpPyMatcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
-[submodule ".\\bundle\\IndentLine"]
-	path = .\\bundle\\IndentLine
+[submodule "/bundle/IndentLine"]
+	path = bundle/IndentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule ".\\bundle\\CtrlPMatcher"]
+	path = .\\bundle\\CtrlPMatcher
+	url = https://github.com/burke/matcher.git
