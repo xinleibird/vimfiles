@@ -70,42 +70,21 @@
 [submodule "bundle/fcitx"]
 	path = bundle/Fcitx
 	url = https://github.com/lilydjwg/fcitx.vim.git
-[submodule "bundle/vim-instant-markdown"]
-	path = bundle/InstantMarkdown
-	url = https://github.com/suan/vim-instant-markdown.git
-[submodule "bundle/plantuml"]
-	path = bundle/Plantuml
-	url = https://github.com/xinleibird/plantuml-syntax.git
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/GithubColorScheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
 [submodule "bundle/LightLineExtension"]
 	path = bundle/LightLineExtension
 	url = https://github.com/xinleibird/lightline-extension.git
-[submodule "bundle/VimPhpManual"]
-	path = bundle/VimPhpManual
-	url = https://github.com/alvan/vim-php-manual.git
 [submodule "bundle/Matchem"]
 	path = bundle/Matchem
 	url = https://github.com/xinleibird/matchem.git
-[submodule "bundle/PhpVim"]
-	path = bundle/PhpVim
-	url = https://github.com/StanAngeloff/php.vim.git
-[submodule "bundle/PhpGetterSetter"]
-	path = bundle/PhpGetterSetter
-	url = https://github.com/docteurklein/php-getter-setter.vim.git
-[submodule "bundle/PhpIndent"]
-	path = bundle/PhpIndent
-	url = https://github.com/2072/PHP-Indenting-for-VIm.git
 [submodule "bundle/IndentLine"]
 	path = bundle/IndentLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/IndentGuides"]
 	path = bundle/IndentGuides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "bundle/Fencview"]
-	path = bundle/Fencview
-	url = https://github.com/mbbill/fencview.git
 [submodule "bundle/Emmet"]
 	path = bundle/Emmet
 	url = https://github.com/mattn/emmet-vim.git
@@ -115,12 +94,6 @@
 [submodule "bundle/Html5"]
 	path = bundle/Html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "bundle/CtrlpPyMatcher"]
-	path = bundle/CtrlpPyMatcher
-	url = https://github.com/FelikZ/ctrlp-py-matcher.git
-[submodule "/bundle/IndentLine"]
-	path = bundle/IndentLine
-	url = https://github.com/Yggdroot/indentLine.git
-[submodule ".\\bundle\\CtrlPMatcher"]
-	path = .\\bundle\\CtrlPMatcher
+[submodule "bundle/CtrlPMatcher"]
+	path = bundle/CtrlPMatcher
 	url = https://github.com/burke/matcher.git
