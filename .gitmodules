@@ -61,9 +61,6 @@
 [submodule "bundle/regex"]
 	path = bundle/Regex
 	url = https://github.com/ervandew/regex.git
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/vim-eunuch"]
 	path = bundle/Eunuch
 	url = https://github.com/tpope/vim-eunuch.git
