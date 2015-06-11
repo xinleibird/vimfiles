@@ -97,7 +97,7 @@ endif
 if has("gui_running")
     if has("win32")
         set guifont=Consolas:h11
-        set guifontwide=XHei_Nokia_Mono:h10.5
+        set guifontwide=Microsoft_Yahei_Mono:h10.5
     else
         set guifont=Consolas\ 12
     endif
@@ -454,8 +454,8 @@ let g:PHP_default_indenting = 0
 " Html Indenting
 " --------------
 let g:html_indent_inctags = "head,body,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+let g:html_indent_script1 = "auto"
+let g:html_indent_style1 = "auto"
 
 " IndentGuides
 " ------------
@@ -472,12 +472,12 @@ let g:indentLine_fileTypeExclude = ['help', 'text']
 
 " Windows maximum
 " ---------------
-function MaxinumGvimWindow()
-    if has("gui_running")
-        silent exec "!wmctrl -i -r " . v:windowid .
-                    \ " -b add,maximized_vert,maximized_horz"
-    endif
-endfunction
+" function MaxinumGvimWindow()
+"     if has("gui_running")
+"         silent exec "!wmctrl -i -r " . v:windowid .
+"                     \ " -b add,maximized_vert,maximized_horz"
+"     endif
+" endfunction
 
 " if has('gui_running') && !exists('s:loaded_maxinum_gvim_window')
 "     let s:loaded_maxinum_gvim_window = 1
@@ -521,34 +521,34 @@ noremap <silent> <leader><Space> :call RemoveTrailingWhitespace()<CR>
 
 " Gollum auto commit
 " ------------------
-function! AutoCommitGollum()
-    :w
-    !cd %:h && git add -A && git commit -m 'update'
-    :redraw
-endfunction
-
-if has("autocmd") && !exists("s:loaded_markdown_make")
-    let s:loaded_markdown_make = 1
-    autocmd FileType markdown,rst
-                \ command! -buffer Gollum :call AutoCommitGollum()
-    autocmd FileType markdown,rst let &l:makeprg=
-                \"cd %:h && git add -A && git commit -m 'update'"
-endif
-
-" OpenIt()
-" -------------------
-" function! OpenIt()
-"     let file = expand('%:p')
-"     let url = 'file://' . file
-"     call eclim#web#OpenUrl(url)
+" function! AutoCommitGollum()
+"     :w
+"     !cd %:h && git add -A && git commit -m 'update'
+"     :redraw
 " endfunction
 
-" " Start
-" if has("autocmd") && !exists("s:loaded_open_it")
-"     let s:loaded_open_it = 1
-"     autocmd FileType html,xhtml
-"                 \ command! -complete=file -buffer Start :call OpenIt()
+" if has("autocmd") && !exists("s:loaded_markdown_make")
+"     let s:loaded_markdown_make = 1
+"     autocmd FileType markdown,rst
+"                 \ command! -buffer Gollum :call AutoCommitGollum()
+"     autocmd FileType markdown,rst let &l:makeprg=
+"                 \"cd %:h && git add -A && git commit -m 'update'"
 " endif
+
+" MdOpen
+" ------
+function! MdOpen()
+    let url = "file:///C:/Users/xinlei/workspace/tarena/mdwiki.html#!./note.md"
+    call eclim#web#OpenUrl(url)
+    echo url
+endfunction
+
+" Open
+if has("autocmd") && !exists("s:loaded_md_open")
+    let s:loaded_md_open = 1
+    autocmd FileType markdown
+                \ command! -complete=file -buffer MdOpen :call MdOpen()
+endif
 
 " GoodMatch
 " ---------
@@ -624,6 +624,7 @@ if has("autocmd")
                     \ setlocal commentstring=#\ %s
         autocmd FileType c
                     \ setlocal commentstring=//\ %s
+        autocmd FileType c,cpp,java,php setlocal matchpairs+==:;
     augroup END
 endif
 
