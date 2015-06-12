@@ -88,8 +88,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " Windows possion
 " ---------------
 if has("win32") && has("gui_running")
-    winpos 17 21
-    set lines=51 columns=232
+    winpos 15 15
+    set lines=51 columns=234
 endif
 
 " Font
@@ -221,9 +221,9 @@ vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " Winpos
-nnoremap <silent> <C-Left> :winpos 17 21<CR>:set lines=51 columns=114<CR>
-nnoremap <silent> <C-Up> :winpos 17 21<CR>:set lines=51 columns=232<CR>
-nnoremap <silent> <C-Right> :winpos 961 21<CR>:set lines=51 columns=114<CR>
+nnoremap <silent> <C-Left> :winpos 15 15<CR>:set lines=51 columns=116<CR>
+nnoremap <silent> <C-Up> :winpos 15 15<CR>:set lines=51 columns=234<CR>
+nnoremap <silent> <C-Right> :winpos 960 15<CR>:set lines=51 columns=116<CR>
 
 " }}}
 
@@ -506,7 +506,7 @@ function! ToggleEclimProjectsTree()
         let s:tree_loaded = 0
     endif
 endfunction
-nmap <silent> <F4> <ESC>:call ToggleEclimProjectsTree()<CR>
+nmap <silent> <F4> :call ToggleEclimProjectsTree()<CR>
 
 " Remove trailing whitespace
 " --------------------------
@@ -571,6 +571,22 @@ function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
     let cmd = cmd.a:str
     return split(system(cmd), "\n")
 endfunction
+
+
+" Using QuickFixCmdPost to fix the encoding
+" -----------------------------------------
+function QfMakeConv()
+    let qflist = getqflist()
+    for i in qflist
+        let i.text = iconv(i.text, "cp936", "utf-8")
+    endfor
+    call setqflist(qflist)
+endfunction
+
+if has("autocmd") && !exists("s:qf_make_conv")
+    let s:qf_make_conv = 1
+    autocmd QuickfixCmdPost make call QfMakeConv()
+endif
 
 " }}}
 

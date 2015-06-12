@@ -94,3 +94,6 @@
 [submodule "bundle/CtrlPMatcher"]
 	path = bundle/CtrlPMatcher
 	url = https://github.com/burke/matcher.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
