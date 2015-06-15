@@ -89,15 +89,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,tags-cn
 " ---------------
 if has("win32") && has("gui_running")
     winpos 15 15
-    set lines=51 columns=234
+    set lines=54 columns=208
 endif
 
 " Font
 " ----
 if has("gui_running")
     if has("win32")
-        set guifont=Consolas:h11
-        set guifontwide=Microsoft_Yahei_Mono:h10.5
+        set guifont=Lucida_Sans_Typewriter:h11
+        set guifontwide=Microsoft_Yahei_Mono:h11
     else
         set guifont=Consolas\ 12
     endif
@@ -221,9 +221,9 @@ vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " Winpos
-nnoremap <silent> <C-Left> :winpos 15 15<CR>:set lines=51 columns=116<CR>
-nnoremap <silent> <C-Up> :winpos 15 15<CR>:set lines=51 columns=234<CR>
-nnoremap <silent> <C-Right> :winpos 960 15<CR>:set lines=51 columns=116<CR>
+nnoremap <silent> <C-Left> :winpos 15 15<CR>:set lines=54 columns=104<CR>
+nnoremap <silent> <C-Up> :winpos 15 15<CR>:set lines=54 columns=208<CR>
+nnoremap <silent> <C-Right> :winpos 951 15<CR>:set lines=54 columns=104<CR>
 
 " }}}
 
@@ -454,8 +454,8 @@ let g:PHP_default_indenting = 0
 " Html Indenting
 " --------------
 let g:html_indent_inctags = "head,body,tbody"
-let g:html_indent_script1 = "auto"
-let g:html_indent_style1 = "auto"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " IndentGuides
 " ------------
