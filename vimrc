@@ -48,6 +48,17 @@ set nobomb
 " General {{{
 " =======
 
+if has('win32') || has('win64')
+    if (v:version == 704 && has("patch393")) || v:version > 704
+        set renderoptions=type:directx,
+                    \gamma:2.2,
+                    \contrast:0.0,
+                    \level:1.0,
+                    \geom:1,
+                    \renmode:5,
+                    \taamode:2
+    end
+end
 " No menu, no scroll bar
 " ----------------------
 if has("gui_running")
@@ -635,12 +646,11 @@ if has("autocmd")
         autocmd FileType ruby,plantuml setlocal
                     \ tabstop=2 softtabstop=2 shiftwidth=2
         autocmd FileType php,java,c,cpp setlocal cinoptions=l1j1
-        autocmd FileType php,apache,conf,cfg,cmake,desktop,
+        autocmd FileType apache,conf,cfg,cmake,desktop,
                     \dnsmasq,gitconfig,gtkrc,upstart
                     \ setlocal commentstring=#\ %s
-        autocmd FileType c
+        autocmd FileType c,php
                     \ setlocal commentstring=//\ %s
-        autocmd FileType c,cpp,java,php setlocal matchpairs+==:;
     augroup END
 endif
 
