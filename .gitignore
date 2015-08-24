@@ -32,3 +32,6 @@ bundle/eclim/plugin
 
 eclim/
 plugin/
+
+# windows files
+desktop.ini
