@@ -232,9 +232,9 @@ vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " Winpos
-nnoremap <silent> <C-Left> :winpos 15 15<CR>:set lines=54 columns=104<CR>
-nnoremap <silent> <C-Up> :winpos 15 15<CR>:set lines=54 columns=208<CR>
-nnoremap <silent> <C-Right> :winpos 951 15<CR>:set lines=54 columns=104<CR>
+" nnoremap <silent> <C-Left> :winpos 15 15<CR>:set lines=54 columns=104<CR>
+" nnoremap <silent> <C-Up> :winpos 15 15<CR>:set lines=54 columns=208<CR>
+" nnoremap <silent> <C-Right> :winpos 951 15<CR>:set lines=54 columns=104<CR>
 
 " }}}
 
