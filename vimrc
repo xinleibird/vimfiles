@@ -48,17 +48,17 @@ set nobomb
 " General {{{
 " =======
 
-if has('win32') || has('win64')
-    if (v:version == 704 && has("patch393")) || v:version > 704
-        set renderoptions=type:directx,
-                    \gamma:2.2,
-                    \contrast:0.5,
-                    \level:1.0,
-                    \geom:1,
-                    \renmode:5,
-                    \taamode:1
-    end
-end
+" if has('win32') || has('win64')
+"     if (v:version == 704 && has("patch393")) || v:version > 704
+"         set renderoptions=type:directx,
+"                     \gamma:2.2,
+"                     \contrast:0.5,
+"                     \level:1.0,
+"                     \geom:1,
+"                     \renmode:5,
+"                     \taamode:1
+"     end
+" end
 " No menu, no scroll bar
 " ----------------------
 if has("gui_running")
@@ -106,12 +106,12 @@ endif
 " Font
 " ----
 if has("gui_running")
-    if has("win32")
-        set guifont=Lucida_Sans_Typewriter:h11
-        set guifontwide=Microsoft_Yahei_Mono:h11
-    else
-        set guifont=Consolas\ 12
-    endif
+    " if has("win32")
+    "     set guifont=Lucida_Sans_Typewriter:h11
+    "     set guifontwide=Microsoft_Yahei_Mono:h11
+    " else
+        set guifont=Consolas:h12
+    " endif
 endif
 
 " Color scheme
