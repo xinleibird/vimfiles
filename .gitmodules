@@ -64,9 +64,6 @@
 [submodule "bundle/vim-eunuch"]
 	path = bundle/Eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "bundle/fcitx"]
-	path = bundle/Fcitx
-	url = https://github.com/lilydjwg/fcitx.vim.git
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/GithubColorScheme
 	url = https://github.com/xinleibird/vim-github-colorscheme.git
@@ -94,6 +91,6 @@
 [submodule "bundle/CtrlPMatcher"]
 	path = bundle/CtrlPMatcher
 	url = https://github.com/burke/matcher.git
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
+[submodule ".\\bundle\\YouCompleteMe"]
+	path = .\\bundle\\YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
