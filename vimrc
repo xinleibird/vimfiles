@@ -1,14 +1,12 @@
 " MIT License. Copyright (c) 2013 Xin Lei. <xinleibird@gmail.com>
 " vim: et ts=4 sts=4 sw=4
 
-
 " Environment {{{
 " ===========
 
 " Basics
 " ------
 set nocompatible                        " NO compatible vi
-
 if v:progname=~?"evim"
     finish
 endif
