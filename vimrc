@@ -133,6 +133,22 @@ if &term is# "linux"
     let g:jellybeans_use_lowcolor_black = 0
 endif
 
+if &term is# "xterm"
+    set background=dark
+    colorscheme solarized
+endif
+
+if &term is# "xterm-256color"
+    set background=dark
+    set termguicolors
+    colorscheme solarized
+endif
+
+if &term is# "cygwin"
+    set background=dark
+    colorscheme default
+endif
+
 syntax enable
 
 " }}}
