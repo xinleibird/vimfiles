@@ -140,8 +140,8 @@ endif
 
 if &term is# "xterm-256color"
     set background=dark
-    set termguicolors
-    colorscheme solarized
+    " set termguicolors
+    colorscheme default
 endif
 
 if &term is# "cygwin"
